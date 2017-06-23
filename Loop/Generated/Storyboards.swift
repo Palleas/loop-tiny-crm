@@ -47,10 +47,10 @@ enum StoryboardScene {
     static let storyboardName = "Main"
 
     case addLeadScene = "AddLead"
-    static func instantiateAddLead() -> Loop.ViewController {
-      guard let vc = StoryboardScene.Main.addLeadScene.viewController() as? Loop.ViewController
+    static func instantiateAddLead() -> Loop.AddLeadViewController {
+      guard let vc = StoryboardScene.Main.addLeadScene.viewController() as? Loop.AddLeadViewController
       else {
-        fatalError("ViewController 'AddLead' is not of the expected class Loop.ViewController.")
+        fatalError("ViewController 'AddLead' is not of the expected class Loop.AddLeadViewController.")
       }
       return vc
     }
@@ -58,6 +58,9 @@ enum StoryboardScene {
 }
 
 enum StoryboardSegue {
+  enum Main: String, StoryboardSegueType {
+    case userSearch = "UserSearch"
+  }
 }
 
 private final class BundleToken {}

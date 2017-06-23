@@ -1,11 +1,10 @@
 import UIKit
 
+
 final class SourceSelector: UIButton {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
-        addTarget(self, action: #selector(toggle), for: .touchUpInside)
 
         layer.borderColor = UIColor.lpWhite.cgColor
         layer.borderWidth = 1
@@ -29,10 +28,5 @@ final class SourceSelector: UIButton {
         super.layoutSubviews()
 
         layer.cornerRadius = frame.width / 2
-    }
-
-    @objc
-    func toggle() {
-        self.isSelected = !self.isSelected
     }
 }

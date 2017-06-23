@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A229C2B1EFD932900ADB0C4 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8501EFD63880088F55D /* SourceSansPro-Black.ttf */; };
+		7A229C2C1EFD932900ADB0C4 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8571EFD63880088F55D /* SourceSansPro-BlackItalic.ttf */; };
+		7A229C2D1EFD932900ADB0C4 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8531EFD63880088F55D /* SourceSansPro-Bold.ttf */; };
+		7A229C2E1EFD932900ADB0C4 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8541EFD63880088F55D /* SourceSansPro-BoldItalic.ttf */; };
+		7A229C2F1EFD932900ADB0C4 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8581EFD63880088F55D /* SourceSansPro-ExtraLight.ttf */; };
+		7A229C301EFD932900ADB0C4 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8511EFD63880088F55D /* SourceSansPro-ExtraLightItalic.ttf */; };
+		7A229C311EFD932900ADB0C4 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C85A1EFD63880088F55D /* SourceSansPro-Italic.ttf */; };
+		7A229C321EFD932900ADB0C4 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8551EFD63880088F55D /* SourceSansPro-Light.ttf */; };
+		7A229C331EFD932900ADB0C4 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8561EFD63880088F55D /* SourceSansPro-LightItalic.ttf */; };
+		7A229C341EFD932900ADB0C4 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8521EFD63880088F55D /* SourceSansPro-Regular.ttf */; };
+		7A229C351EFD932900ADB0C4 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8591EFD63880088F55D /* SourceSansPro-SemiBold.ttf */; };
+		7A229C361EFD932900ADB0C4 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C84F1EFD63880088F55D /* SourceSansPro-SemiBoldItalic.ttf */; };
+		7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */; };
 		7A47C10D1EFC7FCF00360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7A47C10F1EFC806300360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7A47C1121EFC809200360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -20,6 +33,13 @@
 		7A59371F1EFD55F90011ED2E /* UIColor+LPAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59371E1EFD55F50011ED2E /* UIColor+LPAdditions.swift */; };
 		7A5937201EFD55F90011ED2E /* UIFont+LPAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59371D1EFD55F50011ED2E /* UIFont+LPAdditions.swift */; };
 		7A5937221EFD58B90011ED2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A5937211EFD58B90011ED2E /* Localizable.strings */; };
+		7A5DA7701EFD990C0013BF40 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DA76F1EFD990C0013BF40 /* SearchViewController.swift */; };
+		7AB7C8611EFD8D1B0088F55D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */; };
+		7AB7C8621EFD8D1B0088F55D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7AB7C8631EFD8D1B0088F55D /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; };
+		7AB7C8641EFD8D1B0088F55D /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7AB7C8651EFD8D1B0088F55D /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; };
+		7AB7C8661EFD8D1B0088F55D /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7AD6DB631EFB549D00D2D50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DB621EFB549D00D2D50F /* AppDelegate.swift */; };
 		7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DB641EFB549D00D2D50F /* ViewController.swift */; };
 		7AD6DB681EFB549D00D2D50F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6DB661EFB549D00D2D50F /* Main.storyboard */; };
@@ -82,6 +102,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				7AD6DBAB1EFB54AF00D2D50F /* LoopKit.framework in Embed Frameworks */,
+				7AB7C8621EFD8D1B0088F55D /* ReactiveCocoa.framework in Embed Frameworks */,
+				7AB7C8641EFD8D1B0088F55D /* ReactiveSwift.framework in Embed Frameworks */,
+				7AB7C8661EFD8D1B0088F55D /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +123,7 @@
 		7A59371E1EFD55F50011ED2E /* UIColor+LPAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+LPAdditions.swift"; sourceTree = "<group>"; };
 		7A5937211EFD58B90011ED2E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7A5937231EFD59C70011ED2E /* I10N.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I10N.swift; sourceTree = "<group>"; };
+		7A5DA76F1EFD990C0013BF40 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7AB7C84F1EFD63880088F55D /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		7AB7C8501EFD63880088F55D /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
 		7AB7C8511EFD63880088F55D /* SourceSansPro-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -112,6 +136,9 @@
 		7AB7C8581EFD63880088F55D /* SourceSansPro-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.ttf"; sourceTree = "<group>"; };
 		7AB7C8591EFD63880088F55D /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
 		7AB7C85A1EFD63880088F55D /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
+		7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		7AB7C8601EFD8D140088F55D /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		7AD6DB5F1EFB549D00D2D50F /* Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD6DB621EFB549D00D2D50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AD6DB641EFB549D00D2D50F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AD6DBAA1EFB54AF00D2D50F /* LoopKit.framework in Frameworks */,
+				7AB7C8611EFD8D1B0088F55D /* ReactiveCocoa.framework in Frameworks */,
+				7AB7C8631EFD8D1B0088F55D /* ReactiveSwift.framework in Frameworks */,
+				7AB7C8651EFD8D1B0088F55D /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */,
+				7A5DA76F1EFD990C0013BF40 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -260,6 +291,9 @@
 		7AD6DB561EFB549D00D2D50F = {
 			isa = PBXGroup;
 			children = (
+				7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */,
+				7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */,
+				7AB7C8601EFD8D140088F55D /* Result.framework */,
 				7AD6DB611EFB549D00D2D50F /* Loop */,
 				7AD6DB761EFB549D00D2D50F /* LoopTests */,
 				7AD6DB811EFB549D00D2D50F /* LoopUITests */,
@@ -502,10 +536,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A229C301EFD932900ADB0C4 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				7A229C311EFD932900ADB0C4 /* SourceSansPro-Italic.ttf in Resources */,
+				7A229C2C1EFD932900ADB0C4 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				7A229C341EFD932900ADB0C4 /* SourceSansPro-Regular.ttf in Resources */,
+				7A229C321EFD932900ADB0C4 /* SourceSansPro-Light.ttf in Resources */,
 				7AD6DB6D1EFB549D00D2D50F /* LaunchScreen.storyboard in Resources */,
 				7AD6DB6A1EFB549D00D2D50F /* Assets.xcassets in Resources */,
+				7A229C2F1EFD932900ADB0C4 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				7A229C2E1EFD932900ADB0C4 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				7AD6DB681EFB549D00D2D50F /* Main.storyboard in Resources */,
+				7A229C361EFD932900ADB0C4 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
+				7A229C2B1EFD932900ADB0C4 /* SourceSansPro-Black.ttf in Resources */,
+				7A229C2D1EFD932900ADB0C4 /* SourceSansPro-Bold.ttf in Resources */,
+				7A229C351EFD932900ADB0C4 /* SourceSansPro-SemiBold.ttf in Resources */,
 				7A5937221EFD58B90011ED2E /* Localizable.strings in Resources */,
+				7A229C331EFD932900ADB0C4 /* SourceSansPro-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,10 +600,12 @@
 				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,
 				7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */,
+				7A5DA7701EFD990C0013BF40 /* SearchViewController.swift in Sources */,
 				7AD6DB631EFB549D00D2D50F /* AppDelegate.swift in Sources */,
 				7A47C1221EFC829700360F94 /* SourceSelector.swift in Sources */,
 				7A47C1241EFC838300360F94 /* AddLeadCoordinator.swift in Sources */,
 				7A47C1121EFC809200360F94 /* (null) in Sources */,
+				7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +801,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8VS9JKFDZS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Loop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.Loop";
@@ -768,6 +820,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8VS9JKFDZS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Loop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.Loop";

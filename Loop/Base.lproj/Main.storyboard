@@ -24,7 +24,7 @@
         <!--Add New Lead-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="AddLead" title="Add New Lead" id="BYZ-38-t0r" customClass="ViewController" customModule="Loop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLead" title="Add New Lead" id="BYZ-38-t0r" customClass="AddLeadViewController" customModule="Loop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -71,7 +71,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nq-4M-WA9">
                                 <rect key="frame" x="81" y="333.5" width="213" height="333.5"/>
                                 <connections>
-                                    <segue destination="auh-zN-PL8" kind="embed" id="DJj-gc-zEN"/>
+                                    <segue destination="auh-zN-PL8" kind="embed" identifier="UserSearch" id="DJj-gc-zEN"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -96,10 +96,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="BE4-Kg-YrD">
             <objects>
-                <viewController id="auh-zN-PL8" sceneMemberID="viewController">
+                <viewController id="auh-zN-PL8" customClass="SearchViewController" customModule="Loop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mo2-7W-lbG"/>
                         <viewControllerLayoutGuide type="bottom" id="Lh4-a1-npl"/>
@@ -109,19 +109,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-jf-xRv">
-                                <rect key="frame" x="16" y="0.0" width="181" height="12"/>
+                                <rect key="frame" x="16" y="0.0" width="181" height="13"/>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="10"/>
                                 <color key="textColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amelia Pond" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Oz-ot-d6M">
-                                <rect key="frame" x="16" y="12" width="181" height="30"/>
+                                <rect key="frame" x="16" y="13" width="181" height="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VQY-UI-kuq">
-                                <rect key="frame" x="16" y="57" width="181" height="276"/>
+                                <rect key="frame" x="16" y="60" width="181" height="273"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rNj-px-ZuH">
                                     <size key="itemSize" width="181" height="50"/>
@@ -141,7 +141,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nD-xY-OL4">
-                                <rect key="frame" x="16" y="49" width="181" height="1"/>
+                                <rect key="frame" x="16" y="52" width="181" height="1"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="zl3-8m-WnF"/>
