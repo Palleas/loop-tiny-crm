@@ -23,4 +23,8 @@ extension UIColor {
 	class var lpCoolGrey: UIColor {
 		return UIColor(red: 164.0 / 255.0, green: 170.0 / 255.0, blue: 179.0 / 255.0, alpha: 1.0)
 	}
+
+	class var lpWhite: UIColor { 
+		return UIColor(white: 236.0 / 255.0, alpha: 1.0)
+	}
 }

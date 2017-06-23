@@ -1,32 +1,38 @@
 import UIKit
 
-@IBDesignable
-final class SourceSelector: UIView {
-
-    let twitter: UIButton = {
-        let button = UIButton(type: .custom)
-
-        return button
-    }()
-    let email = UIButton()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        addSubview(twitter)
-        addSubview(email)
-
-        backgroundColor = .red
-    }
+final class SourceSelector: UIButton {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        addSubview(twitter)
-        addSubview(email)
+        addTarget(self, action: #selector(toggle), for: .touchUpInside)
 
-        backgroundColor = .red
-
+        layer.borderColor = UIColor.lpWhite.cgColor
+        layer.borderWidth = 1
     }
 
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                backgroundColor = .lpGrapefruit
+                tintColor = .white
+                layer.borderWidth = 0
+            } else {
+                backgroundColor = .clear
+                tintColor = .black
+                layer.borderWidth = 1
+            }
+        }
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        layer.cornerRadius = frame.width / 2
+    }
+
+    @objc
+    func toggle() {
+        self.isSelected = !self.isSelected
+    }
 }
