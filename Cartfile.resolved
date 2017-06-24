@@ -1,3 +1,4 @@
 github "ReactiveCocoa/ReactiveSwift" "2.0.0-alpha.2"
 github "antitypical/Result" "3.2.3"
+github "krzyzanowskim/CryptoSwift" "d2e3491ac780ec69329a3d70ab058f2f2c35e6c4"
 github "reactivecocoa/reactivecocoa" "61a732b0457aa35cc96a31c76b65165971e7abed"
