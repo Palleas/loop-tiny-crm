@@ -37,7 +37,7 @@ class TwitterTests: XCTestCase {
     }
 
     func testRequestIsPrepared() {
-        let prepared = client.prepareRequest()
+        let prepared = client.createOAuthRequest()
 
         let expected = [
             SignatureItem(name: "oauth_consumer_key", value: "xvz1evFS4wEEPTGEFPHBog"),

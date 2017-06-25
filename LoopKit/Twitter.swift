@@ -45,7 +45,7 @@ final class Twitter {
         self.version = version
     }
 
-    func prepareRequest() -> OAuthRequest {
+    func createOAuthRequest() -> OAuthRequest {
         return OAuthRequest(
             consumerKey: credentials.consumerKey,
             nonce: tokenProvider.generate(),
