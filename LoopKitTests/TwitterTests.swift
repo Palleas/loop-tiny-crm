@@ -8,10 +8,12 @@ class TwitterTests: XCTestCase {
     // I'm fairly confident you're not supposed to call this API anymore
     // but I based my tests on the official request-signing documentation
     let client = Twitter(
-        consumerKey: "xvz1evFS4wEEPTGEFPHBog",
-        consumerSecret: "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw",
-        token: "370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb",
-        tokenSecret: "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE",
+        credentials: Credentials(
+            consumerKey: "xvz1evFS4wEEPTGEFPHBog",
+            consumerSecret: "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw",
+            token: "370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb",
+            tokenSecret: "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
+        ),
         clock: StaticClock(timestamp: 1318622958),
         tokenProvider: StaticTokenProvider(token: "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"),
         version: "1"

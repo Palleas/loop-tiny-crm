@@ -25,20 +25,21 @@ func createURL(with request: Request, version: String) -> URL {
     return comps.url!
 }
 
+struct Credentials {
+    let consumerKey: String
+    let consumerSecret: String
+    let token: String
+    let tokenSecret: String
+}
+
 final class Twitter {
-    private let consumerKey: String
-    private let consumerSecret: String
-    private let token: String
-    private let tokenSecret: String
+    private let credentials: Credentials
     private let clock: ClockProtocol
     private let tokenProvider: TokenProviderProtocol
     private let version: String
 
-    init(consumerKey: String, consumerSecret: String, token: String, tokenSecret: String, clock: ClockProtocol, tokenProvider: TokenProviderProtocol, version: String = "1.1") {
-        self.consumerKey = consumerKey
-        self.consumerSecret = consumerSecret
-        self.token = token
-        self.tokenSecret = tokenSecret
+    init(credentials: Credentials, clock: ClockProtocol, tokenProvider: TokenProviderProtocol, version: String = "1.1") {
+        self.credentials = credentials
         self.clock = clock
         self.tokenProvider = tokenProvider
         self.version = version
@@ -46,10 +47,10 @@ final class Twitter {
 
     func prepareRequest() -> OAuthRequest {
         return OAuthRequest(
-            consumerKey: consumerKey,
+            consumerKey: credentials.consumerKey,
             nonce: tokenProvider.generate(),
             timestamp: clock.now(),
-            token: token
+            token: credentials.token
         )
     }
 
@@ -83,7 +84,7 @@ final class Twitter {
         // Creating the signature base string
         signatureBaseString += "&\(parameterString.addingPercentEncodingForRFC3986()!)"
 
-        let signingKey = "\(consumerSecret.addingPercentEncodingForRFC3986()!)&\(tokenSecret.addingPercentEncodingForRFC3986()!)"
+        let signingKey = "\(credentials.consumerSecret.addingPercentEncodingForRFC3986()!)&\(credentials.tokenSecret.addingPercentEncodingForRFC3986()!)"
 
         return try! HMAC(key: signingKey.data(using: .utf8)!.bytes, variant: .sha1)
             .authenticate(signatureBaseString.data(using: .utf8)!.bytes)
