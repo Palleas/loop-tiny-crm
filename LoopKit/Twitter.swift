@@ -57,8 +57,7 @@ final class Twitter {
     ///
     /// - Parameters:
     ///   - request: request to execute and sign
-    ///   - provider: token provider that will generate a random token
-    ///   - clock: clock that will provide the timestamp
+    ///   - oauthRequest: the OAuth request with all the credentials
     /// - Returns: a URL Request, signed
     /// https://dev.twitter.com/oauth/overview/creating-signatures
     func sign(_ request: Request, oauthRequest: OAuthRequest) -> String{
