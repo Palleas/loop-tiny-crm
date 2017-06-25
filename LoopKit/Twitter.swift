@@ -14,9 +14,9 @@ protocol Request {
     var body: [URLQueryItem] { get }
 }
 
-func createURL(with request: Request) -> URL {
-    let url = URL(string: "https://api.twitter.com/1/\(request.path)")!
-    var comps = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+func createURL(with request: Request, version: String) -> URL {
+    var comps = URLComponents(string: "https://api.twitter.com/")!
+    comps.path = "/\(version)/\(request.path)"
 
     if !request.items.isEmpty {
         comps.queryItems = request.items
@@ -28,16 +28,30 @@ func createURL(with request: Request) -> URL {
 final class Twitter {
     private let consumerKey: String
     private let consumerSecret: String
-    private let accessToken: String
+    private let token: String
     private let tokenSecret: String
+    private let clock: ClockProtocol
+    private let tokenProvider: TokenProviderProtocol
+    private let version: String
 
-    init(consumerKey: String, consumerSecret: String, accessToken: String, tokenSecret: String) {
+    init(consumerKey: String, consumerSecret: String, token: String, tokenSecret: String, clock: ClockProtocol, tokenProvider: TokenProviderProtocol, version: String = "1.1") {
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
-        self.accessToken = accessToken
+        self.token = token
         self.tokenSecret = tokenSecret
+        self.clock = clock
+        self.tokenProvider = tokenProvider
+        self.version = version
     }
 
+    func prepareRequest() -> OAuthRequest {
+        return OAuthRequest(
+            consumerKey: consumerKey,
+            nonce: tokenProvider.generate(),
+            timestamp: clock.now(),
+            token: token
+        )
+    }
 
     /// Sign a request
     ///
@@ -47,17 +61,10 @@ final class Twitter {
     ///   - clock: clock that will provide the timestamp
     /// - Returns: a URL Request, signed
     /// https://dev.twitter.com/oauth/overview/creating-signatures
-    func sign(_ request: Request, provider: TokenProviderProtocol, clock: ClockProtocol) -> URLRequest {
-        let signatureItems = [
-            SignatureItem(name: "oauth_consumer_key", value: consumerKey),
-            SignatureItem(name: "oauth_nonce", value: provider.generate()),
-            SignatureItem.signatureMethod,
-            SignatureItem(name: "oauth_timestamp", value: String(format: "%.0f", clock.now())),
-            SignatureItem(name: "oauth_token", value: accessToken),
-            SignatureItem.version
-        ]
+    func sign(_ request: Request, oauthRequest: OAuthRequest) -> String{
+        let signatureItems = oauthRequest.all
 
-        let url = createURL(with: request)
+        let url = createURL(with: request, version: version)
 
         // Collecting the request method and URL
         var signatureBaseString = request.method.rawValue
@@ -79,14 +86,9 @@ final class Twitter {
 
         let signingKey = "\(consumerSecret.addingPercentEncodingForRFC3986()!)&\(tokenSecret.addingPercentEncodingForRFC3986()!)"
 
-        let hash = try! HMAC(key: signingKey.data(using: .utf8)!.bytes, variant: .sha1)
+        return try! HMAC(key: signingKey.data(using: .utf8)!.bytes, variant: .sha1)
             .authenticate(signatureBaseString.data(using: .utf8)!.bytes)
-            .toBase64()
-
-        // Build the Authorization header
-
-
-        return URLRequest(url: url)
+            .toBase64()!
     }
 }
 
