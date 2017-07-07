@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let coordinator = AppCoordinator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        BuddyBuildSDK.setup()
+        
 
         let window = UIWindow()
         window.rootViewController = coordinator.controller
