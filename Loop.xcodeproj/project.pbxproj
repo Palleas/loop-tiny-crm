@@ -28,10 +28,10 @@
 		7A229C351EFD932900ADB0C4 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8591EFD63880088F55D /* SourceSansPro-SemiBold.ttf */; };
 		7A229C361EFD932900ADB0C4 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C84F1EFD63880088F55D /* SourceSansPro-SemiBoldItalic.ttf */; };
 		7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */; };
-		7A47C10D1EFC7FCF00360F94 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		7A47C10F1EFC806300360F94 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		7A47C1121EFC809200360F94 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		7A47C1161EFC80E600360F94 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		7A47C10D1EFC7FCF00360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		7A47C10F1EFC806300360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		7A47C1121EFC809200360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		7A47C1161EFC80E600360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7A47C1221EFC829700360F94 /* SourceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C1211EFC829700360F94 /* SourceSelector.swift */; };
 		7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11F1EFC826B00360F94 /* AppCoordinator.swift */; };
 		7A47C1241EFC838300360F94 /* AddLeadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */; };
@@ -100,13 +100,6 @@
 			remoteGlobalIDString = 7AD6DB941EFB54AF00D2D50F;
 			remoteInfo = LoopKit;
 		};
-		7AD6DBA11EFB54AF00D2D50F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7AD6DB571EFB549D00D2D50F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AD6DB5E1EFB549D00D2D50F;
-			remoteInfo = Loop;
-		};
 		7AD6DBA81EFB54AF00D2D50F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7AD6DB571EFB549D00D2D50F /* Project object */;
@@ -148,7 +141,7 @@
 /* Begin PBXFileReference section */
 		1E924F97AA7FB8B92E93D2F8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2707EF93EA9126BC103AEE2A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		3CFF98EFE9DF2FC53E5D648D /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		3CFF98EFE9DF2FC53E5D648D /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		5372E0E42BCF07F45F6071B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7857594DCF7A4E5A16429C3E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7A10F4D61EFDD7B6006EC7AB /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
@@ -563,7 +556,6 @@
 			);
 			dependencies = (
 				7AD6DBA01EFB54AF00D2D50F /* PBXTargetDependency */,
-				7AD6DBA21EFB54AF00D2D50F /* PBXTargetDependency */,
 			);
 			name = LoopKitTests;
 			productName = LoopKitTests;
@@ -597,7 +589,6 @@
 					};
 					7AD6DB9C1EFB54AF00D2D50F = {
 						CreatedOnToolsVersion = 9.0;
-						TestTargetID = 7AD6DB5E1EFB549D00D2D50F;
 					};
 				};
 			};
@@ -684,19 +675,19 @@
 			files = (
 				7A59371F1EFD55F90011ED2E /* UIColor+LPAdditions.swift in Sources */,
 				7A5937021EFD549B0011ED2E /* Storyboards.swift in Sources */,
-				7A47C10D1EFC7FCF00360F94 /* BuildFile in Sources */,
+				7A47C10D1EFC7FCF00360F94 /* (null) in Sources */,
 				7A5937011EFD54980011ED2E /* Assets.swift in Sources */,
 				7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */,
-				7A47C1161EFC80E600360F94 /* BuildFile in Sources */,
+				7A47C1161EFC80E600360F94 /* (null) in Sources */,
 				7A5937201EFD55F90011ED2E /* UIFont+LPAdditions.swift in Sources */,
-				7A47C10F1EFC806300360F94 /* BuildFile in Sources */,
+				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,
 				7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */,
 				7A5DA7701EFD990C0013BF40 /* SearchViewController.swift in Sources */,
 				7AD6DB631EFB549D00D2D50F /* AppDelegate.swift in Sources */,
 				7A47C1221EFC829700360F94 /* SourceSelector.swift in Sources */,
 				7A47C1241EFC838300360F94 /* AddLeadCoordinator.swift in Sources */,
-				7A47C1121EFC809200360F94 /* BuildFile in Sources */,
+				7A47C1121EFC809200360F94 /* (null) in Sources */,
 				7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -759,11 +750,6 @@
 			isa = PBXTargetDependency;
 			target = 7AD6DB941EFB54AF00D2D50F /* LoopKit */;
 			targetProxy = 7AD6DB9F1EFB54AF00D2D50F /* PBXContainerItemProxy */;
-		};
-		7AD6DBA21EFB54AF00D2D50F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7AD6DB5E1EFB549D00D2D50F /* Loop */;
-			targetProxy = 7AD6DBA11EFB54AF00D2D50F /* PBXContainerItemProxy */;
 		};
 		7AD6DBA91EFB54AF00D2D50F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1067,7 +1053,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loop.app/Loop";
 			};
 			name = Debug;
 		};
@@ -1082,7 +1067,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loop.app/Loop";
 			};
 			name = Release;
 		};
