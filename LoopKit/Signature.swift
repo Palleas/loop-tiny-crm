@@ -26,7 +26,7 @@ struct Signature {
     }
 
     let consumerSecret: String
-    let tokenSecret: String
+    let tokenSecret: String?
     let oauthRequest: OAuthRequest
     let method: Method
     let url: URL
@@ -54,7 +54,10 @@ struct Signature {
         // Creating the signature base string
         signatureBaseString += "&\(parameterString.addingPercentEncodingForRFC3986()!)"
 
-        let signingKey = "\(consumerSecret.addingPercentEncodingForRFC3986()!)&\(tokenSecret.addingPercentEncodingForRFC3986()!)"
+        var signingKey = "\(consumerSecret.addingPercentEncodingForRFC3986()!)&"
+        if let tokenSecret = tokenSecret?.addingPercentEncodingForRFC3986() {
+            signingKey += tokenSecret
+        }
 
         guard let signatureData = signatureBaseString.data(using: .utf8)?.bytes else {
             throw Error.invalidBaseString
@@ -78,6 +81,7 @@ struct OAuthRequest {
     let nonce: String
     let timestamp: TimeInterval
     let token: String?
+    let callback: String?
 
     var all: [SignatureItem] {
         var allItems = [
@@ -90,6 +94,10 @@ struct OAuthRequest {
 
         if let token = token {
             allItems.append(SignatureItem(name: "oauth_token", value: token))
+        }
+
+        if let callback = callback {
+            allItems.append(SignatureItem(name: "oauth_callback", value: callback))
         }
 
         return allItems.sorted(by: { $0.name < $1.name })
@@ -116,7 +124,8 @@ final class OAuthRequestCreator {
             consumerKey: consumerKey,
             nonce: tokenProvider.generate(),
             timestamp: clock.now(),
-            token: nil
+            token: nil,
+            callback: nil
         )
     }
 

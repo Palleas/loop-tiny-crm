@@ -50,7 +50,8 @@ final class Twitter {
             consumerKey: credentials.consumerKey,
             nonce: tokenProvider.generate(),
             timestamp: clock.now(),
-            token: credentials.token
+            token: credentials.token,
+            callback: nil
         )
     }
 }

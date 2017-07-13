@@ -52,6 +52,7 @@
 		7A6197501F16FEFF009ED947 /* SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61974F1F16FEFF009ED947 /* SignatureTests.swift */; };
 		7A6197511F170086009ED947 /* ReactiveSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A6197521F170086009ED947 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A6197561F1705AD009ED947 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6197551F1705AD009ED947 /* User.swift */; };
 		7A8D536F1F16D3BF00D05C4F /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8D536E1F16D3BF00D05C4F /* TwitterAuthorization.swift */; };
 		7AB7C8611EFD8D1B0088F55D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */; };
 		7AB7C8621EFD8D1B0088F55D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -170,6 +171,7 @@
 		7A5DA7711EFD9C330013BF40 /* Twitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
 		7A5DA7751EFD9F350013BF40 /* TwitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTests.swift; sourceTree = "<group>"; };
 		7A61974F1F16FEFF009ED947 /* SignatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureTests.swift; sourceTree = "<group>"; };
+		7A6197551F1705AD009ED947 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7A8D536E1F16D3BF00D05C4F /* TwitterAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorization.swift; sourceTree = "<group>"; };
 		7AB7C84F1EFD63880088F55D /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		7AB7C8501EFD63880088F55D /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				7A10F4DC1EFDD8D0006EC7AB /* Status.swift */,
 				7AC64E5B1EFF12BA006B15E4 /* Encoding.swift */,
 				7A8D536E1F16D3BF00D05C4F /* TwitterAuthorization.swift */,
+				7A6197551F1705AD009ED947 /* User.swift */,
 			);
 			path = LoopKit;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 			files = (
 				7AC64E5C1EFF12BA006B15E4 /* Encoding.swift in Sources */,
 				7A10F4DB1EFDD7E3006EC7AB /* Signature.swift in Sources */,
+				7A6197561F1705AD009ED947 /* User.swift in Sources */,
 				7A8D536F1F16D3BF00D05C4F /* TwitterAuthorization.swift in Sources */,
 				7AD6DBB61EFB562000D2D50F /* Task.swift in Sources */,
 				7A10F4DD1EFDD8D0006EC7AB /* Status.swift in Sources */,
