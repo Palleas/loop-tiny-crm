@@ -19,32 +19,15 @@ class TwitterTests: XCTestCase {
         version: "1"
     )
 
-    func testAuthorizationHeaderGeneration() {
-        let updateStatus = UpdateStatus(
-            includeEntities: true,
-            status: "Hello Ladies + Gentlemen, a signed OAuth request!"
-        )
-
-        let request = OAuthRequest(
-            consumerKey: "xvz1evFS4wEEPTGEFPHBog",
-            nonce: "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg",
-            timestamp: 1318622958,
-            token: "370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb"
-        )
-
-        let expected = "tnnArxj06cWHq44gCs1OSKk/jLY="
-        XCTAssertEqual(client.sign(updateStatus, oauthRequest: request), expected)
-    }
-
     func testRequestIsPrepared() {
         let prepared = client.createOAuthRequest()
 
         let expected = [
             SignatureItem(name: "oauth_consumer_key", value: "xvz1evFS4wEEPTGEFPHBog"),
             SignatureItem(name: "oauth_nonce", value: "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"),
+            SignatureItem(name: "oauth_signature_method", value: "HMAC-SHA1"),
             SignatureItem(name: "oauth_timestamp", value: "1318622958"),
             SignatureItem(name: "oauth_token", value: "370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb"),
-            SignatureItem(name: "oauth_signature_method", value: "HMAC-SHA1"),
             SignatureItem(name: "oauth_version", value: "1.0")
         ]
 
