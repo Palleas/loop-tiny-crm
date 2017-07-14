@@ -69,3 +69,4 @@ Memoires/Assets.swift
 Memoires/Storyboards.swift
 Memoires/Generated/*
 !Memoires/Generated/.gitkeep
+LoopKit/Generated/

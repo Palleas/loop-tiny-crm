@@ -1,0 +1,6 @@
+sources:
+    - LoopKit
+templates:
+    - Templates
+output: LoopKit/Generated
+

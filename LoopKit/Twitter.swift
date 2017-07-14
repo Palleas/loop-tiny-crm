@@ -7,19 +7,19 @@ enum Method: String {
     case post = "POST"
 }
 
-protocol Request {
-    var method: Method { get }
-    var path: String { get }
-    var items: [URLQueryItem] { get }
-    var body: [URLQueryItem] { get }
+struct Request<Value> {
+    let method: Method
+    let path: String
+    let items: [URLQueryItem]?
+    let body: [URLQueryItem]?
 }
 
-func createURL(with request: Request, version: String) -> URL {
+func createURL<T>(with request: Request<T>, version: String) -> URL {
     var comps = URLComponents(string: "https://api.twitter.com/")!
     comps.path = "/\(version)/\(request.path)"
 
-    if !request.items.isEmpty {
-        comps.queryItems = request.items
+    if let items = request.items {
+        comps.queryItems = items
     }
 
     return comps.url!

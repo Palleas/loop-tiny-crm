@@ -1,19 +1,17 @@
 import Foundation
 
-struct UpdateStatus: Request {
-    let method = Method.post
-    let path = "statuses/update.json"
+struct Status {
 
-    let includeEntities: Bool
-    let status: String
+    func update(includeEntities: Bool, status: String) -> Request<Status> {
+        return Request(
+            method: .post,
+            path: "statuses/update.json",
+            items: nil,
+            body: [
+                URLQueryItem(name: "include_entities", value: "\(includeEntities)"),
+                URLQueryItem(name: "status", value: status)
+            ]
+        )
 
-    let items = [URLQueryItem]()
-
-    var body: [URLQueryItem] {
-        return [
-            URLQueryItem(name: "include_entities", value: "\(includeEntities)"),
-            URLQueryItem(name: "status", value: status)
-        ]
     }
-
 }

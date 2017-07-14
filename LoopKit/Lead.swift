@@ -1,16 +1,6 @@
 import Foundation
 
-/// Represents a user on Twitter
-public struct TwitterUser {
-    /// Twitter User's handle (ex: @palleas)
-    public let username: String
 
-    /// Twitter User's fullname (ex: Romain Pouclet)
-    public let fullname: String
-
-    /// URL to a user's avatar
-    public let avatar: URL?
-}
 
 /// Represents an Email address
 public struct EmailAddress {
