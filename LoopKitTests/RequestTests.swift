@@ -4,7 +4,7 @@ import XCTest
 class RequestTests: XCTestCase {
 
     func testItCreatesAnURL() {
-        let updateStatus = UpdateStatus(
+        let updateStatus = Status.update(
             includeEntities: true,
             status: "Hello Ladies + Gentlemen, a signed OAuth request!"
         )

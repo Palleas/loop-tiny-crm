@@ -4,7 +4,7 @@ import XCTest
 class SignatureTests: XCTestCase {
     
     func testSignatureIsValidForUpdateStatus() throws {
-        let updateStatus = UpdateStatus(
+        let updateStatus = Status.update(
             includeEntities: true,
             status: "Hello Ladies + Gentlemen, a signed OAuth request!"
         )
@@ -25,16 +25,14 @@ class SignatureTests: XCTestCase {
             oauthRequest: request,
             method: updateStatus.method,
             url: createURL(with: updateStatus, version: "1"),
-            body: updateStatus.body,
-            query: updateStatus.items
+            body: updateStatus.body ?? [],
+            query: updateStatus.items ?? []
         )
 
         XCTAssertEqual(expected, try signature.sign())
     }
 
     func testSignatureIsValidForRequestToken() throws {
-        let requestToken = RequestToken()
-
         let request = OAuthRequest(
             consumerKey: "cChZNFj6T5R0TigYB9yd1w",
             nonce: "ea9ec8429b68d6b77cd5600adbbb0456",
@@ -49,8 +47,8 @@ class SignatureTests: XCTestCase {
             oauthRequest: request,
             method: .post,
             url: URL(string: "https://api.twitter.com/oauth/request_token")!,
-            body: requestToken.body,
-            query: requestToken.items
+            body: [],
+            query: []
         )
 
         let expected = "F1Li3tvehgcraF8DMJ7OyxO4w9Y="

@@ -2,7 +2,7 @@ import Foundation
 
 struct Status {
 
-    func update(includeEntities: Bool, status: String) -> Request<Status> {
+    static func update(includeEntities: Bool, status: String) -> Request<Status> {
         return Request(
             method: .post,
             path: "statuses/update.json",
