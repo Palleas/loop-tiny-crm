@@ -15,6 +15,8 @@
 		7A10F4D91EFDD7C5006EC7AB /* TokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */; };
 		7A10F4DB1EFDD7E3006EC7AB /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */; };
 		7A10F4DD1EFDD8D0006EC7AB /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4DC1EFDD8D0006EC7AB /* Status.swift */; };
+		7A21F9091F1A834B00A0F588 /* TwitterAuthorizationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */; };
+		7A21F90B1F1A857800A0F588 /* SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61974F1F16FEFF009ED947 /* SignatureTests.swift */; };
 		7A229C2B1EFD932900ADB0C4 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8501EFD63880088F55D /* SourceSansPro-Black.ttf */; };
 		7A229C2C1EFD932900ADB0C4 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8571EFD63880088F55D /* SourceSansPro-BlackItalic.ttf */; };
 		7A229C2D1EFD932900ADB0C4 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8531EFD63880088F55D /* SourceSansPro-Bold.ttf */; };
@@ -49,7 +51,6 @@
 		7A5DA7701EFD990C0013BF40 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DA76F1EFD990C0013BF40 /* SearchViewController.swift */; };
 		7A5DA7721EFD9C330013BF40 /* Twitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DA7711EFD9C330013BF40 /* Twitter.swift */; };
 		7A5DA7761EFD9F350013BF40 /* TwitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DA7751EFD9F350013BF40 /* TwitterTests.swift */; };
-		7A6197501F16FEFF009ED947 /* SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61974F1F16FEFF009ED947 /* SignatureTests.swift */; };
 		7A6197511F170086009ED947 /* ReactiveSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A6197521F170086009ED947 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A6197561F1705AD009ED947 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6197551F1705AD009ED947 /* User.swift */; };
@@ -57,7 +58,6 @@
 		7A8866151F1840C0000668BF /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88660B1F1825C0000668BF /* Identifiable.swift */; };
 		7A8866161F1840C8000668BF /* BodyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88660D1F1825C0000668BF /* BodyDecodable.swift */; };
 		7A8866171F1840C8000668BF /* Sourcery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88660E1F1825C0000668BF /* Sourcery.swift */; };
-		7A8866181F1840C8000668BF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6DB981EFB54AF00D2D50F /* Info.plist */; };
 		7A8866191F1843F0000668BF /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88660F1F1825CE000668BF /* Fixture.swift */; };
 		7A88661A1F1843F0000668BF /* TokenResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8866121F1825CE000668BF /* TokenResponseTests.swift */; };
 		7A88661B1F1843F0000668BF /* TwitterUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8866131F1825CE000668BF /* TwitterUserTests.swift */; };
@@ -65,8 +65,11 @@
 		7A89C8AC1F1A71CF001ACFBA /* AutoHashable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88661F1F1846DD000668BF /* AutoHashable.generated.swift */; };
 		7A89C8B11F1A77E6001ACFBA /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A89C8B01F1A77D5001ACFBA /* TokenResponse.swift */; };
 		7A89C8B21F1A78DB001ACFBA /* GET-users-search-q-Twitter-API.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A88661E1F184406000668BF /* GET-users-search-q-Twitter-API.json */; };
-		7A89C8B31F1A7A8D001ACFBA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6DBA61EFB54AF00D2D50F /* Info.plist */; };
-		7A8D536F1F16D3BF00D05C4F /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8D536E1F16D3BF00D05C4F /* TwitterAuthorization.swift */; };
+		7A89C8B61F1A7F5A001ACFBA /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A89C8B41F1A7F5A001ACFBA /* Quick.framework */; };
+		7A89C8B71F1A7F5A001ACFBA /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A89C8B51F1A7F5A001ACFBA /* Nimble.framework */; };
+		7A89C8B81F1A7F65001ACFBA /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A89C8B51F1A7F5A001ACFBA /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A89C8B91F1A7F65001ACFBA /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A89C8B41F1A7F5A001ACFBA /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A89C8BA1F1A8245001ACFBA /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8D536E1F16D3BF00D05C4F /* TwitterAuthorization.swift */; };
 		7AB7C8611EFD8D1B0088F55D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */; };
 		7AB7C8621EFD8D1B0088F55D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7AB7C8631EFD8D1B0088F55D /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; };
@@ -134,6 +137,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7A89C8B81F1A7F65001ACFBA /* Nimble.framework in CopyFiles */,
+				7A89C8B91F1A7F65001ACFBA /* Quick.framework in CopyFiles */,
 				7A6197511F170086009ED947 /* ReactiveSwift.framework in CopyFiles */,
 				7A6197521F170086009ED947 /* Result.framework in CopyFiles */,
 				7A5D04541EFDA6D40020E057 /* LoopKit.framework in CopyFiles */,
@@ -168,6 +173,7 @@
 		7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenProvider.swift; sourceTree = "<group>"; };
 		7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
 		7A10F4DC1EFDD8D0006EC7AB /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationSpec.swift; sourceTree = "<group>"; };
 		7A47C1191EFC824A00360F94 /* AddLeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadView.swift; sourceTree = "<group>"; };
 		7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadViewController.swift; sourceTree = "<group>"; };
 		7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadCoordinator.swift; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 		7A88661F1F1846DD000668BF /* AutoHashable.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoHashable.generated.swift; sourceTree = "<group>"; };
 		7A8866201F1846DD000668BF /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
 		7A89C8B01F1A77D5001ACFBA /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		7A89C8B41F1A7F5A001ACFBA /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		7A89C8B51F1A7F5A001ACFBA /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		7A8D536E1F16D3BF00D05C4F /* TwitterAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorization.swift; sourceTree = "<group>"; };
 		7AB7C84F1EFD63880088F55D /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		7AB7C8501EFD63880088F55D /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
@@ -291,6 +299,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A89C8B71F1A7F5A001ACFBA /* Nimble.framework in Frameworks */,
+				7A89C8B61F1A7F5A001ACFBA /* Quick.framework in Frameworks */,
 				7AD6DB9E1EFB54AF00D2D50F /* LoopKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +427,8 @@
 		7AD6DB561EFB549D00D2D50F = {
 			isa = PBXGroup;
 			children = (
+				7A89C8B51F1A7F5A001ACFBA /* Nimble.framework */,
+				7A89C8B41F1A7F5A001ACFBA /* Quick.framework */,
 				7A5D04501EFDA62A0020E057 /* CryptoSwift.framework */,
 				7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */,
 				7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */,
@@ -518,6 +530,7 @@
 				7AC64E5D1EFF12FF006B15E4 /* EncodingTests.swift */,
 				7AC64E5F1EFFF05A006B15E4 /* RequestTests.swift */,
 				7A61974F1F16FEFF009ED947 /* SignatureTests.swift */,
+				7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */,
 			);
 			path = LoopKitTests;
 			sourceTree = "<group>";
@@ -722,7 +735,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8866181F1840C8000668BF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,7 +742,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A89C8B31F1A7A8D001ACFBA /* Info.plist in Resources */,
 				7A89C8B21F1A78DB001ACFBA /* GET-users-search-q-Twitter-API.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,8 +798,8 @@
 				7A10F4DB1EFDD7E3006EC7AB /* Signature.swift in Sources */,
 				7A6197561F1705AD009ED947 /* User.swift in Sources */,
 				7A89C8AC1F1A71CF001ACFBA /* AutoHashable.generated.swift in Sources */,
+				7A89C8BA1F1A8245001ACFBA /* TwitterAuthorization.swift in Sources */,
 				7A89C8B11F1A77E6001ACFBA /* TokenResponse.swift in Sources */,
-				7A8D536F1F16D3BF00D05C4F /* TwitterAuthorization.swift in Sources */,
 				7A8866171F1840C8000668BF /* Sourcery.swift in Sources */,
 				7AD6DBB61EFB562000D2D50F /* Task.swift in Sources */,
 				7A10F4DD1EFDD8D0006EC7AB /* Status.swift in Sources */,
@@ -805,10 +816,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A6197501F16FEFF009ED947 /* SignatureTests.swift in Sources */,
+				7A21F9091F1A834B00A0F588 /* TwitterAuthorizationSpec.swift in Sources */,
 				7AC64E601EFFF05A006B15E4 /* RequestTests.swift in Sources */,
 				7A8866191F1843F0000668BF /* Fixture.swift in Sources */,
 				7AC64E5E1EFF12FF006B15E4 /* EncodingTests.swift in Sources */,
+				7A21F90B1F1A857800A0F588 /* SignatureTests.swift in Sources */,
 				7A88661A1F1843F0000668BF /* TokenResponseTests.swift in Sources */,
 				7A88661B1F1843F0000668BF /* TwitterUserTests.swift in Sources */,
 				7A5DA7761EFD9F350013BF40 /* TwitterTests.swift in Sources */,
@@ -1129,6 +1141,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 8VS9JKFDZS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LoopKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.LoopKitTests";
@@ -1143,6 +1159,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 8VS9JKFDZS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LoopKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.LoopKitTests";

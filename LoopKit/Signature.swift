@@ -109,10 +109,10 @@ final class OAuthRequestCreator {
 
     private let consumerKey: String
     private let clock: ClockProtocol
-    private let tokenProvider: TokenProvider
+    private let tokenProvider: TokenProviderProtocol
     private let callback: String
     
-    init(consumerKey: String, clock: ClockProtocol, tokenProvider: TokenProvider, callback: String) {
+    init(consumerKey: String, clock: ClockProtocol, tokenProvider: TokenProviderProtocol, callback: String) {
         self.consumerKey = consumerKey
         self.clock = clock
         self.tokenProvider = tokenProvider
@@ -125,7 +125,7 @@ final class OAuthRequestCreator {
             nonce: tokenProvider.generate(),
             timestamp: clock.now(),
             token: nil,
-            callback: nil
+            callback: callback
         )
     }
 
