@@ -65,8 +65,7 @@ fastlane/screenshots
 fastlane/test_output
 *.xcuserstate
 Carthage
-Memoires/Assets.swift
-Memoires/Storyboards.swift
-Memoires/Generated/*
-!Memoires/Generated/.gitkeep
-LoopKit/Generated/
+LoopKit/Assets.swift
+LoopKit/Storyboards.swift
+LoopKit/Generated/*
+!LoopKit/Generated/.gitkeep
