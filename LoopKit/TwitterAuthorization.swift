@@ -31,7 +31,11 @@ final class TwitterAuthorization {
                 return URLSession.shared.reactive.data(with: request).mapError { _ in Error.requestError }
             }
             .attemptMap { arg -> Result<TokenResponse, Error> in
-                let (data, _) = arg
+                let (data, response) = arg
+
+                guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
+                    return Result(error: Error.internalError)
+                }
 
                 return Result {
                     let decoder = BodyDecoder()

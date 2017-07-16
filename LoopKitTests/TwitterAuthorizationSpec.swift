@@ -15,6 +15,10 @@ class TwitterAuthorizationSpec: QuickSpec {
                 callback: "http://localhost/sign-in-with-twitter/"
             )
 
+            afterEach {
+                OHHTTPStubs.removeAllStubs()
+            }
+
             it("creates an authorization header") {
 
                 let expected = """
@@ -25,7 +29,7 @@ OAuth oauth_callback="http%3A%2F%2Flocalhost%2Fsign-in-with-twitter%2F",oauth_co
             }
 
             it("fetches an authorization token") {
-                stub(condition: isAbsoluteURLString("https://api.twitter.com/oauth/request_token"), response: { _ -> OHHTTPStubsResponse in
+                stub(condition: isAbsoluteURLString("https://api.twitter.com/oauth/request_token"), response: { _ in
                     let response =  "oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&oauth_token_secret=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&oauth_callback_confirmed=true"
                     return OHHTTPStubsResponse(data: response.data(using: .utf8)!, statusCode: 200, headers: [:])
                 })
@@ -35,10 +39,26 @@ OAuth oauth_callback="http%3A%2F%2Flocalhost%2Fsign-in-with-twitter%2F",oauth_co
                     tokenSecret: "veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI",
                     callbackConfirmed: true
                 )
-                expect(authorization.requestToken().first()?.value).toEventually(equal(.some(expected)))
 
-
+                expect(authorization.requestToken().first()?.value).toEventually(equal(expected))
             }
+
+            it("receives an error when something isn't HTTP 200") {
+                stub(condition: isAbsoluteURLString("https://api.twitter.com/oauth/request_token"), response: { _ in
+                    return OHHTTPStubsResponse(data: "<h1>INTERNAL SERVER ERROR OMG</h1>".data(using: .utf8)!, statusCode: 500, headers: [:])
+                })
+
+                expect(authorization.requestToken().first()?.error).toEventually(equal(.internalError))
+            }
+
+            it("receives an error when something isn't HTTP 200") {
+                stub(condition: isAbsoluteURLString("https://api.twitter.com/oauth/request_token"), response: { _ in
+                    return OHHTTPStubsResponse(data: "<h1>YOU'RE BEING REDIRECTED, SHOO!</h1>".data(using: .utf8)!, statusCode: 301, headers: [:])
+                })
+
+                expect(authorization.requestToken().first()?.error).toEventually(equal(.internalError))
+            }
+
         }
     }
 }
