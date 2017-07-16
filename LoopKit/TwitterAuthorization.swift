@@ -1,14 +1,13 @@
 import Foundation
 import ReactiveSwift
+import Result
 
 final class TwitterAuthorization {
 
-    struct Token {
-        let raw: String
-    }
-
     enum Error: Swift.Error {
-
+        case signatureError
+        case requestError
+        case internalError
     }
 
     private let consumerKey: String
@@ -25,8 +24,29 @@ final class TwitterAuthorization {
         self.callback = callback
     }
 
-    func requestToken() -> SignalProducer<Token, Error> {
-        return .empty
+    func requestToken() -> SignalProducer<TokenResponse, Error> {
+        return SignalProducer(result: createRequest())
+            .mapError { _ in Error.signatureError }
+            .flatMap(.latest) { request in
+                return URLSession.shared.reactive.data(with: request).mapError { _ in Error.requestError }
+            }
+            .attemptMap { arg -> Result<TokenResponse, Error> in
+                let (data, _) = arg
+
+                return Result {
+                    let decoder = BodyDecoder()
+                    return try decoder.decode(TokenResponse.self, from: String(data: data, encoding: .utf8)!)
+                }
+            }
+    }
+
+    func createRequest() -> Result<URLRequest, Signature.Error> {
+        return Result {
+            var request = URLRequest(url: URL(string: "https://api.twitter.com/oauth/request_token")!)
+            request.allHTTPHeaderFields = ["Authorization": try createHeader()]
+
+            return request
+        }
     }
 
     func createHeader() throws -> String {

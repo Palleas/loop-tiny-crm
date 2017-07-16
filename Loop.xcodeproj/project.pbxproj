@@ -17,6 +17,10 @@
 		7A10F4DD1EFDD8D0006EC7AB /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4DC1EFDD8D0006EC7AB /* Status.swift */; };
 		7A21F9091F1A834B00A0F588 /* TwitterAuthorizationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */; };
 		7A21F90B1F1A857800A0F588 /* SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61974F1F16FEFF009ED947 /* SignatureTests.swift */; };
+		7A21F90D1F1AE1B300A0F588 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */; };
+		7A21F90E1F1AE33800A0F588 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A21F90F1F1AE51B00A0F588 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; };
+		7A21F9101F1AE51B00A0F588 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; };
 		7A229C2B1EFD932900ADB0C4 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8501EFD63880088F55D /* SourceSansPro-Black.ttf */; };
 		7A229C2C1EFD932900ADB0C4 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8571EFD63880088F55D /* SourceSansPro-BlackItalic.ttf */; };
 		7A229C2D1EFD932900ADB0C4 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8531EFD63880088F55D /* SourceSansPro-Bold.ttf */; };
@@ -137,6 +141,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7A21F90E1F1AE33800A0F588 /* OHHTTPStubs.framework in CopyFiles */,
 				7A89C8B81F1A7F65001ACFBA /* Nimble.framework in CopyFiles */,
 				7A89C8B91F1A7F65001ACFBA /* Quick.framework in CopyFiles */,
 				7A6197511F170086009ED947 /* ReactiveSwift.framework in CopyFiles */,
@@ -174,6 +179,7 @@
 		7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
 		7A10F4DC1EFDD8D0006EC7AB /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationSpec.swift; sourceTree = "<group>"; };
+		7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = SOURCE_ROOT; };
 		7A47C1191EFC824A00360F94 /* AddLeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadView.swift; sourceTree = "<group>"; };
 		7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadViewController.swift; sourceTree = "<group>"; };
 		7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadCoordinator.swift; sourceTree = "<group>"; };
@@ -300,7 +306,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A89C8B71F1A7F5A001ACFBA /* Nimble.framework in Frameworks */,
+				7A21F90D1F1AE1B300A0F588 /* OHHTTPStubs.framework in Frameworks */,
 				7A89C8B61F1A7F5A001ACFBA /* Quick.framework in Frameworks */,
+				7A21F90F1F1AE51B00A0F588 /* ReactiveSwift.framework in Frameworks */,
+				7A21F9101F1AE51B00A0F588 /* Result.framework in Frameworks */,
 				7AD6DB9E1EFB54AF00D2D50F /* LoopKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +436,7 @@
 		7AD6DB561EFB549D00D2D50F = {
 			isa = PBXGroup;
 			children = (
+				7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */,
 				7A89C8B51F1A7F5A001ACFBA /* Nimble.framework */,
 				7A89C8B41F1A7F5A001ACFBA /* Quick.framework */,
 				7A5D04501EFDA62A0020E057 /* CryptoSwift.framework */,

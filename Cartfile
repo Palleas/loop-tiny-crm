@@ -1,4 +1,2 @@
 github "reactivecocoa/reactivecocoa" "master"
 github "krzyzanowskim/CryptoSwift" "develop"
-github "Quick/Quick" "xcode-9-fix"
-github "Quick/Nimble" "xcode9-beta"
