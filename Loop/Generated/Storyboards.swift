@@ -54,6 +54,15 @@ enum StoryboardScene {
       }
       return vc
     }
+
+    case connectWithTwitterScene = "connectWithTwitter"
+    static func instantiateConnectWithTwitter() -> Loop.ConnectWithTwitterViewController {
+      guard let vc = StoryboardScene.Main.connectWithTwitterScene.viewController() as? Loop.ConnectWithTwitterViewController
+      else {
+        fatalError("ViewController 'connectWithTwitter' is not of the expected class Loop.ConnectWithTwitterViewController.")
+      }
+      return vc
+    }
   }
 }
 

@@ -1,11 +1,14 @@
 import Foundation
 
-protocol ClockProtocol {
+public protocol ClockProtocol {
     func now() -> TimeInterval
 }
 
-struct Clock: ClockProtocol {
-    func now() -> TimeInterval {
-        return Date().timeIntervalSinceReferenceDate
+public struct Clock: ClockProtocol {
+
+    public init() {}
+
+    public func now() -> TimeInterval {
+        return Date().timeIntervalSince1970
     }
 }

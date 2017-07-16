@@ -2,12 +2,12 @@ import Foundation
 import ReactiveSwift
 import Result
 
-final class TwitterAuthorization {
+final public class TwitterAuthorization {
 
-    enum Error: Swift.Error {
+    public enum Error: Swift.Error {
         case signatureError
         case requestError
-        case internalError
+        case serverError(URLResponse)
     }
 
     private let consumerKey: String
@@ -16,7 +16,7 @@ final class TwitterAuthorization {
     private let tokenProvider: TokenProviderProtocol
     private let callback: String
 
-    public init(consumerKey: String, consumerSecret: String, clock: ClockProtocol, tokenProvider: TokenProviderProtocol, callback: String) {
+    public init(consumerKey: String, consumerSecret: String, clock: ClockProtocol = Clock(), tokenProvider: TokenProviderProtocol = TokenProvider(), callback: String) {
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
         self.clock = clock
@@ -24,7 +24,7 @@ final class TwitterAuthorization {
         self.callback = callback
     }
 
-    func requestToken() -> SignalProducer<TokenResponse, Error> {
+    public func requestToken() -> SignalProducer<TokenResponse, Error> {
         return SignalProducer(result: createRequest())
             .mapError { _ in Error.signatureError }
             .flatMap(.latest) { request in
@@ -34,7 +34,7 @@ final class TwitterAuthorization {
                 let (data, response) = arg
 
                 guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
-                    return Result(error: Error.internalError)
+                    return Result(error: Error.serverError(response))
                 }
 
                 return Result {
@@ -48,6 +48,7 @@ final class TwitterAuthorization {
         return Result {
             var request = URLRequest(url: URL(string: "https://api.twitter.com/oauth/request_token")!)
             request.allHTTPHeaderFields = ["Authorization": try createHeader()]
+            request.httpMethod = Method.post.rawValue
 
             return request
         }

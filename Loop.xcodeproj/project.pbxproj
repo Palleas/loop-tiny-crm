@@ -21,6 +21,7 @@
 		7A21F90E1F1AE33800A0F588 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A21F90F1F1AE51B00A0F588 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; };
 		7A21F9101F1AE51B00A0F588 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; };
+		7A21F9121F1AF03400A0F588 /* ConnectWithTwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A21F9111F1AF03400A0F588 /* ConnectWithTwitterViewController.swift */; };
 		7A229C2B1EFD932900ADB0C4 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8501EFD63880088F55D /* SourceSansPro-Black.ttf */; };
 		7A229C2C1EFD932900ADB0C4 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8571EFD63880088F55D /* SourceSansPro-BlackItalic.ttf */; };
 		7A229C2D1EFD932900ADB0C4 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8531EFD63880088F55D /* SourceSansPro-Bold.ttf */; };
@@ -180,6 +181,7 @@
 		7A10F4DC1EFDD8D0006EC7AB /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationSpec.swift; sourceTree = "<group>"; };
 		7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = SOURCE_ROOT; };
+		7A21F9111F1AF03400A0F588 /* ConnectWithTwitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWithTwitterViewController.swift; sourceTree = "<group>"; };
 		7A47C1191EFC824A00360F94 /* AddLeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadView.swift; sourceTree = "<group>"; };
 		7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadViewController.swift; sourceTree = "<group>"; };
 		7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadCoordinator.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			children = (
 				7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */,
 				7A5DA76F1EFD990C0013BF40 /* SearchViewController.swift */,
+				7A21F9111F1AF03400A0F588 /* ConnectWithTwitterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */,
 				7A47C1161EFC80E600360F94 /* (null) in Sources */,
 				7A5937201EFD55F90011ED2E /* UIFont+LPAdditions.swift in Sources */,
+				7A21F9121F1AF03400A0F588 /* ConnectWithTwitterViewController.swift in Sources */,
 				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,
 				7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */,

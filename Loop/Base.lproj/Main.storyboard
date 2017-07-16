@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,6 +21,49 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Connect With Twitter View Controller-->
+        <scene sceneID="zaC-6b-Uaf">
+            <objects>
+                <viewController storyboardIdentifier="connectWithTwitter" id="WS5-A8-pL6" customClass="ConnectWithTwitterViewController" customModule="Loop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XWN-Y2-2bi"/>
+                        <viewControllerLayoutGuide type="bottom" id="OUb-Ee-wex"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="VwP-j3-ibM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BHi-Os-QlB">
+                                <rect key="frame" x="20" y="308.5" width="335" height="50.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need your credentials to perform search for Twitter users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQV-rY-3VR">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5i-QU-wCC">
+                                        <rect key="frame" x="0.0" y="20.5" width="335" height="30"/>
+                                        <state key="normal" title="Connect with Twitter"/>
+                                        <connections>
+                                            <action selector="connectWithId:" destination="WS5-A8-pL6" eventType="touchUpInside" id="Y7o-HR-vS0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BHi-Os-QlB" firstAttribute="leading" secondItem="VwP-j3-ibM" secondAttribute="leading" constant="20" id="Dqo-yB-Fpc"/>
+                            <constraint firstItem="BHi-Os-QlB" firstAttribute="centerY" secondItem="VwP-j3-ibM" secondAttribute="centerY" id="FIQ-PM-v7O"/>
+                            <constraint firstAttribute="trailing" secondItem="BHi-Os-QlB" secondAttribute="trailing" constant="20" id="XMX-Fx-Dpk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AOH-i9-z3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343" y="211"/>
+        </scene>
         <!--Add New Lead-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -168,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE4-ea-PB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469.60000000000002" y="647.67616191904051"/>
+            <point key="canvasLocation" x="542" y="739"/>
         </scene>
     </scenes>
     <resources>
