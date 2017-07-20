@@ -1,9 +1,16 @@
 import Foundation
 
 public struct TokenResponse: BodyDecodable {
-    let token: String
-    let tokenSecret: String
-    let callbackConfirmed: Bool
+    public let token: String
+    public let tokenSecret: String
+    public let callbackConfirmed: Bool
+
+    public var authenticate: URL {
+        var comps = URLComponents(string: "https://api.twitter.com/oauth/authenticate")
+        comps?.queryItems = [URLQueryItem(name: "oauth_token", value: token)]
+
+        return comps!.url!
+    }
 
     init(token: String, tokenSecret: String, callbackConfirmed: Bool) {
         self.token = token
@@ -18,7 +25,6 @@ public struct TokenResponse: BodyDecodable {
             throw BodyDecoderError.invalidFormat
         }
         self.callbackConfirmed = callbackConfirmed
-
     }
 }
 

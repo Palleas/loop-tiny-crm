@@ -3,7 +3,6 @@ import Nimble
 import OHHTTPStubs
 @testable import LoopKit
 
-
 class TwitterAuthorizationSpec: QuickSpec {
     override func spec() {
         describe("TwitterAuthorization") {

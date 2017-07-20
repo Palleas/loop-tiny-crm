@@ -7,7 +7,9 @@ final public class TwitterAuthorization {
     public enum Error: Swift.Error {
         case signatureError
         case requestError
-        case serverError(URLResponse)
+        case internalError
+
+        case invalidCompletionURL
     }
 
     private let consumerKey: String
@@ -15,6 +17,8 @@ final public class TwitterAuthorization {
     private let clock: ClockProtocol
     private let tokenProvider: TokenProviderProtocol
     private let callback: String
+
+    public static let completion = Signal<(token: String, verifier: String), Error>.pipe()
 
     public init(consumerKey: String, consumerSecret: String, clock: ClockProtocol = Clock(), tokenProvider: TokenProviderProtocol = TokenProvider(), callback: String) {
         self.consumerKey = consumerKey
@@ -34,7 +38,7 @@ final public class TwitterAuthorization {
                 let (data, response) = arg
 
                 guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
-                    return Result(error: Error.serverError(response))
+                    return Result(error: Error.internalError)
                 }
 
                 return Result {
@@ -81,4 +85,21 @@ final public class TwitterAuthorization {
         return "OAuth \(header)"
     }
 
+    static public func completeAuthorization(with url: URL) -> Result<(token: String, verifier: String), Error> {
+        guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            print("URL \(url) is invalid")
+            return .failure(.invalidCompletionURL)
+        }
+
+        guard
+            let token = comps.queryItems?.first(where: { $0.name == "oauth_token" })?.value,
+            let verifier = comps.queryItems?.first(where: { $0.name == "oauth_verifier"})?.value else {
+            print("Completion URL doesn't have token and/or verifier")
+            return .failure(.invalidCompletionURL)
+        }
+
+        return .success((token: token, verifier: verifier))
+    }
+
 }
+
