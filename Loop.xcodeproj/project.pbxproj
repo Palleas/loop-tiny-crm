@@ -16,7 +16,7 @@
 		7A10F4DB1EFDD7E3006EC7AB /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */; };
 		7A10F4DD1EFDD8D0006EC7AB /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4DC1EFDD8D0006EC7AB /* Status.swift */; };
 		7A21F9091F1A834B00A0F588 /* TwitterAuthorizationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */; };
-		7A21F90B1F1A857800A0F588 /* SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61974F1F16FEFF009ED947 /* SignatureTests.swift */; };
+		7A21F90B1F1A857800A0F588 /* SignatureSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61974F1F16FEFF009ED947 /* SignatureSpec.swift */; };
 		7A21F90D1F1AE1B300A0F588 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */; };
 		7A21F90E1F1AE33800A0F588 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A21F90F1F1AE51B00A0F588 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; };
@@ -36,6 +36,8 @@
 		7A229C351EFD932900ADB0C4 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8591EFD63880088F55D /* SourceSansPro-SemiBold.ttf */; };
 		7A229C361EFD932900ADB0C4 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C84F1EFD63880088F55D /* SourceSansPro-SemiBoldItalic.ttf */; };
 		7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */; };
+		7A46CBE71F21529B00CD5E47 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CBE61F21529B00CD5E47 /* AccessTokenResponse.swift */; };
+		7A46CBE91F21757D00CD5E47 /* AccessTokenResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CBE81F21757D00CD5E47 /* AccessTokenResponseSpec.swift */; };
 		7A47C10D1EFC7FCF00360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7A47C10F1EFC806300360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7A47C1121EFC809200360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -184,6 +186,8 @@
 		7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = SOURCE_ROOT; };
 		7A21F9111F1AF03400A0F588 /* ConnectWithTwitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWithTwitterViewController.swift; sourceTree = "<group>"; };
 		7A21F9131F1B067700A0F588 /* TokenResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponseSpec.swift; sourceTree = "<group>"; };
+		7A46CBE61F21529B00CD5E47 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
+		7A46CBE81F21757D00CD5E47 /* AccessTokenResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponseSpec.swift; sourceTree = "<group>"; };
 		7A47C1191EFC824A00360F94 /* AddLeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadView.swift; sourceTree = "<group>"; };
 		7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadViewController.swift; sourceTree = "<group>"; };
 		7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadCoordinator.swift; sourceTree = "<group>"; };
@@ -199,7 +203,7 @@
 		7A5DA76F1EFD990C0013BF40 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7A5DA7711EFD9C330013BF40 /* Twitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
 		7A5DA7751EFD9F350013BF40 /* TwitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTests.swift; sourceTree = "<group>"; };
-		7A61974F1F16FEFF009ED947 /* SignatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureTests.swift; sourceTree = "<group>"; };
+		7A61974F1F16FEFF009ED947 /* SignatureSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureSpec.swift; sourceTree = "<group>"; };
 		7A6197551F1705AD009ED947 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7A88660A1F1825C0000668BF /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		7A88660B1F1825C0000668BF /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -529,6 +533,7 @@
 				7AC64E5B1EFF12BA006B15E4 /* Encoding.swift */,
 				7A8D536E1F16D3BF00D05C4F /* TwitterAuthorization.swift */,
 				7A6197551F1705AD009ED947 /* User.swift */,
+				7A46CBE61F21529B00CD5E47 /* AccessTokenResponse.swift */,
 			);
 			path = LoopKit;
 			sourceTree = "<group>";
@@ -544,9 +549,10 @@
 				7A5DA7751EFD9F350013BF40 /* TwitterTests.swift */,
 				7AC64E5D1EFF12FF006B15E4 /* EncodingTests.swift */,
 				7AC64E5F1EFFF05A006B15E4 /* RequestTests.swift */,
-				7A61974F1F16FEFF009ED947 /* SignatureTests.swift */,
+				7A61974F1F16FEFF009ED947 /* SignatureSpec.swift */,
 				7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */,
 				7A21F9131F1B067700A0F588 /* TokenResponseSpec.swift */,
+				7A46CBE81F21757D00CD5E47 /* AccessTokenResponseSpec.swift */,
 			);
 			path = LoopKitTests;
 			sourceTree = "<group>";
@@ -821,6 +827,7 @@
 				7AD6DBB61EFB562000D2D50F /* Task.swift in Sources */,
 				7A10F4DD1EFDD8D0006EC7AB /* Status.swift in Sources */,
 				7A5DA7721EFD9C330013BF40 /* Twitter.swift in Sources */,
+				7A46CBE71F21529B00CD5E47 /* AccessTokenResponse.swift in Sources */,
 				7A8866141F1840B6000668BF /* TwitterUser.swift in Sources */,
 				7A10F4D91EFDD7C5006EC7AB /* TokenProvider.swift in Sources */,
 				7A10F4D71EFDD7B6006EC7AB /* Clock.swift in Sources */,
@@ -836,9 +843,10 @@
 				7A21F9091F1A834B00A0F588 /* TwitterAuthorizationSpec.swift in Sources */,
 				7AC64E601EFFF05A006B15E4 /* RequestTests.swift in Sources */,
 				7A8866191F1843F0000668BF /* Fixture.swift in Sources */,
+				7A46CBE91F21757D00CD5E47 /* AccessTokenResponseSpec.swift in Sources */,
 				7AC64E5E1EFF12FF006B15E4 /* EncodingTests.swift in Sources */,
 				7A21F9141F1B067700A0F588 /* TokenResponseSpec.swift in Sources */,
-				7A21F90B1F1A857800A0F588 /* SignatureTests.swift in Sources */,
+				7A21F90B1F1A857800A0F588 /* SignatureSpec.swift in Sources */,
 				7A88661A1F1843F0000668BF /* TokenResponseTests.swift in Sources */,
 				7A88661B1F1843F0000668BF /* TwitterUserTests.swift in Sources */,
 				7A5DA7761EFD9F350013BF40 /* TwitterTests.swift in Sources */,

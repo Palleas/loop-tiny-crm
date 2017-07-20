@@ -29,7 +29,7 @@ final public class TwitterAuthorization {
     }
 
     public func requestToken() -> SignalProducer<TokenResponse, Error> {
-        return SignalProducer(result: createRequest())
+        return SignalProducer(result: createRequest(path: "oauth/request_token"))
             .mapError { _ in Error.signatureError }
             .flatMap(.latest) { request in
                 return URLSession.shared.reactive.data(with: request).mapError { _ in Error.requestError }
@@ -48,22 +48,50 @@ final public class TwitterAuthorization {
             }
     }
 
-    func createRequest() -> Result<URLRequest, Signature.Error> {
-        return Result {
-            var request = URLRequest(url: URL(string: "https://api.twitter.com/oauth/request_token")!)
-            request.allHTTPHeaderFields = ["Authorization": try createHeader()]
-            request.httpMethod = Method.post.rawValue
+    public func requestAccessToken(token: String, verifier: String) -> SignalProducer<AccessTokenResponse, Error> {
+        return SignalProducer(result: createRequest(path: "oauth/access_token", token: token, verifier: verifier))
+            .mapError { _ in Error.signatureError }
+            .flatMap(.latest) { request in
+                return URLSession.shared.reactive.data(with: request).mapError { _ in Error.requestError }
+        }
+        .attemptMap { arg -> Result<AccessTokenResponse, Error> in
+            let (data, response) = arg
 
+            guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
+                return Result(error: Error.internalError)
+            }
+
+            return Result {
+                let decoder = BodyDecoder()
+                return try decoder.decode(AccessTokenResponse.self, from: String(data: data, encoding: .utf8)!)
+            }
+        }
+    }
+
+    func createRequest(path: String, token: String? = nil, verifier: String? = nil) -> Result<URLRequest, Signature.Error> {
+
+        let body: Data?
+        if let verifier = verifier {
+            body = "oauth_verifier=\(verifier)".data(using: .utf8)!
+        } else {
+            body = nil
+        }
+
+        return Result {
+            var request = URLRequest(url: URL(string: "https://api.twitter.com/\(path)")!)
+            request.allHTTPHeaderFields = ["Authorization": try createHeader(token: token, callback: self.callback)]
+            request.httpMethod = Method.post.rawValue
+            request.httpBody = body
             return request
         }
     }
 
-    func createHeader() throws -> String {
+    func createHeader(token: String?, callback: String?) throws -> String {
         let request = OAuthRequest(
             consumerKey: consumerKey,
             nonce: tokenProvider.generate(),
             timestamp: clock.now(),
-            token: nil,
+            token: token,
             callback: callback
         )
 
