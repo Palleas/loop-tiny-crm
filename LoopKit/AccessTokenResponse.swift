@@ -2,9 +2,9 @@ import Foundation
 
 public struct AccessTokenResponse: BodyDecodable {
 
-    let token: String
-    let tokenSecret: String
-    let screenName: String
+    public let token: String
+    public let tokenSecret: String
+    public let screenName: String
 
     init(decoder: BodyDecoderContainer) throws {
         self.token = try decoder.value(forKey: "oauth_token")

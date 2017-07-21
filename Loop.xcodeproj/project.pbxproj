@@ -38,6 +38,8 @@
 		7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */; };
 		7A46CBE71F21529B00CD5E47 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CBE61F21529B00CD5E47 /* AccessTokenResponse.swift */; };
 		7A46CBE91F21757D00CD5E47 /* AccessTokenResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CBE81F21757D00CD5E47 /* AccessTokenResponseSpec.swift */; };
+		7A46CBEB1F2195F400CD5E47 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A46CBEA1F2195F400CD5E47 /* KeychainSwift.framework */; };
+		7A46CBED1F21978900CD5E47 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CBEC1F21978900CD5E47 /* Keys.swift */; };
 		7A47C10D1EFC7FCF00360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7A47C10F1EFC806300360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7A47C1121EFC809200360F94 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -188,6 +190,8 @@
 		7A21F9131F1B067700A0F588 /* TokenResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponseSpec.swift; sourceTree = "<group>"; };
 		7A46CBE61F21529B00CD5E47 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
 		7A46CBE81F21757D00CD5E47 /* AccessTokenResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponseSpec.swift; sourceTree = "<group>"; };
+		7A46CBEA1F2195F400CD5E47 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
+		7A46CBEC1F21978900CD5E47 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7A47C1191EFC824A00360F94 /* AddLeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadView.swift; sourceTree = "<group>"; };
 		7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadViewController.swift; sourceTree = "<group>"; };
 		7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadCoordinator.swift; sourceTree = "<group>"; };
@@ -270,6 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A46CBEB1F2195F400CD5E47 /* KeychainSwift.framework in Frameworks */,
 				7AD6DBAA1EFB54AF00D2D50F /* LoopKit.framework in Frameworks */,
 				7AB7C8611EFD8D1B0088F55D /* ReactiveCocoa.framework in Frameworks */,
 				7AB7C8631EFD8D1B0088F55D /* ReactiveSwift.framework in Frameworks */,
@@ -445,6 +450,7 @@
 		7AD6DB561EFB549D00D2D50F = {
 			isa = PBXGroup;
 			children = (
+				7A46CBEA1F2195F400CD5E47 /* KeychainSwift.framework */,
 				7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */,
 				7A89C8B51F1A7F5A001ACFBA /* Nimble.framework */,
 				7A89C8B41F1A7F5A001ACFBA /* Quick.framework */,
@@ -490,6 +496,7 @@
 				7AD6DB691EFB549D00D2D50F /* Assets.xcassets */,
 				7AD6DB6B1EFB549D00D2D50F /* LaunchScreen.storyboard */,
 				7AD6DB6E1EFB549D00D2D50F /* Info.plist */,
+				7A46CBEC1F21978900CD5E47 /* Keys.swift */,
 			);
 			path = Loop;
 			sourceTree = "<group>";
@@ -782,6 +789,7 @@
 				7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */,
 				7A47C1161EFC80E600360F94 /* (null) in Sources */,
 				7A5937201EFD55F90011ED2E /* UIFont+LPAdditions.swift in Sources */,
+				7A46CBED1F21978900CD5E47 /* Keys.swift in Sources */,
 				7A21F9121F1AF03400A0F588 /* ConnectWithTwitterViewController.swift in Sources */,
 				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,

@@ -1,2 +1,3 @@
 github "reactivecocoa/reactivecocoa" "master"
 github "krzyzanowskim/CryptoSwift" "develop"
+github "evgenyneu/keychain-swift" "master"

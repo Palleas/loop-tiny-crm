@@ -2,6 +2,8 @@ import UIKit
 import LoopKit
 import ReactiveSwift
 import SafariServices
+import Result
+import KeychainSwift
 
 final class ConnectWithTwitterViewController: UIViewController {
     private let auth = TwitterAuthorization(
@@ -30,9 +32,16 @@ final class ConnectWithTwitterViewController: UIViewController {
 
                     disposable.observeEnded { session.cancel() }
                 }
-                .attemptMap { TwitterAuthorization.extractRequestTokenAndVerifier(with: $0) }
+                .attemptMap { TwitterAuthorization.extractRequestTokenAndVerifier(from: $0) }
                 .flatMap(.latest) { tokenResponse in
                     return self.auth.requestAccessToken(token: tokenResponse.token, verifier: tokenResponse.verifier)
+                }
+            }
+            .attempt { response in
+                return Result {
+                    let keychain = KeychainSwift()
+                    keychain.set(response.token, forKey: Keys.Twitter.oauthAccessToken)
+                    keychain.set(response.tokenSecret, forKey: Keys.Twitter.oauthAccessTokenSecret)
                 }
             }
             .startWithResult { result in
