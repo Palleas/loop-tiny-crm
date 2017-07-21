@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        TwitterAuthorization.completeAuthorization(with: url)
+        TwitterAuthorization.extractRequestTokenAndVerifier(with: url)
         return true
     }
 }

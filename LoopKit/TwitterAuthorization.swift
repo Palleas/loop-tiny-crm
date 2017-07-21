@@ -113,7 +113,7 @@ final public class TwitterAuthorization {
         return "OAuth \(header)"
     }
 
-    static public func completeAuthorization(with url: URL) -> Result<(token: String, verifier: String), Error> {
+    static public func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), Error> {
         guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             print("URL \(url) is invalid")
             return .failure(.invalidCompletionURL)
