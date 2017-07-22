@@ -23,19 +23,23 @@ public struct TwitterUser: Identifiable, Decodable {
 }
 
 extension TwitterUser {
-    static func search(for query: String) -> Request<[TwitterUser]> {
+    public static func search(for query: String) -> Request<[TwitterUser]> {
         return Request(
             method: .get,
-            path: "users/search",
-            items: [URLQueryItem(name: "q", value: query)],
+            path: "users/search.json",
+            items: [
+                URLQueryItem(name: "q", value: query),
+                URLQueryItem(name: "page", value: "1"),
+                URLQueryItem(name: "count", value: "10")
+            ],
             body: nil
         )
     }
 
-    static func requestToken() -> Request<Any> {
+    public static func verifyCredentials() -> Request<TwitterUser> {
         return Request(
-            method: .post,
-            path: "/oauth/request_token",
+            method: .get,
+            path: "account/verify_credentials.json",
             items: nil,
             body: nil
         )

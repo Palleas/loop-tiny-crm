@@ -11,7 +11,7 @@ final class ConnectWithTwitterViewController: UIViewController {
         consumerSecret: ProcessInfo.processInfo.environment["TWITTER_CONSUMER_SECRET"]!,
         callback: "loop://welcome")
 
-    var session: SFAuthenticationSession?
+    let token = Signal<AccessTokenResponse, NoError>.pipe()
 
     @IBAction func connect(id: UIButton) {
         auth.requestToken()
@@ -44,9 +44,10 @@ final class ConnectWithTwitterViewController: UIViewController {
                     keychain.set(response.tokenSecret, forKey: Keys.Twitter.oauthAccessTokenSecret)
                 }
             }
-            .startWithResult { result in
+            .startWithResult { [weak self] result in
                 switch result {
                 case let .success(token):
+                    self?.token.input.send(value: token)
                     print("We got the token \(token)")
                 case let .failure(error):
                     print("An error occured: \(error)")

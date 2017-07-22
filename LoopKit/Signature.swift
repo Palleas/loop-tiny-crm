@@ -36,9 +36,12 @@ struct Signature {
     func sign() throws -> String {
         let signatureItems = oauthRequest.all
 
+        var cleaned = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+        cleaned.query = nil
+
         // Collecting the request method and URL
         var signatureBaseString = method.rawValue
-        signatureBaseString += "&" + url.absoluteString.addingPercentEncodingForRFC3986()!
+        signatureBaseString += "&" + cleaned.string!.addingPercentEncodingForRFC3986()!
 
         // Collecting the request method and URL
         let allItems = signatureItems
