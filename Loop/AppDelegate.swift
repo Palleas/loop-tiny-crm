@@ -8,17 +8,20 @@
 
 import UIKit
 import LoopKit
+import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let coordinator = AppCoordinator()
+    private let coordinator = AppCoordinator(
+        consumerKey: ProcessInfo.processInfo.environment["TWITTER_CONSUMER_KEY"]!,
+        consumerSecret: ProcessInfo.processInfo.environment["TWITTER_CONSUMER_SECRET"]!
+    )
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         BuddyBuildSDK.setup()
-        
 
         let window = UIWindow()
         window.rootViewController = coordinator.controller
@@ -32,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().barTintColor = .white
 
-        let attributes: [String : Any] = [NSAttributedStringKey.font.rawValue: UIFont.lpNavigationBarFont()!]
+        let attributes: [NSAttributedStringKey : Any] = [.font: UIFont.lpNavigationBarFont()!]
         UINavigationBar.appearance().titleTextAttributes = attributes
 
         return true
