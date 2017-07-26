@@ -19,7 +19,7 @@ final class AppCoordinator {
         controller.viewControllers = [root]
 
         let auth = TwitterAuthorization(consumerKey: consumerKey, consumerSecret: consumerSecret, callback: "loop://welcome")
-        let flow = TwitterAuthenticationFlow(auth: auth)
+        let flow = TwitterAuthenticationFlow(auth: auth, signinRequest: SignInRequest(), keychain: KeychainSwift())
         flow.state.signal.logEvents().observeValues { print("State = \($0)") }
         flow.perform().startWithResult { print("Auth result \($0)") }
     }

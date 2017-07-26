@@ -2,15 +2,26 @@ import Foundation
 import ReactiveSwift
 import Result
 
-final public class TwitterAuthorization {
 
-    public enum Error: Swift.Error {
-        case signatureError
-        case requestError
-        case internalError
+public protocol TwitterAuthorizationType {
 
-        case invalidCompletionURL
-    }
+    func requestAccessToken(token: String, verifier: String) -> SignalProducer<AccessTokenResponse, TwitterAuthorizationError>
+
+    func requestToken() -> SignalProducer<TokenResponse, TwitterAuthorizationError>
+
+    static func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), TwitterAuthorizationError>
+}
+
+public enum TwitterAuthorizationError: Swift.Error {
+    case signatureError
+    case requestError
+    case internalError
+
+    case invalidCompletionURL
+}
+
+final public class TwitterAuthorization: TwitterAuthorizationType {
+
 
     private let consumerKey: String
     private let consumerSecret: String
@@ -18,7 +29,7 @@ final public class TwitterAuthorization {
     private let tokenProvider: TokenProviderProtocol
     private let callback: String
 
-    public static let completion = Signal<(token: String, verifier: String), Error>.pipe()
+    public static let completion = Signal<(token: String, verifier: String), TwitterAuthorizationError>.pipe()
 
     public init(consumerKey: String, consumerSecret: String, clock: ClockProtocol = Clock(), tokenProvider: TokenProviderProtocol = TokenProvider(), callback: String) {
         self.consumerKey = consumerKey
@@ -28,17 +39,17 @@ final public class TwitterAuthorization {
         self.callback = callback
     }
 
-    public func requestToken() -> SignalProducer<TokenResponse, Error> {
+    public func requestToken() -> SignalProducer<TokenResponse, TwitterAuthorizationError> {
         return SignalProducer(result: createRequest(path: "oauth/request_token"))
-            .mapError { _ in Error.signatureError }
+            .mapError { _ in TwitterAuthorizationError.signatureError }
             .flatMap(.latest) { request in
-                return URLSession.shared.reactive.data(with: request).mapError { _ in Error.requestError }
+                return URLSession.shared.reactive.data(with: request).mapError { _ in TwitterAuthorizationError.requestError }
             }
-            .attemptMap { arg -> Result<TokenResponse, Error> in
+            .attemptMap { arg -> Result<TokenResponse, TwitterAuthorizationError> in
                 let (data, response) = arg
 
                 guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
-                    return Result(error: Error.internalError)
+                    return Result(error: TwitterAuthorizationError.internalError)
                 }
 
                 return Result {
@@ -48,17 +59,17 @@ final public class TwitterAuthorization {
             }
     }
 
-    public func requestAccessToken(token: String, verifier: String) -> SignalProducer<AccessTokenResponse, Error> {
+    public func requestAccessToken(token: String, verifier: String) -> SignalProducer<AccessTokenResponse, TwitterAuthorizationError> {
         return SignalProducer(result: createRequest(path: "oauth/access_token", token: token, verifier: verifier))
-            .mapError { _ in Error.signatureError }
+            .mapError { _ in TwitterAuthorizationError.signatureError }
             .flatMap(.latest) { request in
-                return URLSession.shared.reactive.data(with: request).mapError { _ in Error.requestError }
+                return URLSession.shared.reactive.data(with: request).mapError { _ in TwitterAuthorizationError.requestError }
         }
-        .attemptMap { arg -> Result<AccessTokenResponse, Error> in
+        .attemptMap { arg -> Result<AccessTokenResponse, TwitterAuthorizationError> in
             let (data, response) = arg
 
             guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
-                return Result(error: Error.internalError)
+                return Result(error: TwitterAuthorizationError.internalError)
             }
 
             return Result {
@@ -113,7 +124,7 @@ final public class TwitterAuthorization {
         return "OAuth \(header)"
     }
 
-    static public func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), Error> {
+    static public func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), TwitterAuthorizationError> {
         guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             print("URL \(url) is invalid")
             return .failure(.invalidCompletionURL)

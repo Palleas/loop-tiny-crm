@@ -11,7 +11,7 @@ protocol Keychain {
 }
 
 enum TwitterAuthenticationFlowError: Swift.Error {
-    case authorizationError(TwitterAuthorization.Error)
+    case authorizationError(TwitterAuthorizationError)
     case internalError
     case keychainError(OSStatus)
     case noCredentialsInKeychain
@@ -27,12 +27,16 @@ final class TwitterAuthenticationFlow {
         case savingInKeychain
     }
 
-    private let auth: TwitterAuthorization
+    private let auth: TwitterAuthorizationType
+    private let signinRequest: SigninRequestType
+    private let keychain: KeychainType
 
     let state = MutableProperty<State>(.notStarted)
 
-    init(auth: TwitterAuthorization) {
+    init(auth: TwitterAuthorizationType, signinRequest: SigninRequestType, keychain: KeychainType) {
         self.auth = auth
+        self.signinRequest = signinRequest
+        self.keychain = keychain
     }
 
     func perform() -> SignalProducer<(token: String, secret: String), TwitterAuthenticationFlowError> {
@@ -83,8 +87,7 @@ final class TwitterAuthenticationFlow {
     }
 
     func requestSignIn(with url: URL) -> SignalProducer<(token: String, verifier: String), TwitterAuthenticationFlowError> {
-        let request = SignInRequest()
-        return request.perform(with: url)
+        return signinRequest.perform(with: url)
             .on(starting: { [weak self] in self?.state.swap(.requestingSignIn) })
             .attemptMap { url in
                 return TwitterAuthorization.extractRequestTokenAndVerifier(from: url)
@@ -100,7 +103,26 @@ final class TwitterAuthenticationFlow {
     }
 }
 
-struct SignInRequest {
+protocol KeychainType {
+    func set(_ value: String, forKey name: String) -> Bool
+    func get(_ key: String) -> String?
+}
+
+extension KeychainSwift: KeychainType {
+
+    func set(_ value: String, forKey name: String) -> Bool {
+        return set(value, forKey: name, withAccess: nil)
+    }
+
+}
+
+protocol SigninRequestType {
+
+    func perform(with url: URL) -> SignalProducer<URL, TwitterAuthenticationFlowError>
+
+}
+
+struct SignInRequest: SigninRequestType {
 
     func perform(with url: URL) -> SignalProducer<URL, TwitterAuthenticationFlowError> {
         return SignalProducer { sink, disposable in
