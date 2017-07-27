@@ -90,7 +90,7 @@ final class TwitterAuthenticationFlow {
         return signinRequest.perform(with: url)
             .on(starting: { [weak self] in self?.state.swap(.requestingSignIn) })
             .attemptMap { url in
-                return TwitterAuthorization.extractRequestTokenAndVerifier(from: url)
+                return extractRequestTokenAndVerifier(from: url)
                     .mapError { TwitterAuthenticationFlowError.authorizationError($0) }
             }
     }

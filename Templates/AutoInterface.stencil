@@ -18,4 +18,18 @@ import Result
 
 extension {{ type.name }}: {{ protoName }} {}
 
+struct Mock{{ protoName }} {
+
+	{% for m in type.methods %}{% if not m.isInitializer and m.accessLevel == 'public' %}
+	{% set returnName %}{{ m.actualReturnTypeName }}{% endset %}
+	{% set returnValueName %}{{ m.callName }}ReturnValue {% endset %}
+
+	let {{ returnValueName }}: {{ returnName | replace:"SignalProducer","Result" }}
+
+	func {{ m.name }} -> {{ m.actualReturnTypeName }} {
+		return SignalProducer(result: {{ returnValueName }})
+	}
+
+	{% endif %}{% endfor %}
+}
 {% endfor %}

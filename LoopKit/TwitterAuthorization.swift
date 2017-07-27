@@ -112,22 +112,22 @@ final public class TwitterAuthorization {
         return "OAuth \(header)"
     }
 
-    static public func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), TwitterAuthorizationError> {
-        guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            print("URL \(url) is invalid")
-            return .failure(.invalidCompletionURL)
-        }
+}
 
-        guard
-            let token = comps.queryItems?.first(where: { $0.name == "oauth_token" })?.value,
-            let verifier = comps.queryItems?.first(where: { $0.name == "oauth_verifier"})?.value else {
-            print("Completion URL doesn't have token and/or verifier")
-            return .failure(.invalidCompletionURL)
-        }
-
-        return .success((token: token, verifier: verifier))
+public func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), TwitterAuthorizationError> {
+    guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+        print("URL \(url) is invalid")
+        return .failure(.invalidCompletionURL)
     }
 
+    guard
+        let token = comps.queryItems?.first(where: { $0.name == "oauth_token" })?.value,
+        let verifier = comps.queryItems?.first(where: { $0.name == "oauth_verifier"})?.value else {
+            print("Completion URL doesn't have token and/or verifier")
+            return .failure(.invalidCompletionURL)
+    }
+
+    return .success((token: token, verifier: verifier))
 }
 
 // sourcery: AutoInterface=TwitterAuthorizationType
