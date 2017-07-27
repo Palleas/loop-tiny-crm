@@ -1,5 +1,6 @@
 sources:
     - LoopKit
+    - Loop
 templates:
     - Templates
 output: LoopKit/Generated

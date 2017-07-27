@@ -2,16 +2,6 @@ import Foundation
 import ReactiveSwift
 import Result
 
-
-public protocol TwitterAuthorizationType {
-
-    func requestAccessToken(token: String, verifier: String) -> SignalProducer<AccessTokenResponse, TwitterAuthorizationError>
-
-    func requestToken() -> SignalProducer<TokenResponse, TwitterAuthorizationError>
-
-    static func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), TwitterAuthorizationError>
-}
-
 public enum TwitterAuthorizationError: Swift.Error {
     case signatureError
     case requestError
@@ -20,7 +10,7 @@ public enum TwitterAuthorizationError: Swift.Error {
     case invalidCompletionURL
 }
 
-final public class TwitterAuthorization: TwitterAuthorizationType {
+final public class TwitterAuthorization {
 
 
     private let consumerKey: String
@@ -28,8 +18,6 @@ final public class TwitterAuthorization: TwitterAuthorizationType {
     private let clock: ClockProtocol
     private let tokenProvider: TokenProviderProtocol
     private let callback: String
-
-    public static let completion = Signal<(token: String, verifier: String), TwitterAuthorizationError>.pipe()
 
     public init(consumerKey: String, consumerSecret: String, clock: ClockProtocol = Clock(), tokenProvider: TokenProviderProtocol = TokenProvider(), callback: String) {
         self.consumerKey = consumerKey
@@ -141,4 +129,7 @@ final public class TwitterAuthorization: TwitterAuthorizationType {
     }
 
 }
+
+// sourcery: AutoInterface=TwitterAuthorizationType
+extension TwitterAuthorization: AutoInterface {}
 

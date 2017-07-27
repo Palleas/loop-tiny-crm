@@ -1,0 +1,21 @@
+import Foundation
+import ReactiveSwift
+import Result
+
+{% for type in types.implementing.AutoInterface %}
+{% set protoName %}{% if type.annotations.AutoInterface %}{{type.annotations.AutoInterface}}{% else %}{{ type.annotations.AutoInterfacePrefix|default:"I" }}{{ type.localName }}{{ type.annotations.AutoInterfaceSuffix }}{% endif %}{% endset %}
+
+// MARK: {{ protoName }}
+
+{{ type.accessLevel }} protocol {{ protoName }} {
+	{% for p in type.variables %}{% if p.readAccess != 'private' %}
+	var {{ p.name }}: {{ p.actualTypeName }} { get{% if p.isMutable %} set{% endif %} }
+	{% endif %}{% endfor %}
+	{% for m in type.methods %}{% if not m.isInitializer and m.accessLevel == 'public' %}
+	{% if m.isStatic %}{{ "static " }}{% endif %}func {{ m.name }} -> {{ m.actualReturnTypeName }}
+	{% endif %}{% endfor %}
+}
+
+extension {{ type.name }}: {{ protoName }} {}
+
+{% endfor %}
