@@ -3,12 +3,17 @@ import ReactiveSwift
 import KeychainSwift
 import LoopKit
 
-final class AppCoordinator {
+protocol Coordinator {
+    func start()
+}
 
+final class AppCoordinator: Coordinator {
+    // TODO: use transition instead of NVC
     let controller = UINavigationController()
     let consumerKey: String
     let consumerSecret: String
-
+    private var children = [Coordinator]()
+    
     init(consumerKey: String, consumerSecret: String) {
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
@@ -20,7 +25,28 @@ final class AppCoordinator {
 
         let auth = TwitterAuthorization(consumerKey: consumerKey, consumerSecret: consumerSecret, callback: "loop://welcome")
         let flow = TwitterAuthenticationFlow(auth: auth, signinRequest: SignInRequest(), keychain: KeychainSwift())
-        flow.state.signal.logEvents().observeValues { print("State = \($0)") }
-        flow.perform().startWithResult { print("Auth result \($0)") }
+        flow.perform().startWithResult { [weak self] result in
+            // FIXME OMG
+            guard let `self` = self else { return }
+
+            switch result {
+            case let .success(credentials):
+                let credentials = Credentials(consumerKey: self.consumerKey, consumerSecret: self.consumerSecret, token: credentials.token, tokenSecret: credentials.secret)
+                let twitter = Twitter(
+                    credentials: credentials,
+                    clock: Clock(),
+                    tokenProvider: TokenProvider()
+                )
+
+                let child = AddLeadCoordinator(client: twitter)
+                self.controller.viewControllers = [child.controller]
+                child.start()
+
+                self.children.append(child)
+            case .failure:
+                BuddyBuildSDK.crash()
+            }
+
+        }
     }
 }
