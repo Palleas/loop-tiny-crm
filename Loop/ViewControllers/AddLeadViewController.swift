@@ -16,47 +16,30 @@ final class AddLeadViewController: UIViewController {
         return SignalProducer<Source, NoError>(value: value)
     }
 
+    @IBOutlet weak var userList: UICollectionView!
     var twitterAction: CocoaAction<SourceSelector>!
     var client: Twitter?
     let source = MutableProperty(Source.twitter)
 
+    private var users = [TwitterUser]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let mainView = view as! AddLeadView
-//
-//        twitterAction = CocoaAction(selectTwitter, { button -> Source in
-//            if button === mainView.twitter {
-//                return .twitter
-//            }
-//
-//            return .mail
-//        })
-//
-//        mainView.twitter.addTarget(twitterAction, action: CocoaAction<SourceSelector>.selector, for: .touchUpInside)
-//        mainView.mail.addTarget(twitterAction, action: CocoaAction<SourceSelector>.selector, for: .touchUpInside)
-//
-//        mainView.twitter.reactive.isSelected <~ source.producer.map { $0 == .twitter }
-//        mainView.mail.reactive.isSelected <~ source.producer.map { $0 == .mail }
-//
-//        source <~ selectTwitter.values
-
-//        searchField.reactive.continuousTextValues.flatMap(.latest) { query -> SignalProducerConvertible in
-//            guard let client = client else { return .empty }
-//        }
-//        SignalProducer.combineLatest(source.producer, searchField.reactive.continuousTextValues)
-//            .flatMap(FlattenStrategy.merge) { arg in
-//                let (source, query) = arg
-//                print("Source = \(source)")
-//                print("Query = \(query)")
-//            }
-
-        let twitterUsers = searchField.reactive.continuousTextValues
+        searchField.reactive.continuousTextValues
             .throttle(1, on: QueueScheduler.main)
             .flatMap(.latest, self.search)
             .observe(on: UIScheduler())
-            .observeResult { result in
+            .observeResult { [weak self] result in
                 print("Result = \(result)")
+                guard case let .success(users) = result else {
+                    print("An error occured while fetching the users")
+                    return
+                }
+
+                self?.users = users
+                self?.userList.reloadData()
+
             }
     }
 
@@ -68,3 +51,37 @@ final class AddLeadViewController: UIViewController {
     }
 
 }
+
+extension AddLeadViewController: UICollectionViewDelegate {}
+
+extension AddLeadViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return users.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
+
+        // load image
+        let user = users[indexPath.row]
+        if let url = user.profileImage {
+            // ensure HTTPs
+            var comps = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            comps?.scheme = "https"
+
+            let request = URLRequest(url: comps!.url!)
+            URLSession.shared.reactive
+                .data(with: request)
+                .take(until: cell.reactive.prepareForReuse)
+                .flatMapError { _ in SignalProducer<(Data, URLResponse), NoError>.empty }
+                .map { $0.0 }
+                .observe(on: UIScheduler())
+                .startWithValues { cell.avatar.image = UIImage(data: $0) }
+        }
+
+        cell.displayName.text = "\(user.name) \(user.screenName)"
+
+        return cell
+    }
+}
+
