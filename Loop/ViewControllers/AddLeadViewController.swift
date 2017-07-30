@@ -52,7 +52,15 @@ final class AddLeadViewController: UIViewController {
 
 }
 
-extension AddLeadViewController: UICollectionViewDelegate {}
+extension AddLeadViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: userList.frame.width, height: 45)
+    }
+}
+
+extension AddLeadViewController: UICollectionViewDelegate {
+    
+}
 
 extension AddLeadViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,9 +87,23 @@ extension AddLeadViewController: UICollectionViewDataSource {
                 .startWithValues { cell.avatar.image = UIImage(data: $0) }
         }
 
-        cell.displayName.text = "\(user.name) \(user.screenName)"
+        cell.displayName.attributedText = createUserAttributedText(name: user.name, screenName: user.screenName)
 
         return cell
     }
+}
+
+func createUserAttributedText(name: String, screenName: String) -> NSAttributedString {
+    let string = NSMutableAttributedString(string: name, attributes: [
+        .font: UIFont(name: "SourceSansPro-SemiBold", size: 16)!,
+        .foregroundColor: UIColor.lpBlack
+    ])
+
+    string.append(NSAttributedString(string: " @\(screenName)", attributes: [
+        .font: UIFont(name: "SourceSansPro-Light", size: 16)!,
+        .foregroundColor: UIColor.lpBlack
+    ]))
+
+    return string
 }
 

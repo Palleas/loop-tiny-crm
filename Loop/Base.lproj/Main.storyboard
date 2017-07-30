@@ -80,12 +80,12 @@
                                         <rect key="frame" x="8" y="21" width="319" height="32"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter" returnKeyType="search"/>
                                     </textField>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pab-SK-ypy">
                                         <rect key="frame" x="8" y="68" width="319" height="393.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hY2-tr-pLI">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="hY2-tr-pLI">
                                             <size key="itemSize" width="181" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -100,14 +100,14 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-3G-AFq">
-                                                            <rect key="frame" x="5" y="7.5" width="35" height="35"/>
+                                                            <rect key="frame" x="0.0" y="7.5" width="35" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="ely-s7-UCf"/>
                                                                 <constraint firstAttribute="height" constant="35" id="pUg-cN-mDA"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amy Pond @theRealAmy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-3F-pW5">
-                                                            <rect key="frame" x="45" y="14" width="120" height="21"/>
+                                                            <rect key="frame" x="50" y="14" width="115" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -115,8 +115,8 @@
                                                     </subviews>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="aCr-3F-pW5" firstAttribute="leading" secondItem="GcP-3G-AFq" secondAttribute="trailing" constant="5" id="SVM-ZJ-Qfj"/>
-                                                    <constraint firstItem="GcP-3G-AFq" firstAttribute="leading" secondItem="zJr-QI-h8e" secondAttribute="leading" constant="5" id="e2n-UX-Xkw"/>
+                                                    <constraint firstItem="aCr-3F-pW5" firstAttribute="leading" secondItem="GcP-3G-AFq" secondAttribute="trailing" constant="15" id="SVM-ZJ-Qfj"/>
+                                                    <constraint firstItem="GcP-3G-AFq" firstAttribute="leading" secondItem="zJr-QI-h8e" secondAttribute="leading" id="e2n-UX-Xkw"/>
                                                     <constraint firstItem="aCr-3F-pW5" firstAttribute="centerY" secondItem="zJr-QI-h8e" secondAttribute="centerY" id="gl7-WO-C54"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="aCr-3F-pW5" secondAttribute="trailing" id="jbd-vp-6vh"/>
                                                     <constraint firstItem="GcP-3G-AFq" firstAttribute="centerY" secondItem="zJr-QI-h8e" secondAttribute="centerY" id="qMH-PM-8M8"/>
