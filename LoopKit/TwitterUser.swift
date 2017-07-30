@@ -30,7 +30,7 @@ extension TwitterUser {
             items: [
                 URLQueryItem(name: "q", value: query),
                 URLQueryItem(name: "page", value: "1"),
-                URLQueryItem(name: "count", value: "10")
+                URLQueryItem(name: "count", value: "20")
             ],
             body: nil
         )

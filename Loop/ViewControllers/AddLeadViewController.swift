@@ -26,21 +26,6 @@ final class AddLeadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchField.reactive.continuousTextValues
-            .throttle(1, on: QueueScheduler.main)
-            .flatMap(.latest, self.search)
-            .observe(on: UIScheduler())
-            .observeResult { [weak self] result in
-                print("Result = \(result)")
-                guard case let .success(users) = result else {
-                    print("An error occured while fetching the users")
-                    return
-                }
-
-                self?.users = users
-                self?.userList.reloadData()
-
-            }
     }
 
     func search(for query: String?) -> SignalProducer<[TwitterUser], Twitter.Error> {
@@ -56,6 +41,29 @@ extension AddLeadViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: userList.frame.width, height: 45)
     }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchHeader", for: indexPath) as! SearchHeader
+
+        view.searchField.reactive.continuousTextValues
+            .filter { ($0?.count ?? 0) > 3 }
+            .take(until: view.reactive.prepareForReuse)
+            .throttle(1, on: QueueScheduler.main)
+            .flatMap(.latest, self.search)
+            .observe(on: UIScheduler())
+            .observeResult { [weak self] result in
+                guard case let .success(users) = result else {
+                    print("An error occured while fetching the users")
+                    return
+                }
+
+                self?.users = users
+                self?.userList.reloadData()
+
+            }
+
+        return view
+    }
 }
 
 extension AddLeadViewController: UICollectionViewDelegate {
@@ -63,6 +71,8 @@ extension AddLeadViewController: UICollectionViewDelegate {
 }
 
 extension AddLeadViewController: UICollectionViewDataSource {
+    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count
     }
