@@ -12,6 +12,6 @@ final class AddLeadCoordinator: Coordinator {
     }
 
     func start() {
-
+        controller.client = client
     }
 }
