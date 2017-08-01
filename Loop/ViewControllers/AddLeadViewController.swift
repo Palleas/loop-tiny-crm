@@ -12,6 +12,7 @@ final class AddLeadViewController: UIViewController {
     
     @IBOutlet weak var searchField: UITextField!
 
+    @IBOutlet weak var userListBottomConstraint: NSLayoutConstraint!
     let selectTwitter = Action<Source, Source, NoError> { value in
         return SignalProducer<Source, NoError>(value: value)
     }
@@ -23,31 +24,13 @@ final class AddLeadViewController: UIViewController {
 
     private var users = [TwitterUser]()
 
+    private var keyboardNotifications: Disposable?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-
-    func search(for query: String?) -> SignalProducer<[TwitterUser], Twitter.Error> {
-        guard let client = client, let query = query, !query.isEmpty else { return .empty }
-
-        let request = TwitterUser.search(for: query)
-        return client.execute(request)
-    }
-
-}
-
-extension AddLeadViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: userList.frame.width, height: 45)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchHeader", for: indexPath) as! SearchHeader
-
-        view.searchField.reactive.continuousTextValues
+        searchField.reactive.continuousTextValues
             .filter { ($0?.count ?? 0) > 3 }
-            .take(until: view.reactive.prepareForReuse)
             .throttle(1, on: QueueScheduler.main)
             .flatMap(.latest, self.search)
             .observe(on: UIScheduler())
@@ -62,7 +45,42 @@ extension AddLeadViewController: UICollectionViewDelegateFlowLayout {
 
             }
 
-        return view
+        let center = NotificationCenter.default.reactive
+        keyboardNotifications = Signal.merge(
+            center.notifications(forName: .UIKeyboardWillChangeFrame),
+            center.notifications(forName: .UIKeyboardWillHide),
+            center.notifications(forName: .UIKeyboardWillShow)
+        )
+            .map(parse)
+            .observe(on: UIScheduler())
+            .observeValues { [weak self] args in
+                if let (keyboardHeight, animationDuration, animationOptions) = args {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: animationOptions, animations: {
+                        self?.userListBottomConstraint.constant = keyboardHeight
+                    }, completion: nil)
+                } else {
+                    self?.userListBottomConstraint.constant = 0
+                }
+            }
+    }
+
+    func search(for query: String?) -> SignalProducer<[TwitterUser], Twitter.Error> {
+        guard let client = client, let query = query, !query.isEmpty else { return .empty }
+
+        let request = TwitterUser.search(for: query)
+        return client.execute(request)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        keyboardNotifications?.dispose()
+    }
+}
+
+extension AddLeadViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: userList.frame.width, height: 45)
     }
 }
 

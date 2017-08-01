@@ -1,6 +1,6 @@
 import Foundation
 
-final class SearchHeader: UICollectionReusableView {
+final class SearchHeader: UIView {
 
     @IBOutlet weak var searchField: UITextField!
 }
