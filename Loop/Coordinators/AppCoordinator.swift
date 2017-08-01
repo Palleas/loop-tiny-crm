@@ -9,7 +9,7 @@ protocol Coordinator {
 
 final class AppCoordinator: Coordinator {
     // TODO: use transition instead of NVC
-    let controller = UINavigationController()
+    let controller = ContainerViewController()
     let consumerKey: String
     let consumerSecret: String
     private var children = [Coordinator]()
@@ -20,11 +20,14 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-        let root = StoryboardScene.Main.addLeadScene.viewController()
-        controller.viewControllers = [root]
+        let auth = TwitterAuthorization(
+            consumerKey: consumerKey,
+            consumerSecret: consumerSecret,
+            callback: "loop://welcome"
+        )
 
-        let auth = TwitterAuthorization(consumerKey: consumerKey, consumerSecret: consumerSecret, callback: "loop://welcome")
         let flow = TwitterAuthenticationFlow(auth: auth, signinRequest: SignInRequest(), keychain: KeychainSwift())
+
         flow.perform().startWithResult { [weak self] result in
             // FIXME OMG
             guard let `self` = self else { return }
@@ -39,7 +42,7 @@ final class AppCoordinator: Coordinator {
                 )
 
                 let child = AddLeadCoordinator(client: twitter)
-                self.controller.viewControllers = [child.controller]
+                self.controller.transition(to: child.controller)
                 child.start()
 
                 self.children.append(child)

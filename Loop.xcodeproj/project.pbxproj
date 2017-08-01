@@ -52,6 +52,7 @@
 		7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11F1EFC826B00360F94 /* AppCoordinator.swift */; };
 		7A47C1241EFC838300360F94 /* AddLeadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */; };
 		7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C1191EFC824A00360F94 /* AddLeadView.swift */; };
+		7A4BC8C11F31336B00C2766E /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BC8C01F31336B00C2766E /* ContainerViewController.swift */; };
 		7A5937011EFD54980011ED2E /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5936FF1EFD54910011ED2E /* Assets.swift */; };
 		7A5937021EFD549B0011ED2E /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5937001EFD54910011ED2E /* Storyboards.swift */; };
 		7A59371F1EFD55F90011ED2E /* UIColor+LPAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59371E1EFD55F50011ED2E /* UIColor+LPAdditions.swift */; };
@@ -220,6 +221,7 @@
 		7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadCoordinator.swift; sourceTree = "<group>"; };
 		7A47C11F1EFC826B00360F94 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7A47C1211EFC829700360F94 /* SourceSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelector.swift; sourceTree = "<group>"; };
+		7A4BC8C01F31336B00C2766E /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		7A5936FF1EFD54910011ED2E /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		7A5937001EFD54910011ED2E /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		7A59371D1EFD55F50011ED2E /* UIFont+LPAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+LPAdditions.swift"; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */,
+				7A4BC8C01F31336B00C2766E /* ContainerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				7A403D201F2E736C004A5476 /* SearchHeader.swift in Sources */,
 				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,
+				7A4BC8C11F31336B00C2766E /* ContainerViewController.swift in Sources */,
 				7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */,
 				7AD6DB631EFB549D00D2D50F /* AppDelegate.swift in Sources */,
 				7A3398111F300C0C00BFEE4A /* Keyboard.swift in Sources */,

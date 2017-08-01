@@ -3,6 +3,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 import LoopKit
+import os.log
 
 final class AddLeadViewController: UIViewController {
     enum Source {
@@ -13,17 +14,20 @@ final class AddLeadViewController: UIViewController {
     @IBOutlet weak var searchField: UITextField!
 
     @IBOutlet weak var userListBottomConstraint: NSLayoutConstraint!
+
     let selectTwitter = Action<Source, Source, NoError> { value in
         return SignalProducer<Source, NoError>(value: value)
     }
 
     @IBOutlet weak var userList: UICollectionView!
+
     var twitterAction: CocoaAction<SourceSelector>!
     var client: Twitter?
     let source = MutableProperty(Source.twitter)
 
-    private var users = [TwitterUser]()
+    let didSelect = Signal<TwitterUser, NoError>.pipe()
 
+    private var users = [TwitterUser]()
     private var keyboardNotifications: Disposable?
 
     override func viewDidLoad() {
@@ -85,7 +89,14 @@ extension AddLeadViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension AddLeadViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.row < users.count else {
+            os_log("Invalid indexpath %@", log: .default, type: .error, [indexPath])
+            return
+        }
+
+        didSelect.input.send(value: users[indexPath.row])
+    }
 }
 
 extension AddLeadViewController: UICollectionViewDataSource {
