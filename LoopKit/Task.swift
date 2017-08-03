@@ -1,7 +1,7 @@
 import Foundation
 
 /// Represents a task to be completed
-enum Task {
+enum Task: String {
     case call
     case coffee
     case tshirt
@@ -12,3 +12,5 @@ enum Task {
     case priority
     case partnership
 }
+
+extension Task: AutoList {}
