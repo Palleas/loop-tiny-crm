@@ -113,7 +113,7 @@
 		7AD6DBAA1EFB54AF00D2D50F /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD6DB951EFB54AF00D2D50F /* LoopKit.framework */; };
 		7AD6DBAB1EFB54AF00D2D50F /* LoopKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD6DB951EFB54AF00D2D50F /* LoopKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7AD6DBB41EFB54E900D2D50F /* Lead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DBB31EFB54E900D2D50F /* Lead.swift */; };
-		7AD6DBB61EFB562000D2D50F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DBB51EFB562000D2D50F /* Task.swift */; };
+		7AD6DBB61EFB562000D2D50F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DBB51EFB562000D2D50F /* Activity.swift */; };
 		9390D181CDEA5AA103DD86FD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5372E0E42BCF07F45F6071B1 /* QuartzCore.framework */; };
 		A01A20CE9DAFE20A27A93FAF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE26D277CE3B1E43F0F4CF3 /* CoreTelephony.framework */; };
 		BCFC06C2AF0489824530BCA4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA3DE2B3CD51F15E84BF879 /* AssetsLibrary.framework */; };
@@ -292,7 +292,7 @@
 		7AD6DB9D1EFB54AF00D2D50F /* LoopKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD6DBA61EFB54AF00D2D50F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AD6DBB31EFB54E900D2D50F /* Lead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lead.swift; sourceTree = "<group>"; };
-		7AD6DBB51EFB562000D2D50F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		7AD6DBB51EFB562000D2D50F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8614704B9D58F6D14BB7E206 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		98CBA26AB3D47FE96EF433E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EBA3DE2B3CD51F15E84BF879 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -580,7 +580,7 @@
 				7AD6DB971EFB54AF00D2D50F /* LoopKit.h */,
 				7AD6DB981EFB54AF00D2D50F /* Info.plist */,
 				7AD6DBB31EFB54E900D2D50F /* Lead.swift */,
-				7AD6DBB51EFB562000D2D50F /* Task.swift */,
+				7AD6DBB51EFB562000D2D50F /* Activity.swift */,
 				7A5DA7711EFD9C330013BF40 /* Twitter.swift */,
 				7A10F4D61EFDD7B6006EC7AB /* Clock.swift */,
 				7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */,
@@ -887,7 +887,7 @@
 				7A89C8BA1F1A8245001ACFBA /* TwitterAuthorization.swift in Sources */,
 				7A89C8B11F1A77E6001ACFBA /* TokenResponse.swift in Sources */,
 				7A8866171F1840C8000668BF /* Sourcery.swift in Sources */,
-				7AD6DBB61EFB562000D2D50F /* Task.swift in Sources */,
+				7AD6DBB61EFB562000D2D50F /* Activity.swift in Sources */,
 				7A10F4DD1EFDD8D0006EC7AB /* Status.swift in Sources */,
 				7A5DA7721EFD9C330013BF40 /* Twitter.swift in Sources */,
 				7A46CBE71F21529B00CD5E47 /* AccessTokenResponse.swift in Sources */,

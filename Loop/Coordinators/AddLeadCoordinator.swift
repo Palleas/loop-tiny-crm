@@ -19,7 +19,9 @@ final class AddLeadCoordinator: Coordinator {
 
         search.didSelect.output
             .observe(on: UIScheduler())
-            .observeValues { selectedUser in
+            .observeValues { [weak self] selectedUser in
+                let controller = StoryboardScene.Main.instantiateSelectActivity()
+                self?.controller.pushViewController(controller, animated: true)
                 print("Selected = \(selectedUser)")
         }
     }

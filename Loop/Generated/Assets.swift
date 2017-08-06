@@ -43,6 +43,17 @@ struct AssetType: ExpressibleByStringLiteral {
 
 // swiftlint:disable type_body_length
 enum Asset {
+  enum Activities {
+    static let apartment: AssetType = "apartment"
+    static let bubble: AssetType = "bubble"
+    static let coffeeCup: AssetType = "coffee-cup"
+    static let envelope: AssetType = "envelope"
+    static let magicWand: AssetType = "magic-wand"
+    static let phoneHandset: AssetType = "phone-handset"
+    static let shirt: AssetType = "shirt"
+    static let star: AssetType = "star"
+    static let user: AssetType = "user"
+  }
   static let envelope: AssetType = "envelope"
   static let logo: AssetType = "logo"
   static let shape: AssetType = "shape"

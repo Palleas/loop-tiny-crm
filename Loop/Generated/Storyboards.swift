@@ -54,13 +54,19 @@ enum StoryboardScene {
       }
       return vc
     }
+
+    case selectActivityScene = "SelectActivity"
+    static func instantiateSelectActivity() -> Loop.SelectActivityViewController {
+      guard let vc = StoryboardScene.Main.selectActivityScene.viewController() as? Loop.SelectActivityViewController
+      else {
+        fatalError("ViewController 'SelectActivity' is not of the expected class Loop.SelectActivityViewController.")
+      }
+      return vc
+    }
   }
 }
 
 enum StoryboardSegue {
-  enum Main: String, StoryboardSegueType {
-    case userSearch = "UserSearch"
-  }
 }
 
 private final class BundleToken {}
