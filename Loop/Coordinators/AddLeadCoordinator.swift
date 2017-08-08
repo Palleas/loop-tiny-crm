@@ -21,9 +21,20 @@ final class AddLeadCoordinator: Coordinator {
         search.didSelect.output
             .observe(on: UIScheduler())
             .flatMap(.latest, self.presentSelectActivity)
+            // TODO: Squeeze local saving here
+            .flatMap(.latest, self.presentConfirmation)
             .observeValues { selectedUser in
                 print("Selected = \(selectedUser)")
             }
+    }
+
+    func presentConfirmation(user: TwitterUser, activities: [Activity]) -> Signal<(TwitterUser, [Activity]), NoError> {
+        let confirmation = StoryboardScene.Main.instantiateLeadConfirmation()
+        confirmation.viewModel.swap(LeadViewModel(username: user.name, fullname: user.screenName, avatar: user.profileImage, activities: activities))
+
+        controller.pushViewController(confirmation, animated: true)
+        
+        return confirmation.didConfirm.output.map { (user, activities) }
     }
 
     func presentSelectActivity(user: TwitterUser) -> Signal<(TwitterUser, [Activity]), NoError> {

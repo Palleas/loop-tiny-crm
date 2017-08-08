@@ -75,6 +75,8 @@
 		7A7A08B31F23A89C0006EF3E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A89C8B51F1A7F5A001ACFBA /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A7A08B41F23A89C0006EF3E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A89C8B41F1A7F5A001ACFBA /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A8390441F23B07B0010AA3F /* TwitterAuthenticationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8390431F23B07B0010AA3F /* TwitterAuthenticationFlow.swift */; };
+		7A8796EB1F39560900DA5D09 /* LeadConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8796EA1F39560900DA5D09 /* LeadConfirmationViewController.swift */; };
+		7A8796ED1F39574800DA5D09 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8796EC1F39574800DA5D09 /* ActivityCell.xib */; };
 		7A8866141F1840B6000668BF /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88660C1F1825C0000668BF /* TwitterUser.swift */; };
 		7A8866151F1840C0000668BF /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88660B1F1825C0000668BF /* Identifiable.swift */; };
 		7A8866161F1840C8000668BF /* BodyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88660D1F1825C0000668BF /* BodyDecodable.swift */; };
@@ -239,6 +241,8 @@
 		7A5DA7751EFD9F350013BF40 /* TwitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTests.swift; sourceTree = "<group>"; };
 		7A61974F1F16FEFF009ED947 /* SignatureSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureSpec.swift; sourceTree = "<group>"; };
 		7A8390431F23B07B0010AA3F /* TwitterAuthenticationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthenticationFlow.swift; sourceTree = "<group>"; };
+		7A8796EA1F39560900DA5D09 /* LeadConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadConfirmationViewController.swift; sourceTree = "<group>"; };
+		7A8796EC1F39574800DA5D09 /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 		7A88660A1F1825C0000668BF /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		7A88660B1F1825C0000668BF /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		7A88660C1F1825C0000668BF /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
@@ -383,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				7A47C1181EFC824A00360F94 /* Leads */,
+				7A8796EC1F39574800DA5D09 /* ActivityCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 				7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */,
 				7A4BC8C01F31336B00C2766E /* ContainerViewController.swift */,
 				7A4BC8C21F313A0300C2766E /* SelectActivityViewController.swift */,
+				7A8796EA1F39560900DA5D09 /* LeadConfirmationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -778,6 +784,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A229C301EFD932900ADB0C4 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				7A8796ED1F39574800DA5D09 /* ActivityCell.xib in Resources */,
 				7A229C311EFD932900ADB0C4 /* SourceSansPro-Italic.ttf in Resources */,
 				7A229C2C1EFD932900ADB0C4 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				7A229C341EFD932900ADB0C4 /* SourceSansPro-Regular.ttf in Resources */,
@@ -838,6 +845,7 @@
 				7A5937011EFD54980011ED2E /* Assets.swift in Sources */,
 				7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */,
 				7A47C1161EFC80E600360F94 /* (null) in Sources */,
+				7A8796EB1F39560900DA5D09 /* LeadConfirmationViewController.swift in Sources */,
 				7A5937201EFD55F90011ED2E /* UIFont+LPAdditions.swift in Sources */,
 				7AB99C291F2BD4E3001217B7 /* UserSearchDatasource.swift in Sources */,
 				7A403D1E1F2E49DD004A5476 /* UserCell.swift in Sources */,

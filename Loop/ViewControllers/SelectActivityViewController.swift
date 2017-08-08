@@ -9,6 +9,7 @@ final class SelectActivityViewController: UIViewController {
     @IBOutlet weak var activitiesList: UICollectionView! {
         didSet {
             activitiesList?.allowsMultipleSelection = true
+            activitiesList?.register(UINib(nibName: "ActivityCell", bundle: .main), forCellWithReuseIdentifier: "ActivityCell")
         }
     }
 

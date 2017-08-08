@@ -55,6 +55,15 @@ enum StoryboardScene {
       return vc
     }
 
+    case leadConfirmationScene = "LeadConfirmation"
+    static func instantiateLeadConfirmation() -> Loop.LeadConfirmationViewController {
+      guard let vc = StoryboardScene.Main.leadConfirmationScene.viewController() as? Loop.LeadConfirmationViewController
+      else {
+        fatalError("ViewController 'LeadConfirmation' is not of the expected class Loop.LeadConfirmationViewController.")
+      }
+      return vc
+    }
+
     case selectActivityScene = "SelectActivity"
     static func instantiateSelectActivity() -> Loop.SelectActivityViewController {
       guard let vc = StoryboardScene.Main.selectActivityScene.viewController() as? Loop.SelectActivityViewController
