@@ -20,14 +20,16 @@ final class AddLeadCoordinator: Coordinator {
 
         search.didSelect.output
             .observe(on: UIScheduler())
-            .flatMap(.latest, { [weak self] user -> Signal<(TwitterUser, [Activity]), NoError> in
-                let controller = StoryboardScene.Main.instantiateSelectActivity()
-                self?.controller.pushViewController(controller, animated: true)
-
-                return controller.didSelectActivities.output.map { (user, $0) }
-            })
+            .flatMap(.latest, self.presentSelectActivity)
             .observeValues { selectedUser in
                 print("Selected = \(selectedUser)")
             }
+    }
+
+    func presentSelectActivity(user: TwitterUser) -> Signal<(TwitterUser, [Activity]), NoError> {
+        let selectActivity = StoryboardScene.Main.instantiateSelectActivity()
+        controller.pushViewController(selectActivity, animated: true)
+
+        return selectActivity.didSelectActivities.output.map { (user, $0) }
     }
 }
