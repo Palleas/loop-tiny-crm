@@ -30,7 +30,12 @@ final class AddLeadCoordinator: Coordinator {
 
     func presentConfirmation(user: TwitterUser, activities: [Activity]) -> Signal<(TwitterUser, [Activity]), NoError> {
         let confirmation = StoryboardScene.Main.instantiateLeadConfirmation()
-        confirmation.viewModel.swap(LeadViewModel(username: user.name, fullname: user.screenName, avatar: user.profileImage, activities: activities))
+        confirmation.viewModel.swap(LeadViewModel(
+            username: user.name,
+            fullname: user.screenName,
+            avatar: user.profileImage?.ensureHTTPS(),
+            activities: activities
+        ))
 
         controller.pushViewController(confirmation, animated: true)
         
@@ -42,5 +47,14 @@ final class AddLeadCoordinator: Coordinator {
         controller.pushViewController(selectActivity, animated: true)
 
         return selectActivity.didSelectActivities.output.map { (user, $0) }
+    }
+}
+
+extension URL {
+    func ensureHTTPS() -> URL {
+        var comps = URLComponents(url: self, resolvingAgainstBaseURL: false)!
+        comps.scheme = "https"
+
+        return comps.url!
     }
 }
