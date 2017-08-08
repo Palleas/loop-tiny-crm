@@ -34,9 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backgroundColor = .white
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().barTintColor = .white
+        UINavigationBar.appearance().tintColor = UIColor(named: "grapeFruit")!
 
-        let attributes: [NSAttributedStringKey : Any] = [.font: UIFont.lpNavigationBarFont()!]
+        let attributes: [NSAttributedStringKey : Any] = [
+            .font: UIFont.lpNavigationBarFont()!
+        ]
         UINavigationBar.appearance().titleTextAttributes = attributes
+
+        UIBarButtonItem.appearance().setTitleTextAttributes([
+            .foregroundColor: UIColor(named: "grapeFruit")!
+        ], for: .normal)
 
         return true
     }

@@ -1,6 +1,7 @@
 import Foundation
 import LoopKit
 import ReactiveSwift
+import Result
 
 final class AddLeadCoordinator: Coordinator {
 
@@ -19,11 +20,14 @@ final class AddLeadCoordinator: Coordinator {
 
         search.didSelect.output
             .observe(on: UIScheduler())
-            .observeValues { [weak self] selectedUser in
+            .flatMap(.latest, { [weak self] user -> Signal<(TwitterUser, [Activity]), NoError> in
                 let controller = StoryboardScene.Main.instantiateSelectActivity()
                 self?.controller.pushViewController(controller, animated: true)
+
+                return controller.didSelectActivities.output.map { (user, $0) }
+            })
+            .observeValues { selectedUser in
                 print("Selected = \(selectedUser)")
-        }
+            }
     }
 }
-

@@ -1,13 +1,40 @@
 import Foundation
 import LoopKit
+import Result
+import ReactiveSwift
+import os.log
+
 final class SelectActivityViewController: UIViewController {
 
-    @IBOutlet weak var activitiesList: UICollectionView!
+    @IBOutlet weak var activitiesList: UICollectionView! {
+        didSet {
+            activitiesList?.allowsMultipleSelection = true
+        }
+    }
 
     private let activities = Activity.all
+
+    let didSelectActivities = Signal<[Activity], NoError>.pipe()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
+    }
+
+    @objc func didTapDone() {
+        guard let list = activitiesList.indexPathsForSelectedItems?.map({ activities[$0.row] }) else {
+            os_log("No activities were selected: not notifying observer")
+            return
+        }
+
+        didSelectActivities.input.send(value: list)
+    }
 }
 
-extension SelectActivityViewController: UICollectionViewDelegate {}
+extension SelectActivityViewController: UICollectionViewDelegate {
+    
+}
 
 extension SelectActivityViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
