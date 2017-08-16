@@ -119,7 +119,7 @@ extension AddLeadViewController: UICollectionViewDataSource {
             let request = URLRequest(url: comps!.url!)
             URLSession.shared.reactive
                 .data(with: request)
-                .take(until: cell.reactive.prepareForReuse)
+//                .take(until: cell.reactive.prepareForReuse)
                 .flatMapError { _ in SignalProducer<(Data, URLResponse), NoError>.empty }
                 .map { $0.0 }
                 .observe(on: UIScheduler())

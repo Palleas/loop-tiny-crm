@@ -3,6 +3,7 @@ import ReactiveSwift
 import Result
 import CoreData
 import LoopKit
+import os.log
 
 final class LocalStorage {
     enum Error: Swift.Error {
@@ -13,6 +14,15 @@ final class LocalStorage {
 
     init(container: NSPersistentContainer) {
         self.container = container
+
+        // Debug is cool
+        container.performBackgroundTask { context in
+            let fetch = NSFetchRequest<Lead>()
+            fetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            fetch.entity = Lead.entity()
+            let leads = try! fetch.execute()
+            print("You have \(leads.count) leads. That's cool.")
+        }
     }
 
     func save<T: Storable>(_ storable: T) -> SignalProducer<T.Stored, Error> {
@@ -39,11 +49,17 @@ class CoreDataScheduler: Scheduler {
     }
 
     func schedule(_ action: @escaping () -> Void) -> Disposable? {
-        let d = AnyDisposable { [weak self] in
-            self?.context.perform {
-                action()
+        let d = AnyDisposable()
+
+        context.perform {
+            guard !d.isDisposed else {
+                os_log("CoreDataScheduler is disposed")
+                return
             }
+
+            action()
         }
+
 
         return d
     }

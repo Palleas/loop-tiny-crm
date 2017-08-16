@@ -63,7 +63,6 @@ final class AppCoordinator: Coordinator {
         initLocalStorage()
             .zip(with: signInWithTwitter())
             .startWithResult { [weak self] in
-                print("Result = \($0)")
                 switch $0 {
                 case let .success((localStorage, twitter)):
                     let child = AddLeadCoordinator(storage: localStorage, client: twitter)

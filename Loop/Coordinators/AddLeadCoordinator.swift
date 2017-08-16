@@ -2,6 +2,7 @@ import Foundation
 import LoopKit
 import ReactiveSwift
 import Result
+import os.log
 
 final class AddLeadCoordinator: Coordinator {
 
@@ -25,18 +26,24 @@ final class AddLeadCoordinator: Coordinator {
             .flatMap(.latest, self.presentSelectActivity)
             .flatMap(.latest, self.save)
             .flatMap(.latest, self.presentConfirmation)
+            .logEvents()
             .observeValues { selectedUser in
                 print("Selected = \(selectedUser)")
             }
     }
 
     func save(user: TwitterUser, activities: [Activity]) -> SignalProducer<(TwitterUser, [Activity]), NoError> {
+        os_log("Saving user %@ with activities %@", [user, activities])
+
         return self.storage.save(user)
+            .logEvents()
             .flatMapError { _ in SignalProducer<Lead, NoError>.empty }
             .map { _ in (user, activities) }
       }
 
     func presentConfirmation(user: TwitterUser, activities: [Activity]) -> Signal<(TwitterUser, [Activity]), NoError> {
+        os_log("Presenting confirmation for user %@ with activities", [user, activities])
+
         let confirmation = StoryboardScene.Main.instantiateLeadConfirmation()
         confirmation.viewModel.swap(LeadViewModel(
             username: user.name,
@@ -45,14 +52,22 @@ final class AddLeadCoordinator: Coordinator {
             activities: activities
         ))
 
-        controller.pushViewController(confirmation, animated: true)
+        UIScheduler().schedule { [weak self] in
+            self?.controller.pushViewController(confirmation, animated: true)
+        }
+
         
         return confirmation.didConfirm.output.map { (user, activities) }
     }
 
     func presentSelectActivity(user: TwitterUser) -> Signal<(TwitterUser, [Activity]), NoError> {
+        os_log("Presenting select activities for user %@", [user])
+
         let selectActivity = StoryboardScene.Main.instantiateSelectActivity()
-        controller.pushViewController(selectActivity, animated: true)
+
+        UIScheduler().schedule { [weak self] in
+            self?.controller.pushViewController(selectActivity, animated: true)
+        }
 
         return selectActivity.didSelectActivities.output.map { (user, $0) }
     }
