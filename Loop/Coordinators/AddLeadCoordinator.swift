@@ -6,10 +6,12 @@ import Result
 final class AddLeadCoordinator: Coordinator {
 
     private let client: Twitter
+    private let storage: LocalStorage
 
     let controller = UINavigationController()
 
-    init(client: Twitter) {
+    init(storage: LocalStorage, client: Twitter) {
+        self.storage = storage
         self.client = client
     }
 
@@ -21,12 +23,18 @@ final class AddLeadCoordinator: Coordinator {
         search.didSelect.output
             .observe(on: UIScheduler())
             .flatMap(.latest, self.presentSelectActivity)
-            // TODO: Squeeze local saving here
+            .flatMap(.latest, self.save)
             .flatMap(.latest, self.presentConfirmation)
             .observeValues { selectedUser in
                 print("Selected = \(selectedUser)")
             }
     }
+
+    func save(user: TwitterUser, activities: [Activity]) -> SignalProducer<(TwitterUser, [Activity]), NoError> {
+        return self.storage.save(user)
+            .flatMapError { _ in SignalProducer<Lead, NoError>.empty }
+            .map { _ in (user, activities) }
+      }
 
     func presentConfirmation(user: TwitterUser, activities: [Activity]) -> Signal<(TwitterUser, [Activity]), NoError> {
         let confirmation = StoryboardScene.Main.instantiateLeadConfirmation()

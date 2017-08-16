@@ -1,3 +1,3 @@
-github "Quick/Quick" "xcode-9-fix"
-github "Quick/Nimble" "xcode9-beta"
+github "Quick/Quick" "master"
+github "Quick/Nimble" "master"
 github "AliSoftware/OHHTTPStubs" "master"

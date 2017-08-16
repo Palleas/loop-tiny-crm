@@ -116,6 +116,8 @@
 		7AD6DBAB1EFB54AF00D2D50F /* LoopKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD6DB951EFB54AF00D2D50F /* LoopKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7AD6DBB41EFB54E900D2D50F /* Lead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DBB31EFB54E900D2D50F /* Lead.swift */; };
 		7AD6DBB61EFB562000D2D50F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DBB51EFB562000D2D50F /* Activity.swift */; };
+		7AFB50C61F3A6FFE0057C384 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB50C41F3A6FFE0057C384 /* Model.xcdatamodeld */; };
+		7AFB50CA1F3A72530057C384 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB50C91F3A72530057C384 /* LocalStorage.swift */; };
 		9390D181CDEA5AA103DD86FD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5372E0E42BCF07F45F6071B1 /* QuartzCore.framework */; };
 		A01A20CE9DAFE20A27A93FAF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE26D277CE3B1E43F0F4CF3 /* CoreTelephony.framework */; };
 		BCFC06C2AF0489824530BCA4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA3DE2B3CD51F15E84BF879 /* AssetsLibrary.framework */; };
@@ -297,6 +299,8 @@
 		7AD6DBA61EFB54AF00D2D50F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AD6DBB31EFB54E900D2D50F /* Lead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lead.swift; sourceTree = "<group>"; };
 		7AD6DBB51EFB562000D2D50F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		7AFB50C51F3A6FFE0057C384 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7AFB50C91F3A72530057C384 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8614704B9D58F6D14BB7E206 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		98CBA26AB3D47FE96EF433E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EBA3DE2B3CD51F15E84BF879 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -537,6 +541,8 @@
 		7AD6DB611EFB549D00D2D50F /* Loop */ = {
 			isa = PBXGroup;
 			children = (
+				7AFB50C81F3A72470057C384 /* Storage */,
+				7AFB50C71F3A719B0057C384 /* Entities */,
 				7AB99C271F2BD4CF001217B7 /* Search */,
 				7A5937031EFD550A0011ED2E /* Assets */,
 				7A5936FD1EFD54910011ED2E /* Generated */,
@@ -552,6 +558,7 @@
 				7AD6DB6E1EFB549D00D2D50F /* Info.plist */,
 				7A46CBEC1F21978900CD5E47 /* Keys.swift */,
 				7A3398101F300C0C00BFEE4A /* Keyboard.swift */,
+				7AFB50C41F3A6FFE0057C384 /* Model.xcdatamodeld */,
 			);
 			path = Loop;
 			sourceTree = "<group>";
@@ -616,6 +623,21 @@
 				7A46CBE81F21757D00CD5E47 /* AccessTokenResponseSpec.swift */,
 			);
 			path = LoopKitTests;
+			sourceTree = "<group>";
+		};
+		7AFB50C71F3A719B0057C384 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		7AFB50C81F3A72470057C384 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				7AFB50C91F3A72530057C384 /* LocalStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -850,12 +872,14 @@
 				7AB99C291F2BD4E3001217B7 /* UserSearchDatasource.swift in Sources */,
 				7A403D1E1F2E49DD004A5476 /* UserCell.swift in Sources */,
 				7A8390441F23B07B0010AA3F /* TwitterAuthenticationFlow.swift in Sources */,
+				7AFB50C61F3A6FFE0057C384 /* Model.xcdatamodeld in Sources */,
 				7A4BC8C71F313F5700C2766E /* ActivityCell.swift in Sources */,
 				7A46CBED1F21978900CD5E47 /* Keys.swift in Sources */,
 				7A403D201F2E736C004A5476 /* SearchHeader.swift in Sources */,
 				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,
 				7A4BC8C11F31336B00C2766E /* ContainerViewController.swift in Sources */,
+				7AFB50CA1F3A72530057C384 /* LocalStorage.swift in Sources */,
 				7A4BC8C31F313A0300C2766E /* SelectActivityViewController.swift in Sources */,
 				7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */,
 				7AD6DB631EFB549D00D2D50F /* AppDelegate.swift in Sources */,
@@ -1340,6 +1364,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7AFB50C41F3A6FFE0057C384 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7AFB50C51F3A6FFE0057C384 /* Model.xcdatamodel */,
+			);
+			currentVersion = 7AFB50C51F3A6FFE0057C384 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7AD6DB571EFB549D00D2D50F /* Project object */;
 }
