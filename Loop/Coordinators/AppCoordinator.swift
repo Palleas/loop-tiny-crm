@@ -61,7 +61,7 @@ final class AppCoordinator: Coordinator {
 
     func start() {
         initLocalStorage()
-            .zip(with: signInWithTwitter())
+            .flatMap(.latest, { storage in self.signInWithTwitter().map { (storage, $0) } })
             .startWithResult { [weak self] in
                 switch $0 {
                 case let .success((localStorage, twitter)):
