@@ -12,6 +12,7 @@
 		5E6EAE38F9E78488744604F7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E924F97AA7FB8B92E93D2F8 /* CoreMedia.framework */; };
 		69D73FFCA4D55FFDF3BEB1EF /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFF98EFE9DF2FC53E5D648D /* BuddyBuildSDK.framework */; };
 		7A093E5B1F455EB5009E73B0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A093E5A1F455EB4009E73B0 /* Colors.swift */; };
+		7A093E5D1F45634F009E73B0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A093E5C1F45634F009E73B0 /* Fonts.swift */; };
 		7A10F4D71EFDD7B6006EC7AB /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4D61EFDD7B6006EC7AB /* Clock.swift */; };
 		7A10F4D91EFDD7C5006EC7AB /* TokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */; };
 		7A10F4DB1EFDD7E3006EC7AB /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */; };
@@ -59,8 +60,6 @@
 		7A4BC8C71F313F5700C2766E /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BC8C61F313F5700C2766E /* ActivityCell.swift */; };
 		7A5937011EFD54980011ED2E /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5936FF1EFD54910011ED2E /* Assets.swift */; };
 		7A5937021EFD549B0011ED2E /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5937001EFD54910011ED2E /* Storyboards.swift */; };
-		7A59371F1EFD55F90011ED2E /* UIColor+LPAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59371E1EFD55F50011ED2E /* UIColor+LPAdditions.swift */; };
-		7A5937201EFD55F90011ED2E /* UIFont+LPAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59371D1EFD55F50011ED2E /* UIFont+LPAdditions.swift */; };
 		7A5937221EFD58B90011ED2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A5937211EFD58B90011ED2E /* Localizable.strings */; };
 		7A5D04511EFDA64F0020E057 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5D04501EFDA62A0020E057 /* CryptoSwift.framework */; };
 		7A5D04531EFDA65C0020E057 /* CryptoSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A5D04501EFDA62A0020E057 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -210,6 +209,7 @@
 		5372E0E42BCF07F45F6071B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7857594DCF7A4E5A16429C3E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7A093E5A1F455EB4009E73B0 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7A093E5C1F45634F009E73B0 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7A10F4D61EFDD7B6006EC7AB /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenProvider.swift; sourceTree = "<group>"; };
 		7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
@@ -236,8 +236,6 @@
 		7A4BC8C61F313F5700C2766E /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		7A5936FF1EFD54910011ED2E /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		7A5937001EFD54910011ED2E /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
-		7A59371D1EFD55F50011ED2E /* UIFont+LPAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+LPAdditions.swift"; sourceTree = "<group>"; };
-		7A59371E1EFD55F50011ED2E /* UIColor+LPAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+LPAdditions.swift"; sourceTree = "<group>"; };
 		7A5937211EFD58B90011ED2E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7A5937231EFD59C70011ED2E /* I10N.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I10N.swift; sourceTree = "<group>"; };
 		7A5D04501EFDA62A0020E057 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -441,10 +439,9 @@
 		7A5936FD1EFD54910011ED2E /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				7A093E5C1F45634F009E73B0 /* Fonts.swift */,
 				7A093E5A1F455EB4009E73B0 /* Colors.swift */,
 				7A5937231EFD59C70011ED2E /* I10N.swift */,
-				7A59371E1EFD55F50011ED2E /* UIColor+LPAdditions.swift */,
-				7A59371D1EFD55F50011ED2E /* UIFont+LPAdditions.swift */,
 				7A5936FF1EFD54910011ED2E /* Assets.swift */,
 				7A5937001EFD54910011ED2E /* Storyboards.swift */,
 			);
@@ -864,14 +861,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A59371F1EFD55F90011ED2E /* UIColor+LPAdditions.swift in Sources */,
 				7A5937021EFD549B0011ED2E /* Storyboards.swift in Sources */,
 				7A47C10D1EFC7FCF00360F94 /* (null) in Sources */,
 				7A5937011EFD54980011ED2E /* Assets.swift in Sources */,
 				7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */,
 				7A47C1161EFC80E600360F94 /* (null) in Sources */,
 				7A8796EB1F39560900DA5D09 /* LeadConfirmationViewController.swift in Sources */,
-				7A5937201EFD55F90011ED2E /* UIFont+LPAdditions.swift in Sources */,
 				7AB99C291F2BD4E3001217B7 /* UserSearchDatasource.swift in Sources */,
 				7A403D1E1F2E49DD004A5476 /* UserCell.swift in Sources */,
 				7A8390441F23B07B0010AA3F /* TwitterAuthenticationFlow.swift in Sources */,
@@ -891,6 +886,7 @@
 				7A47C1221EFC829700360F94 /* SourceSelector.swift in Sources */,
 				7A47C1241EFC838300360F94 /* AddLeadCoordinator.swift in Sources */,
 				7A47C1121EFC809200360F94 /* (null) in Sources */,
+				7A093E5D1F45634F009E73B0 /* Fonts.swift in Sources */,
 				7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

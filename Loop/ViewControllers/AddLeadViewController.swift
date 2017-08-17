@@ -140,13 +140,13 @@ extension AddLeadViewController: UICollectionViewDataSource {
 
 func createUserAttributedText(name: String, screenName: String) -> NSAttributedString {
     let string = NSMutableAttributedString(string: name, attributes: [
-        .font: UIFont(name: "SourceSansPro-SemiBold", size: 16)!,
-        .foregroundColor: UIColor.lpBlack
+        .font: FontFamily.SourceSansPro.semiBold.font(size: 16),
+        .foregroundColor: ColorName.black.color
     ])
 
     string.append(NSAttributedString(string: " @\(screenName)", attributes: [
-        .font: UIFont(name: "SourceSansPro-Light", size: 16)!,
-        .foregroundColor: UIColor.lpBlack
+        .font: FontFamily.SourceSansPro.light.font(size: 16),
+        .foregroundColor: ColorName.black.color
     ]))
 
     return string

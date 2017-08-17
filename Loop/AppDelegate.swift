@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor(named: "grapeFruit")!
 
         let attributes: [NSAttributedStringKey : Any] = [
-            .font: UIFont.lpNavigationBarFont()!
+            .font: FontFamily.SourceSansPro.regular.font(size: 17)
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes
 
