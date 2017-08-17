@@ -69,3 +69,4 @@ LoopKit/Assets.swift
 LoopKit/Storyboards.swift
 LoopKit/Generated/*
 !LoopKit/Generated/.gitkeep
+Loop/Generated/*
