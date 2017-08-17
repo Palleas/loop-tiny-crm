@@ -3,36 +3,26 @@
 import Foundation
 
 // swiftlint:disable file_length
-// swiftlint:disable line_length
 
-// swiftlint:disable type_body_length
-// swiftlint:disable nesting
-// swiftlint:disable variable_name
-// swiftlint:disable valid_docs
-// swiftlint:disable type_name
-
+// swiftlint:disable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 enum L10n {
 
   enum Lead {
 
     enum Add {
       /// Add a new lead
-      static let title = L10n.tr("lead.add.title")
+      static let title = L10n.tr("Localizable", "lead.add.title")
     }
   }
 }
+// swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 
 extension L10n {
-  fileprivate static func tr(_ key: String, _ args: CVarArg...) -> String {
-    let format = NSLocalizedString(key, bundle: Bundle(for: BundleToken.self), comment: "")
+  fileprivate static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
+    let format = NSLocalizedString(key, tableName: table, bundle: Bundle(for: BundleToken.self), comment: "")
     return String(format: format, locale: Locale.current, arguments: args)
   }
 }
 
 private final class BundleToken {}
-
-// swiftlint:enable type_body_length
-// swiftlint:enable nesting
-// swiftlint:enable variable_name
-// swiftlint:enable valid_docs
 

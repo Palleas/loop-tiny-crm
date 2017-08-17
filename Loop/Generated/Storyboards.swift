@@ -1,81 +1,68 @@
 // Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
 
+// swiftlint:disable sorted_imports
 import Foundation
 import UIKit
 import Loop
 
 // swiftlint:disable file_length
-// swiftlint:disable line_length
-// swiftlint:disable type_body_length
 
-protocol StoryboardSceneType {
+protocol StoryboardType {
   static var storyboardName: String { get }
 }
 
-extension StoryboardSceneType {
-  static func storyboard() -> UIStoryboard {
+extension StoryboardType {
+  static var storyboard: UIStoryboard {
     return UIStoryboard(name: self.storyboardName, bundle: Bundle(for: BundleToken.self))
   }
+}
 
-  static func initialViewController() -> UIViewController {
-    guard let vc = storyboard().instantiateInitialViewController() else {
-      fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+struct SceneType<T: Any> {
+  let storyboard: StoryboardType.Type
+  let identifier: String
+
+  func instantiate() -> T {
+    guard let controller = storyboard.storyboard.instantiateViewController(withIdentifier: identifier) as? T else {
+      fatalError("ViewController '\(identifier)' is not of the expected class \(T.self).")
     }
-    return vc
+    return controller
   }
 }
 
-extension StoryboardSceneType where Self: RawRepresentable, Self.RawValue == String {
-  func viewController() -> UIViewController {
-    return Self.storyboard().instantiateViewController(withIdentifier: self.rawValue)
-  }
-  static func viewController(identifier: Self) -> UIViewController {
-    return identifier.viewController()
+struct InitialSceneType<T: Any> {
+  let storyboard: StoryboardType.Type
+
+  func instantiate() -> T {
+    guard let controller = storyboard.storyboard.instantiateInitialViewController() as? T else {
+      fatalError("ViewController is not of the expected class \(T.self).")
+    }
+    return controller
   }
 }
 
-protocol StoryboardSegueType: RawRepresentable { }
+protocol SegueType: RawRepresentable { }
 
 extension UIViewController {
-  func perform<S: StoryboardSegueType>(segue: S, sender: Any? = nil) where S.RawValue == String {
+  func perform<S: SegueType>(segue: S, sender: Any? = nil) where S.RawValue == String {
     performSegue(withIdentifier: segue.rawValue, sender: sender)
   }
 }
 
+// swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 enum StoryboardScene {
-  enum Main: String, StoryboardSceneType {
+  enum Main: StoryboardType {
     static let storyboardName = "Main"
 
-    case addLeadScene = "AddLead"
-    static func instantiateAddLead() -> Loop.AddLeadViewController {
-      guard let vc = StoryboardScene.Main.addLeadScene.viewController() as? Loop.AddLeadViewController
-      else {
-        fatalError("ViewController 'AddLead' is not of the expected class Loop.AddLeadViewController.")
-      }
-      return vc
-    }
+    static let addLead = SceneType<Loop.AddLeadViewController>(storyboard: Main.self, identifier: "AddLead")
 
-    case leadConfirmationScene = "LeadConfirmation"
-    static func instantiateLeadConfirmation() -> Loop.LeadConfirmationViewController {
-      guard let vc = StoryboardScene.Main.leadConfirmationScene.viewController() as? Loop.LeadConfirmationViewController
-      else {
-        fatalError("ViewController 'LeadConfirmation' is not of the expected class Loop.LeadConfirmationViewController.")
-      }
-      return vc
-    }
+    static let leadConfirmation = SceneType<Loop.LeadConfirmationViewController>(storyboard: Main.self, identifier: "LeadConfirmation")
 
-    case selectActivityScene = "SelectActivity"
-    static func instantiateSelectActivity() -> Loop.SelectActivityViewController {
-      guard let vc = StoryboardScene.Main.selectActivityScene.viewController() as? Loop.SelectActivityViewController
-      else {
-        fatalError("ViewController 'SelectActivity' is not of the expected class Loop.SelectActivityViewController.")
-      }
-      return vc
-    }
+    static let selectActivity = SceneType<Loop.SelectActivityViewController>(storyboard: Main.self, identifier: "SelectActivity")
   }
 }
 
 enum StoryboardSegue {
 }
+// swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 
 private final class BundleToken {}

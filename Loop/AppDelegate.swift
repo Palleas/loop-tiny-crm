@@ -45,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .foregroundColor: UIColor(named: "grapeFruit")!
         ], for: .normal)
 
+        UITabBar.appearance().tintColor = ColorName.grapefruit.color
+        UITabBar.appearance().barTintColor = ColorName.coolGrey.color
+
         return true
     }
 }

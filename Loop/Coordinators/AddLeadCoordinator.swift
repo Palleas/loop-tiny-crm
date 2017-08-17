@@ -17,7 +17,7 @@ final class AddLeadCoordinator: Coordinator {
     }
 
     func start() {
-        let search = StoryboardScene.Main.instantiateAddLead()
+        let search = StoryboardScene.Main.addLead.instantiate()
         search.client = client
         controller.viewControllers = [search]
 
@@ -44,7 +44,7 @@ final class AddLeadCoordinator: Coordinator {
     func presentConfirmation(user: TwitterUser, activities: [Activity]) -> Signal<(TwitterUser, [Activity]), NoError> {
         os_log("Presenting confirmation for user %@ with activities", [user, activities])
 
-        let confirmation = StoryboardScene.Main.instantiateLeadConfirmation()
+        let confirmation = StoryboardScene.Main.leadConfirmation.instantiate()
         confirmation.viewModel.swap(LeadViewModel(
             username: user.name,
             fullname: user.screenName,
@@ -63,7 +63,7 @@ final class AddLeadCoordinator: Coordinator {
     func presentSelectActivity(user: TwitterUser) -> Signal<(TwitterUser, [Activity]), NoError> {
         os_log("Presenting select activities for user %@", [user])
 
-        let selectActivity = StoryboardScene.Main.instantiateSelectActivity()
+        let selectActivity = StoryboardScene.Main.selectActivity.instantiate()
 
         UIScheduler().schedule { [weak self] in
             self?.controller.pushViewController(selectActivity, animated: true)

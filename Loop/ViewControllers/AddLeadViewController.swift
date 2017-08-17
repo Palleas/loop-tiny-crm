@@ -30,6 +30,12 @@ final class AddLeadViewController: UIViewController {
     private var users = [TwitterUser]()
     private var keyboardNotifications: Disposable?
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        self.tabBarItem = UITabBarItem(title: "Add Lead", image: Asset.Menu.userPlus.image, selectedImage: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

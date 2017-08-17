@@ -11,7 +11,7 @@ protocol Coordinator {
 
 final class AppCoordinator: Coordinator {
     // TODO: use transition instead of NVC
-    let controller = ContainerViewController()
+    let controller = UITabBarController() //ContainerViewController()
     let consumerKey: String
     let consumerSecret: String
     private var children = [Coordinator]()
@@ -66,7 +66,12 @@ final class AppCoordinator: Coordinator {
                 switch $0 {
                 case let .success((localStorage, twitter)):
                     let child = AddLeadCoordinator(storage: localStorage, client: twitter)
-                    self?.controller.transition(to: child.controller)
+                    self?.controller.viewControllers = [
+                        child.controller,
+                        UINavigationController(rootViewController: UIViewController()),
+                        UINavigationController(rootViewController: UIViewController()),
+                        UINavigationController(rootViewController: UIViewController())
+                    ]
                     child.start()
                     self?.children.append(child)
 

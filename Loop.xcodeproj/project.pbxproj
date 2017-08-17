@@ -11,6 +11,7 @@
 		5880C33C6C6240FD9910856A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7857594DCF7A4E5A16429C3E /* AVFoundation.framework */; };
 		5E6EAE38F9E78488744604F7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E924F97AA7FB8B92E93D2F8 /* CoreMedia.framework */; };
 		69D73FFCA4D55FFDF3BEB1EF /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFF98EFE9DF2FC53E5D648D /* BuddyBuildSDK.framework */; };
+		7A093E5B1F455EB5009E73B0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A093E5A1F455EB4009E73B0 /* Colors.swift */; };
 		7A10F4D71EFDD7B6006EC7AB /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4D61EFDD7B6006EC7AB /* Clock.swift */; };
 		7A10F4D91EFDD7C5006EC7AB /* TokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */; };
 		7A10F4DB1EFDD7E3006EC7AB /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */; };
@@ -208,6 +209,7 @@
 		3CFF98EFE9DF2FC53E5D648D /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		5372E0E42BCF07F45F6071B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7857594DCF7A4E5A16429C3E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7A093E5A1F455EB4009E73B0 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7A10F4D61EFDD7B6006EC7AB /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenProvider.swift; sourceTree = "<group>"; };
 		7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 		7A5936FD1EFD54910011ED2E /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				7A093E5A1F455EB4009E73B0 /* Colors.swift */,
 				7A5937231EFD59C70011ED2E /* I10N.swift */,
 				7A59371E1EFD55F50011ED2E /* UIColor+LPAdditions.swift */,
 				7A59371D1EFD55F50011ED2E /* UIFont+LPAdditions.swift */,
@@ -878,6 +881,7 @@
 				7A403D201F2E736C004A5476 /* SearchHeader.swift in Sources */,
 				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,
+				7A093E5B1F455EB5009E73B0 /* Colors.swift in Sources */,
 				7A4BC8C11F31336B00C2766E /* ContainerViewController.swift in Sources */,
 				7AFB50CA1F3A72530057C384 /* LocalStorage.swift in Sources */,
 				7A4BC8C31F313A0300C2766E /* SelectActivityViewController.swift in Sources */,

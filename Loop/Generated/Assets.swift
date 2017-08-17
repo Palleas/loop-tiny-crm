@@ -1,16 +1,14 @@
 // Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
 
-#if os(iOS) || os(tvOS) || os(watchOS)
-  import UIKit.UIImage
-  typealias Image = UIImage
-#elseif os(OSX)
+#if os(OSX)
   import AppKit.NSImage
   typealias Image = NSImage
+#elseif os(iOS) || os(tvOS) || os(watchOS)
+  import UIKit.UIImage
+  typealias Image = UIImage
 #endif
 
 // swiftlint:disable file_length
-// swiftlint:disable line_length
-// swiftlint:disable nesting
 
 struct AssetType: ExpressibleByStringLiteral {
   fileprivate var value: String
@@ -41,7 +39,7 @@ struct AssetType: ExpressibleByStringLiteral {
   }
 }
 
-// swiftlint:disable type_body_length
+// swiftlint:disable identifier_name line_length nesting type_body_length type_name
 enum Asset {
   enum Activities {
     static let apartment: AssetType = "apartment"
@@ -56,9 +54,28 @@ enum Asset {
   }
   static let envelope: AssetType = "envelope"
   static let logo: AssetType = "logo"
+  enum Menu {
+    static let userPlus: AssetType = "userPlus"
+  }
   static let shape: AssetType = "shape"
+
+  static let allValues = [
+    Activities.apartment,
+    Activities.bubble,
+    Activities.coffeeCup,
+    Activities.envelope,
+    Activities.magicWand,
+    Activities.phoneHandset,
+    Activities.shirt,
+    Activities.star,
+    Activities.user,
+    envelope,
+    logo,
+    Menu.userPlus,
+    shape,
+  ]
 }
-// swiftlint:enable type_body_length
+// swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
 extension Image {
   convenience init!(asset: AssetType) {
