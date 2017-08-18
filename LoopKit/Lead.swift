@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 /// Represents an Email address
 public struct EmailAddress {
 

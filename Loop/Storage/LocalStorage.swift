@@ -14,15 +14,6 @@ final class LocalStorage {
 
     init(container: NSPersistentContainer) {
         self.container = container
-
-        // Debug is cool
-        container.performBackgroundTask { context in
-            let fetch = NSFetchRequest<Lead>()
-            fetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-            fetch.entity = Lead.entity()
-            let leads = try! fetch.execute()
-            print("You have \(leads.count) leads. That's cool.")
-        }
     }
 
     func save<T: Storable>(_ storable: T) -> SignalProducer<T.Stored, Error> {
@@ -60,17 +51,14 @@ class CoreDataScheduler: Scheduler {
             action()
         }
 
-
         return d
     }
-
-
 }
 
 protocol Storable {
     associatedtype Stored: NSManagedObject
 
-    func stored(in: NSManagedObjectContext) -> Stored
+    func stored(in context: NSManagedObjectContext) -> Stored
 }
 
 extension TwitterUser: Storable {
@@ -86,7 +74,6 @@ extension TwitterUser: Storable {
     }
 }
 
-
 enum CoreDataError: Error {
     case loadingError(Error)
 }
@@ -95,7 +82,7 @@ extension Reactive where Base: NSPersistentContainer {
 
     func load() -> SignalProducer<NSPersistentContainer, CoreDataError> {
         return SignalProducer { [base = self.base] sink, _ in
-            base.loadPersistentStores { description, error in
+            base.loadPersistentStores { _, error in
                 if let error = error {
                     sink.send(error: .loadingError(error))
                     return

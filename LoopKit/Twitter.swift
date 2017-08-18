@@ -48,8 +48,8 @@ public final class Twitter {
     private let version: String
 
     public enum Error: Swift.Error {
-        case requestError(Int, Any?) // TODO: decode error
-        case internalError(AnyError)
+        case requestError(Int, Any?)
+        case internalError(AnyError?)
         case JSONError(AnyError)
         case notFound
     }
@@ -72,27 +72,36 @@ public final class Twitter {
     }
 
     public func execute<T: Decodable>(_ request: Request<T>) -> SignalProducer<T, Error> {
-        var r = URLRequest(request: request)
-        r.allHTTPHeaderFields = ["Authorization": try! createHeader(with: request)]
+        let requestResult = Result<URLRequest, Error> { () -> URLRequest in
+            var r = URLRequest(request: request)
+            r.allHTTPHeaderFields = ["Authorization": try createHeader(with: request)]
 
-        return URLSession.shared.reactive.data(with: r)
-            .mapError { Error.internalError($0) }
-            .attemptMap({ (data, response) -> Result<T, Error> in
-                let httpResponse = response as! HTTPURLResponse
+            return r
+        }
 
-                if httpResponse.statusCode == 404 {
-                    return .failure(.notFound)
-                } else if httpResponse.statusCode < 200 || httpResponse.statusCode >= 400 {
-                    let errorMessage = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    return .failure(.requestError(httpResponse.statusCode, errorMessage))
-                }
+        return SignalProducer(result: requestResult)
+            .flatMap(.latest, { request in
+                return URLSession.shared.reactive.data(with: request)
+                    .mapError { Error.internalError($0) }
+                    .attemptMap({ (data, response) -> Result<T, Error> in
+                        guard let httpResponse = response as? HTTPURLResponse else {
+                            return .failure(.internalError(nil))
+                        }
 
-                return Result(attempt: {
-                    let decoder = JSONDecoder()
-                    return try decoder.decode(T.self, from: data)
-                })
-                .mapError { Error.JSONError($0) }
-            })
+                        if httpResponse.statusCode == 404 {
+                            return .failure(.notFound)
+                        } else if httpResponse.statusCode < 200 || httpResponse.statusCode >= 400 {
+                            let errorMessage = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                            return .failure(.requestError(httpResponse.statusCode, errorMessage))
+                        }
+
+                        return Result(attempt: {
+                            let decoder = JSONDecoder()
+                            return try decoder.decode(T.self, from: data)
+                        })
+                        .mapError { Error.JSONError($0) }
+                    })
+        })
     }
 
     func createHeader<T>(with request: Request<T>) throws -> String {

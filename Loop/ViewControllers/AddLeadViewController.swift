@@ -107,13 +107,14 @@ extension AddLeadViewController: UICollectionViewDelegate {
 
 extension AddLeadViewController: UICollectionViewDataSource {
 
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // swiftlint:disable force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
+        // swiftlint:enable force_cast
 
         // load image
         let user = users[indexPath.row]

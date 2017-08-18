@@ -1,10 +1,11 @@
-whitelist_rules:
-  - trailing_whitespace
-  - trailing_newline
 line_length: 150
+disabled_rules:
+  - operator_whitespace
+  - line_length
 excluded:
   - Carthage
   - LoopKit/Generated
+  - Loop/Generated
 custom_rules:
   use_color_literal:
     included: ".*\\.swift"
@@ -14,3 +15,12 @@ custom_rules:
     message: Don't use `UIColor(named:)`, use generated literal instead
     severity: warning
     regex: "UIColor\\(named:"
+identifier_name:
+  excluded:
+    - id
+type_name:
+  excluded:
+    - ID
+large_tuple:
+  warning: 3
+

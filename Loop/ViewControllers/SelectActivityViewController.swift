@@ -45,7 +45,9 @@ extension SelectActivityViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // swiftlint:disable force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActivityCell", for: indexPath) as! ActivityCell
+        // swiftlint:enable force_cast
 
         cell.icon.image = icon(for: activities[indexPath.row])
         cell.name.text = activities[indexPath.row].rawValue

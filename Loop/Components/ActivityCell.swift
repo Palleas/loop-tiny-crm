@@ -8,7 +8,7 @@ final class ActivityCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                borderContainer.backgroundColor = UIColor(named: "grapeFruit")!
+                borderContainer.backgroundColor = ColorName.grapefruit.color
                 icon?.tintColor = .white
             } else {
                 borderContainer.backgroundColor = .white
@@ -21,7 +21,7 @@ final class ActivityCell: UICollectionViewCell {
         didSet {
             guard let borderContainer = borderContainer else { return }
 
-            borderContainer.layer.borderColor = UIColor(named: "AcitivtyBorderColor")?.cgColor
+            borderContainer.layer.borderColor = ColorName.white.color.cgColor
             borderContainer.layer.borderWidth = 1
             borderContainer.clipsToBounds = true
         }

@@ -10,11 +10,11 @@ protocol FixtureType {
 }
 
 extension FixtureType {
-    func decode<T: Decodable>() -> T {
-        let content = try! Data(contentsOf: URL(fileURLWithPath: fixturePath))
+    func decode<T: Decodable>() throws -> T {
+        let content = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
 
         let decoder = JSONDecoder()
-        return try! decoder.decode(T.self, from: content)
+        return try decoder.decode(T.self, from: content)
     }
 }
 

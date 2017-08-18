@@ -1,6 +1,5 @@
 import UIKit
 
-
 final class SourceSelector: UIButton {
 
     required init?(coder aDecoder: NSCoder) {

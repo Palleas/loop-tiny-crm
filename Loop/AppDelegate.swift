@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backgroundColor = .white
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().barTintColor = .white
-        UINavigationBar.appearance().tintColor = UIColor(named: "grapeFruit")!
+        UINavigationBar.appearance().tintColor = ColorName.grapefruit.color
 
         let attributes: [NSAttributedStringKey : Any] = [
             .font: FontFamily.SourceSansPro.regular.font(size: 17)
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = attributes
 
         UIBarButtonItem.appearance().setTitleTextAttributes([
-            .foregroundColor: UIColor(named: "grapeFruit")!
+            .foregroundColor: ColorName.grapefruit.color
         ], for: .normal)
 
         UITabBar.appearance().tintColor = ColorName.grapefruit.color

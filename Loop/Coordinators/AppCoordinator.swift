@@ -10,8 +10,7 @@ protocol Coordinator {
 }
 
 final class AppCoordinator: Coordinator {
-    // TODO: use transition instead of NVC
-    let controller = UITabBarController() //ContainerViewController()
+    let controller = UITabBarController()
     let consumerKey: String
     let consumerSecret: String
     private var children = [Coordinator]()

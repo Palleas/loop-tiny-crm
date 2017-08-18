@@ -92,7 +92,7 @@ struct OAuthRequest {
             SignatureItem(name: "oauth_nonce", value: nonce),
             SignatureItem(name: "oauth_timestamp", value: String(format: "%.0f", timestamp)),
             SignatureItem(name: "oauth_signature_method", value: "HMAC-SHA1"),
-            SignatureItem(name: "oauth_version", value: "1.0"),
+            SignatureItem(name: "oauth_version", value: "1.0")
         ]
 
         if let token = token {

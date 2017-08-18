@@ -12,7 +12,6 @@ public enum TwitterAuthorizationError: Swift.Error {
 
 final public class TwitterAuthorization {
 
-
     private let consumerKey: String
     private let consumerSecret: String
     private let clock: ClockProtocol

@@ -36,7 +36,7 @@ class LeadConfirmationViewController: UIViewController {
             .skipNil()
             .flatMap(.latest, loadImage)
 
-        viewModel.map { $0?.activities ?? [] }.signal.observeValues { [weak self] activities in
+        viewModel.map { $0?.activities ?? [] }.signal.observeValues { [weak self] _ in
             self?.activitiesList.reloadData()
             self?.activitiesList.allowsSelection = false
         }
@@ -55,7 +55,9 @@ extension LeadConfirmationViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // swiftlint:disable force_cast
         let activityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActivityCell", for: indexPath) as! ActivityCell
+        // swiftlint:enable force_cast
 
         activityCell.icon.image = icon(for: Activity.all[indexPath.item])
         activityCell.name.text = Activity.all[indexPath.item].rawValue

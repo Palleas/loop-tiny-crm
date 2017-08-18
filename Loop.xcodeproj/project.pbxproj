@@ -54,7 +54,6 @@
 		7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11F1EFC826B00360F94 /* AppCoordinator.swift */; };
 		7A47C1241EFC838300360F94 /* AddLeadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */; };
 		7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C1191EFC824A00360F94 /* AddLeadView.swift */; };
-		7A4BC8C11F31336B00C2766E /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BC8C01F31336B00C2766E /* ContainerViewController.swift */; };
 		7A4BC8C31F313A0300C2766E /* SelectActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BC8C21F313A0300C2766E /* SelectActivityViewController.swift */; };
 		7A4BC8C51F313F2700C2766E /* AutoList.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BC8C41F313F2700C2766E /* AutoList.generated.swift */; };
 		7A4BC8C71F313F5700C2766E /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BC8C61F313F5700C2766E /* ActivityCell.swift */; };
@@ -105,7 +104,6 @@
 		7AC64E5E1EFF12FF006B15E4 /* EncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64E5D1EFF12FF006B15E4 /* EncodingTests.swift */; };
 		7AC64E601EFFF05A006B15E4 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64E5F1EFFF05A006B15E4 /* RequestTests.swift */; };
 		7AD6DB631EFB549D00D2D50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DB621EFB549D00D2D50F /* AppDelegate.swift */; };
-		7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6DB641EFB549D00D2D50F /* ViewController.swift */; };
 		7AD6DB681EFB549D00D2D50F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6DB661EFB549D00D2D50F /* Main.storyboard */; };
 		7AD6DB6A1EFB549D00D2D50F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6DB691EFB549D00D2D50F /* Assets.xcassets */; };
 		7AD6DB6D1EFB549D00D2D50F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6DB6B1EFB549D00D2D50F /* LaunchScreen.storyboard */; };
@@ -230,7 +228,6 @@
 		7A47C11E1EFC826B00360F94 /* AddLeadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeadCoordinator.swift; sourceTree = "<group>"; };
 		7A47C11F1EFC826B00360F94 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7A47C1211EFC829700360F94 /* SourceSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelector.swift; sourceTree = "<group>"; };
-		7A4BC8C01F31336B00C2766E /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		7A4BC8C21F313A0300C2766E /* SelectActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectActivityViewController.swift; sourceTree = "<group>"; };
 		7A4BC8C41F313F2700C2766E /* AutoList.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoList.generated.swift; sourceTree = "<group>"; };
 		7A4BC8C61F313F5700C2766E /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
@@ -282,7 +279,6 @@
 		7AC64E5F1EFFF05A006B15E4 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		7AD6DB5F1EFB549D00D2D50F /* Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD6DB621EFB549D00D2D50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7AD6DB641EFB549D00D2D50F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7AD6DB671EFB549D00D2D50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7AD6DB691EFB549D00D2D50F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AD6DB6C1EFB549D00D2D50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -408,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */,
-				7A4BC8C01F31336B00C2766E /* ContainerViewController.swift */,
 				7A4BC8C21F313A0300C2766E /* SelectActivityViewController.swift */,
 				7A8796EA1F39560900DA5D09 /* LeadConfirmationViewController.swift */,
 			);
@@ -551,7 +546,6 @@
 				7A47C11A1EFC824A00360F94 /* ViewControllers */,
 				7A47C1171EFC824A00360F94 /* Views */,
 				7AD6DB621EFB549D00D2D50F /* AppDelegate.swift */,
-				7AD6DB641EFB549D00D2D50F /* ViewController.swift */,
 				7AD6DB661EFB549D00D2D50F /* Main.storyboard */,
 				7AD6DB691EFB549D00D2D50F /* Assets.xcassets */,
 				7AD6DB6B1EFB549D00D2D50F /* LaunchScreen.storyboard */,
@@ -864,7 +858,6 @@
 				7A5937021EFD549B0011ED2E /* Storyboards.swift in Sources */,
 				7A47C10D1EFC7FCF00360F94 /* (null) in Sources */,
 				7A5937011EFD54980011ED2E /* Assets.swift in Sources */,
-				7AD6DB651EFB549D00D2D50F /* ViewController.swift in Sources */,
 				7A47C1161EFC80E600360F94 /* (null) in Sources */,
 				7A8796EB1F39560900DA5D09 /* LeadConfirmationViewController.swift in Sources */,
 				7AB99C291F2BD4E3001217B7 /* UserSearchDatasource.swift in Sources */,
@@ -877,7 +870,6 @@
 				7A47C10F1EFC806300360F94 /* (null) in Sources */,
 				7A47C1251EFC838700360F94 /* AddLeadView.swift in Sources */,
 				7A093E5B1F455EB5009E73B0 /* Colors.swift in Sources */,
-				7A4BC8C11F31336B00C2766E /* ContainerViewController.swift in Sources */,
 				7AFB50CA1F3A72530057C384 /* LocalStorage.swift in Sources */,
 				7A4BC8C31F313A0300C2766E /* SelectActivityViewController.swift in Sources */,
 				7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */,
