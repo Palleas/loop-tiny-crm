@@ -26,7 +26,7 @@ final class AppCoordinator: Coordinator {
     }
 
     func initLocalStorage() -> SignalProducer<LocalStorage, Error> {
-        print("Initializing local storage...")
+        os_log("Initializing local storage...")
         let container = NSPersistentContainer(name: "Model")
         return container.reactive.load()
             .map(LocalStorage.init)
@@ -34,7 +34,7 @@ final class AppCoordinator: Coordinator {
     }
 
     func signInWithTwitter() -> SignalProducer<Twitter, Error> {
-        print("Signing in with twitter...")
+        os_log("Signing in with twitter...")
 
         let auth = TwitterAuthorization(
             consumerKey: consumerKey,

@@ -28,7 +28,7 @@ final class AddLeadCoordinator: Coordinator {
             .flatMap(.latest, self.presentConfirmation)
             .logEvents()
             .observeValues { selectedUser in
-                print("Selected = \(selectedUser)")
+                os_log("Selected user %@", [selectedUser])
             }
     }
 

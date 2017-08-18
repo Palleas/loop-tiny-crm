@@ -98,7 +98,6 @@
 		7AB7C8641EFD8D1B0088F55D /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7AB7C8651EFD8D1B0088F55D /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; };
 		7AB7C8661EFD8D1B0088F55D /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB7C8601EFD8D140088F55D /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7AB99C291F2BD4E3001217B7 /* UserSearchDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB99C281F2BD4E3001217B7 /* UserSearchDatasource.swift */; };
 		7AC117C11F29740D004B0711 /* AutoInterface.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC117C01F29740D004B0711 /* AutoInterface.generated.swift */; };
 		7AC64E5C1EFF12BA006B15E4 /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64E5B1EFF12BA006B15E4 /* Encoding.swift */; };
 		7AC64E5E1EFF12FF006B15E4 /* EncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC64E5D1EFF12FF006B15E4 /* EncodingTests.swift */; };
@@ -272,7 +271,6 @@
 		7AB7C85E1EFD8D140088F55D /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		7AB7C85F1EFD8D140088F55D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		7AB7C8601EFD8D140088F55D /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		7AB99C281F2BD4E3001217B7 /* UserSearchDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchDatasource.swift; sourceTree = "<group>"; };
 		7AC117C01F29740D004B0711 /* AutoInterface.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoInterface.generated.swift; sourceTree = "<group>"; };
 		7AC64E5B1EFF12BA006B15E4 /* Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoding.swift; sourceTree = "<group>"; };
 		7AC64E5D1EFF12FF006B15E4 /* EncodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingTests.swift; sourceTree = "<group>"; };
@@ -494,7 +492,6 @@
 		7AB99C271F2BD4CF001217B7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				7AB99C281F2BD4E3001217B7 /* UserSearchDatasource.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -860,7 +857,6 @@
 				7A5937011EFD54980011ED2E /* Assets.swift in Sources */,
 				7A47C1161EFC80E600360F94 /* (null) in Sources */,
 				7A8796EB1F39560900DA5D09 /* LeadConfirmationViewController.swift in Sources */,
-				7AB99C291F2BD4E3001217B7 /* UserSearchDatasource.swift in Sources */,
 				7A403D1E1F2E49DD004A5476 /* UserCell.swift in Sources */,
 				7A8390441F23B07B0010AA3F /* TwitterAuthenticationFlow.swift in Sources */,
 				7AFB50C61F3A6FFE0057C384 /* Model.xcdatamodeld in Sources */,

@@ -1,4 +1,5 @@
 CARTHAGE=carthage
+SWIFTLINT=swiftlint
 BREW=brew
 SWIFTGEN=swiftgen
 SOURCERY=sourcery
@@ -21,3 +22,7 @@ generate:
 	@$(SWIFTGEN) fonts -o Loop/Generated/Fonts.swift -t swift3 Loop/Assets/Fonts
 	@echo "Generate sourcery..."
 	@$(SOURCERY)
+
+lint:
+	$(SWIFTLINT)
+

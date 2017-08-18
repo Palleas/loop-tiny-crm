@@ -30,7 +30,6 @@ extension Request: FixtureType {
             .flatMap { $0 }
             .joined(separator: "-")
 
-        print("filename = \(filename)")
         return Bundle(for: DummyRequest.self).path(forResource: filename, ofType: "json")!
     }
 

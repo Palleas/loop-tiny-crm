@@ -12,9 +12,16 @@ custom_rules:
     name: Use color literal from swiftgen
     match_kinds:
       - identifier
-    message: Don't use `UIColor(named:)`, use generated literal instead
+    message: "Don't use `UIColor(named:)`, use generated literal instead"
     severity: warning
     regex: "UIColor\\(named:"
+  use_new_logging_framework:
+    included: ".*\\.swift"
+    name: "Use os.log framework because it's great"
+    regex: "(NSLog|print)\\("
+    severity: warning
+    match_kinds:
+      - identifier
 identifier_name:
   excluded:
     - id

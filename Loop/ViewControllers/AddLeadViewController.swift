@@ -46,7 +46,7 @@ final class AddLeadViewController: UIViewController {
             .observe(on: UIScheduler())
             .observeResult { [weak self] result in
                 guard case let .success(users) = result else {
-                    print("An error occured while fetching the users")
+                    os_log("An error occured while fetching the users", log: OSLog.default, type: .error)
                     return
                 }
 
