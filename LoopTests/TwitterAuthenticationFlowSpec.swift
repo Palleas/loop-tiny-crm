@@ -77,7 +77,7 @@ final class StaticKeychain: KeychainType {
     init(value: String? = nil) {
         self.value = value
     }
-    
+
     func get(_ key: String) -> String? {
         return value
     }

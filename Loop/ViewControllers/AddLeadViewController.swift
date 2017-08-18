@@ -10,7 +10,7 @@ final class AddLeadViewController: UIViewController {
         case twitter
         case mail
     }
-    
+
     @IBOutlet weak var searchField: UITextField!
 
     @IBOutlet weak var userListBottomConstraint: NSLayoutConstraint!
@@ -106,7 +106,7 @@ extension AddLeadViewController: UICollectionViewDelegate {
 }
 
 extension AddLeadViewController: UICollectionViewDataSource {
-    
+
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count

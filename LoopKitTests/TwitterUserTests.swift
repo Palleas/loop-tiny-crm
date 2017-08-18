@@ -2,7 +2,7 @@ import XCTest
 @testable import LoopKit
 
 class TwitterUserTests: XCTestCase {
-    
+
     func testTwitterUserDecoding() {
         let users: [TwitterUser] = Fixture.User.searchForTwitterAPIUsers.decode()
         let expected = [

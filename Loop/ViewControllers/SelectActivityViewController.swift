@@ -36,7 +36,7 @@ final class SelectActivityViewController: UIViewController {
 }
 
 extension SelectActivityViewController: UICollectionViewDelegate {
-    
+
 }
 
 extension SelectActivityViewController: UICollectionViewDataSource {

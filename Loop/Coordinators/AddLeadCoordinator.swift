@@ -56,7 +56,7 @@ final class AddLeadCoordinator: Coordinator {
             self?.controller.pushViewController(confirmation, animated: true)
         }
 
-        
+
         return confirmation.didConfirm.output.map { (user, activities) }
     }
 

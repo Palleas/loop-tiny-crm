@@ -114,7 +114,7 @@ final class OAuthRequestCreator {
     private let clock: ClockProtocol
     private let tokenProvider: TokenProviderProtocol
     private let callback: String
-    
+
     init(consumerKey: String, clock: ClockProtocol, tokenProvider: TokenProviderProtocol, callback: String) {
         self.consumerKey = consumerKey
         self.clock = clock

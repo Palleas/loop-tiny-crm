@@ -15,7 +15,7 @@ class AccessTokenResponseSpec: QuickSpec {
                 expect(response?.token) == "7588892-kagSNqWge8gB1WwE3plnFsJHAZVfxWD7Vb57p0b4"
                 expect(response?.tokenSecret) == "PbKfYqSryyeKDWz4ebtY3o5ogNLG11WJuZBc9fQrQo"
                 expect(response?.screenName) == "Palleas"
-                
+
             }
         }
     }

@@ -40,6 +40,6 @@ struct Fixture {
     struct User {
 
         static let searchForTwitterAPIUsers = TwitterUser.search(for: "Twitter API")
-        
+
     }
 }

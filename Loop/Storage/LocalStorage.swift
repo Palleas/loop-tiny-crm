@@ -64,7 +64,7 @@ class CoreDataScheduler: Scheduler {
         return d
     }
 
-    
+
 }
 
 protocol Storable {
