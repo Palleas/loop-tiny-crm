@@ -132,4 +132,3 @@ public func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: Stri
 
 // sourcery: AutoInterface=TwitterAuthorizationType
 extension TwitterAuthorization: AutoInterface {}
-

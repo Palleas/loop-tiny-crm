@@ -61,4 +61,3 @@ OAuth oauth_callback="http%3A%2F%2Flocalhost%2Fsign-in-with-twitter%2F",oauth_co
         }
     }
 }
-

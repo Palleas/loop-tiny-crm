@@ -151,4 +151,3 @@ func createUserAttributedText(name: String, screenName: String) -> NSAttributedS
 
     return string
 }
-

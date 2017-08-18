@@ -87,4 +87,3 @@ final class StaticKeychain: KeychainType {
         return true
     }
 }
-

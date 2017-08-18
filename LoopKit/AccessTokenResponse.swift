@@ -12,4 +12,3 @@ public struct AccessTokenResponse: BodyDecodable {
         self.screenName = try decoder.value(forKey: "screen_name")
     }
 }
-

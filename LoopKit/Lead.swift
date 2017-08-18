@@ -24,4 +24,3 @@ public struct Lead {
     /// The source the user got this lead from
     public let source: Source
 }
-

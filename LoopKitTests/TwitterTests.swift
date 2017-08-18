@@ -50,4 +50,3 @@ struct StaticTokenProvider: TokenProviderProtocol {
         return token
     }
 }
-

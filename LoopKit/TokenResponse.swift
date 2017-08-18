@@ -30,4 +30,3 @@ public struct TokenResponse: BodyDecodable {
 
 extension TokenResponse: AutoEquatable {}
 extension TokenResponse: AutoHashable {}
-

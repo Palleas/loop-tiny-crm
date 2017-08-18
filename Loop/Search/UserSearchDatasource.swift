@@ -37,4 +37,3 @@ final class UserSearchDatasource {
         return twitter.execute(query).mapError { _ in Error.searchError }
     }
 }
-

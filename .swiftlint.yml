@@ -1,0 +1,15 @@
+whitelist_rules:
+  - trailing_newline
+line_length: 150
+excluded:
+  - Carthage
+  - LoopKit/Generated
+custom_rules:
+  use_color_literal:
+    included: ".*\\.swift"
+    name: Use color literal from swiftgen
+    match_kinds:
+      - identifier
+    message: Don't use `UIColor(named:)`, use generated literal instead
+    severity: warning
+    regex: "UIColor\\(named:"

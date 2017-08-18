@@ -48,4 +48,3 @@ extension TwitterUser {
 
 extension TwitterUser: AutoEquatable {}
 extension TwitterUser: AutoHashable {}
-
