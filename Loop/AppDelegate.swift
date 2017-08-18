@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private let coordinator = AppCoordinator(
-        consumerKey: ProcessInfo.processInfo.environment["TWITTER_CONSUMER_KEY"]!,
-        consumerSecret: ProcessInfo.processInfo.environment["TWITTER_CONSUMER_SECRET"]!
+        consumerKey: keyOrProcessEnv("TWITTER_CONSUMER_KEY"),
+        consumerSecret: keyOrProcessEnv("TWITTER_CONSUMER_SECRET")
     )
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

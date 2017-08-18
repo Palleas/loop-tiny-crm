@@ -3,6 +3,7 @@ import Quick
 import Nimble
 @testable import Loop
 import LoopKit
+import Result
 
 class TwitterAuthenticationFlowSpec: QuickSpec {
     override func spec() {
@@ -44,7 +45,7 @@ final class StaticTwitterAuthorization: TwitterAuthorizationType {
     }
 
     static func extractRequestTokenAndVerifier(from url: URL) -> Result<(token: String, verifier: String), TwitterAuthorizationError> {
-        return
+        return .failure(TwitterAuthorizationError.internalError)
     }
 }
 
