@@ -30,7 +30,11 @@ extension Request: FixtureType {
             .flatMap { $0 }
             .joined(separator: "-")
 
-        return Bundle(for: DummyRequest.self).path(forResource: filename, ofType: "json")!
+        guard let path = Bundle(for: DummyRequest.self).path(forResource: filename, ofType: "json") else {
+            fatalError("Unable to find \(filename)")
+        }
+
+        return path
     }
 
 }

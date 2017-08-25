@@ -3,8 +3,8 @@ import XCTest
 
 class TwitterUserTests: XCTestCase {
 
-    func testTwitterUserDecoding() {
-        let users: [TwitterUser] = Fixture.User.searchForTwitterAPIUsers.decode()
+    func testTwitterUserDecoding() throws {
+        let users: [TwitterUser] = try Fixture.User.searchForTwitterAPIUsers.decode()
         let expected = [
             TwitterUser(
                 id: 6253282,
