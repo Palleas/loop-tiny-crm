@@ -489,13 +489,6 @@
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
-		7AB99C271F2BD4CF001217B7 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		7AD6DB561EFB549D00D2D50F = {
 			isa = PBXGroup;
 			children = (
@@ -534,8 +527,6 @@
 			isa = PBXGroup;
 			children = (
 				7AFB50C81F3A72470057C384 /* Storage */,
-				7AFB50C71F3A719B0057C384 /* Entities */,
-				7AB99C271F2BD4CF001217B7 /* Search */,
 				7A5937031EFD550A0011ED2E /* Assets */,
 				7A5936FD1EFD54910011ED2E /* Generated */,
 				7A47C1201EFC828400360F94 /* Components */,
@@ -614,13 +605,6 @@
 				7A46CBE81F21757D00CD5E47 /* AccessTokenResponseSpec.swift */,
 			);
 			path = LoopKitTests;
-			sourceTree = "<group>";
-		};
-		7AFB50C71F3A719B0057C384 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		7AFB50C81F3A72470057C384 /* Storage */ = {
