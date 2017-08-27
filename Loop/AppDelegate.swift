@@ -48,9 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = ColorName.grapefruit.color
         UITabBar.appearance().barTintColor = .white
         UITabBar.appearance().unselectedItemTintColor = ColorName.coolGrey.color
-        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().shadowImage = .dot(color: ColorName.whiteTwo.color)
         UITabBar.appearance().backgroundImage = UIImage()
-
+        
         return true
     }
 }

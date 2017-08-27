@@ -59,6 +59,11 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
+        // TODO: move
+        controller.tabBar.layer.shadowColor = ColorName.whiteTwo.color.cgColor
+        controller.tabBar.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+        controller.tabBar.layer.shadowOpacity = 1;
+
         initLocalStorage()
             .flatMap(.latest, { storage in self.signInWithTwitter().map { (storage, $0) } })
             .startWithResult { [weak self] in

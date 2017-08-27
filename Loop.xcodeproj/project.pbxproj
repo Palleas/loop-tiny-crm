@@ -38,6 +38,7 @@
 		7A229C351EFD932900ADB0C4 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C8591EFD63880088F55D /* SourceSansPro-SemiBold.ttf */; };
 		7A229C361EFD932900ADB0C4 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7C84F1EFD63880088F55D /* SourceSansPro-SemiBoldItalic.ttf */; };
 		7A229C371EFD95AC00ADB0C4 /* AddLeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47C11B1EFC824A00360F94 /* AddLeadViewController.swift */; };
+		7A2B852A1F53171D00B287EF /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B85291F53171D00B287EF /* UIHelpers.swift */; };
 		7A3398111F300C0C00BFEE4A /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3398101F300C0C00BFEE4A /* Keyboard.swift */; };
 		7A403D1E1F2E49DD004A5476 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A403D1D1F2E49DD004A5476 /* UserCell.swift */; };
 		7A403D201F2E736C004A5476 /* SearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A403D1F1F2E736C004A5476 /* SearchHeader.swift */; };
@@ -215,6 +216,7 @@
 		7A21F9081F1A834B00A0F588 /* TwitterAuthorizationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationSpec.swift; sourceTree = "<group>"; };
 		7A21F90C1F1AE1B200A0F588 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = SOURCE_ROOT; };
 		7A21F9131F1B067700A0F588 /* TokenResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponseSpec.swift; sourceTree = "<group>"; };
+		7A2B85291F53171D00B287EF /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		7A3398101F300C0C00BFEE4A /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		7A403D1D1F2E49DD004A5476 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7A403D1F1F2E736C004A5476 /* SearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeader.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				7A46CBEC1F21978900CD5E47 /* Keys.swift */,
 				7A3398101F300C0C00BFEE4A /* Keyboard.swift */,
 				7AFB50C41F3A6FFE0057C384 /* Model.xcdatamodeld */,
+				7A2B85291F53171D00B287EF /* UIHelpers.swift */,
 			);
 			path = Loop;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				7AD6DB5C1EFB549D00D2D50F /* Frameworks */,
 				7AD6DB5D1EFB549D00D2D50F /* Resources */,
 				7AD6DBAF1EFB54AF00D2D50F /* Embed Frameworks */,
+				7A2B85281F53159B00B287EF /* Install Reveal Server */,
 			);
 			buildRules = (
 			);
@@ -831,6 +835,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7A2B85281F53159B00B287EF /* Install Reveal Server */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Install Reveal Server";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REVEAL_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.ittybittyapps.Reveal2\" | head -n 1)\nBUILD_SCRIPT_PATH=\"${REVEAL_APP_PATH}/Contents/SharedSupport/Scripts/reveal_server_build_phase.sh\"\nif [ \"${REVEAL_APP_PATH}\" -a -e \"${BUILD_SCRIPT_PATH}\" ]; then\n\"${BUILD_SCRIPT_PATH}\"\nelse\necho \"Reveal Server not loaded: Cannot find a compatible Reveal app.\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7AD6DB5B1EFB549D00D2D50F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -852,6 +873,7 @@
 				7A093E5B1F455EB5009E73B0 /* Colors.swift in Sources */,
 				7AFB50CA1F3A72530057C384 /* LocalStorage.swift in Sources */,
 				7A4BC8C31F313A0300C2766E /* SelectActivityViewController.swift in Sources */,
+				7A2B852A1F53171D00B287EF /* UIHelpers.swift in Sources */,
 				7A47C1231EFC838000360F94 /* AppCoordinator.swift in Sources */,
 				7AD6DB631EFB549D00D2D50F /* AppDelegate.swift in Sources */,
 				7A3398111F300C0C00BFEE4A /* Keyboard.swift in Sources */,
