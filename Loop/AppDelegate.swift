@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = .white
         UITabBar.appearance().unselectedItemTintColor = ColorName.coolGrey.color
         UITabBar.appearance().shadowImage = .dot(color: ColorName.whiteTwo.color)
-        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().backgroundImage = .dot(color: .white)
         
         return true
     }

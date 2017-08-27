@@ -69,16 +69,21 @@ final class AppCoordinator: Coordinator {
             .startWithResult { [weak self] in
                 switch $0 {
                 case let .success((localStorage, twitter)):
-                    let child = AddLeadCoordinator(storage: localStorage, client: twitter)
-                    self?.controller.viewControllers = [
-                        child.controller,
-                        UINavigationController(rootViewController: UIViewController()),
-                        UINavigationController(rootViewController: UIViewController()),
-                        UINavigationController(rootViewController: UIViewController())
-                    ]
-                    child.start()
-                    self?.children.append(child)
+                    let addLead = AddLeadCoordinator(storage: localStorage, client: twitter)
+                    let allLeads = ListAllLeadsCoordinator()
 
+                    self?.controller.viewControllers = [
+                        addLead.controller,
+                        UINavigationController(rootViewController: UIViewController()),
+                        UINavigationController(rootViewController: UIViewController()),
+                        allLeads.controller
+                    ]
+
+                    addLead.start()
+                    allLeads.start()
+
+                    self?.children.append(addLead)
+                    self?.children.append(allLeads)
                 case let .failure(error):
                     os_log("Unable to init app", log: .default, type: .error, error.localizedDescription)
                     BuddyBuildSDK.crash()
