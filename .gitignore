@@ -70,3 +70,4 @@ LoopKit/Storyboards.swift
 LoopKit/Generated/*
 !LoopKit/Generated/.gitkeep
 Loop/Generated/*
+BirdNest/Generated/
