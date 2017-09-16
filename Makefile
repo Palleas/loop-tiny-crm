@@ -21,7 +21,7 @@ generate:
 	@echo "Generate fonts..."
 	@$(SWIFTGEN) fonts -o Loop/Generated/Fonts.swift -t swift3 Loop/Assets/Fonts
 	@echo "Generate sourcery..."
-	@$(SOURCERY)
+	@$(SOURCERY) --sources BirdNest/Sources --templates Templates --output BirdNest/Generated
 
 lint:
 	$(SWIFTLINT)

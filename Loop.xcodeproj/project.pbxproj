@@ -566,20 +566,8 @@
 		7A9628351F6DBD8B0048CEB2 /* BirdNest */ = {
 			isa = PBXGroup;
 			children = (
+				7AAF3BB51F6DC58B0072555E /* Sources */,
 				7A8866091F1825C0000668BF /* Generated */,
-				7A10F4D61EFDD7B6006EC7AB /* Clock.swift */,
-				7A96284F1F6DBDD50048CEB2 /* Encoding.swift */,
-				7A88660D1F1825C0000668BF /* BodyDecodable.swift */,
-				7A9628501F6DBDD50048CEB2 /* AccessTokenResponse.swift */,
-				7A88660B1F1825C0000668BF /* Identifiable.swift */,
-				7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */,
-				7A88660E1F1825C0000668BF /* Sourcery.swift */,
-				7A10F4DC1EFDD8D0006EC7AB /* Status.swift */,
-				7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */,
-				7A89C8B01F1A77D5001ACFBA /* TokenResponse.swift */,
-				7A5DA7711EFD9C330013BF40 /* Twitter.swift */,
-				7A96284E1F6DBDD50048CEB2 /* TwitterAuthorization.swift */,
-				7A88660C1F1825C0000668BF /* TwitterUser.swift */,
 				7A9628361F6DBD8B0048CEB2 /* TwitterKit.h */,
 				7A9628371F6DBD8B0048CEB2 /* Info.plist */,
 			);
@@ -603,6 +591,26 @@
 				7A9628431F6DBD8B0048CEB2 /* Info.plist */,
 			);
 			path = BirdNestTests;
+			sourceTree = "<group>";
+		};
+		7AAF3BB51F6DC58B0072555E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7A10F4D61EFDD7B6006EC7AB /* Clock.swift */,
+				7A96284F1F6DBDD50048CEB2 /* Encoding.swift */,
+				7A88660D1F1825C0000668BF /* BodyDecodable.swift */,
+				7A9628501F6DBDD50048CEB2 /* AccessTokenResponse.swift */,
+				7A88660B1F1825C0000668BF /* Identifiable.swift */,
+				7A10F4DA1EFDD7E3006EC7AB /* Signature.swift */,
+				7A88660E1F1825C0000668BF /* Sourcery.swift */,
+				7A10F4DC1EFDD8D0006EC7AB /* Status.swift */,
+				7A10F4D81EFDD7C5006EC7AB /* TokenProvider.swift */,
+				7A89C8B01F1A77D5001ACFBA /* TokenResponse.swift */,
+				7A5DA7711EFD9C330013BF40 /* Twitter.swift */,
+				7A96284E1F6DBDD50048CEB2 /* TwitterAuthorization.swift */,
+				7A88660C1F1825C0000668BF /* TwitterUser.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		7AD6DB561EFB549D00D2D50F = {
