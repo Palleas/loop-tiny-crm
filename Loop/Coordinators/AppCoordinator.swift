@@ -70,7 +70,7 @@ final class AppCoordinator: Coordinator {
                 switch $0 {
                 case let .success((localStorage, twitter)):
                     let addLead = AddLeadCoordinator(storage: localStorage, client: twitter)
-                    let allLeads = ListAllLeadsCoordinator()
+                    let allLeads = ListAllLeadsCoordinator(storage: localStorage)
 
                     self?.controller.viewControllers = [
                         addLead.controller,

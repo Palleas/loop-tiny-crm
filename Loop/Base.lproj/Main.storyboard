@@ -343,7 +343,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="vRc-2D-LHV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeadCell" rowHeight="100" id="vRc-2D-LHV" customClass="LeadCell" customModule="Loop" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vRc-2D-LHV" id="jae-wZ-Tzr">
@@ -395,6 +395,11 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="bTc-NC-1pN" secondAttribute="trailing" id="yyn-Ev-I3n"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileName" destination="F8E-w2-l30" id="02b-vc-QUb"/>
+                                    <outlet property="profilePicture" destination="Sh8-Oe-gww" id="hSA-Ou-sfR"/>
+                                    <outlet property="username" destination="bsa-aW-sDs" id="0bR-5R-0N8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

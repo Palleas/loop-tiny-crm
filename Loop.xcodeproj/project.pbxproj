@@ -41,6 +41,7 @@
 		7A2B852A1F53171D00B287EF /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B85291F53171D00B287EF /* UIHelpers.swift */; };
 		7A2B852C1F53192300B287EF /* ListAllLeadsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B852B1F53192300B287EF /* ListAllLeadsCoordinator.swift */; };
 		7A2B852E1F531C8000B287EF /* ListLeadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B852D1F531C8000B287EF /* ListLeadsViewController.swift */; };
+		7A2B85301F53262C00B287EF /* LeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B852F1F53262C00B287EF /* LeadCell.swift */; };
 		7A3398111F300C0C00BFEE4A /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3398101F300C0C00BFEE4A /* Keyboard.swift */; };
 		7A403D1E1F2E49DD004A5476 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A403D1D1F2E49DD004A5476 /* UserCell.swift */; };
 		7A403D201F2E736C004A5476 /* SearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A403D1F1F2E736C004A5476 /* SearchHeader.swift */; };
@@ -221,6 +222,7 @@
 		7A2B85291F53171D00B287EF /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		7A2B852B1F53192300B287EF /* ListAllLeadsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllLeadsCoordinator.swift; sourceTree = "<group>"; };
 		7A2B852D1F531C8000B287EF /* ListLeadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLeadsViewController.swift; sourceTree = "<group>"; };
+		7A2B852F1F53262C00B287EF /* LeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadCell.swift; sourceTree = "<group>"; };
 		7A3398101F300C0C00BFEE4A /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		7A403D1D1F2E49DD004A5476 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7A403D1F1F2E736C004A5476 /* SearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeader.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				7A403D1D1F2E49DD004A5476 /* UserCell.swift */,
 				7A403D1F1F2E736C004A5476 /* SearchHeader.swift */,
 				7A4BC8C61F313F5700C2766E /* ActivityCell.swift */,
+				7A2B852F1F53262C00B287EF /* LeadCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -870,6 +873,7 @@
 				7A8796EB1F39560900DA5D09 /* LeadConfirmationViewController.swift in Sources */,
 				7A403D1E1F2E49DD004A5476 /* UserCell.swift in Sources */,
 				7A2B852C1F53192300B287EF /* ListAllLeadsCoordinator.swift in Sources */,
+				7A2B85301F53262C00B287EF /* LeadCell.swift in Sources */,
 				7A2B852E1F531C8000B287EF /* ListLeadsViewController.swift in Sources */,
 				7A8390441F23B07B0010AA3F /* TwitterAuthenticationFlow.swift in Sources */,
 				7AFB50C61F3A6FFE0057C384 /* Model.xcdatamodeld in Sources */,

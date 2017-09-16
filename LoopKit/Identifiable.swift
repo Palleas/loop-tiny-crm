@@ -11,6 +11,10 @@ public struct ID<Of: Identifiable>: Decodable {
         return "\(rawValue)"
     }
 
+    public init(from rawValue: Int) {
+        self.rawValue = rawValue
+    }
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         rawValue = try container.decode(Int.self)

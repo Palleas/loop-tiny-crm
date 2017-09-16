@@ -30,6 +30,15 @@ final class LocalStorage {
         return SignalProducer(result: saving)
         .start(on: scheduler)
     }
+
+    func list<T: Storable>() -> Result<[T], Error> {
+        return Result<[T], Error> {
+            let request = T.Stored.fetchRequest()
+            let results: [T.Stored] = try container.viewContext.fetch(request) as! [T.Stored] // meh
+            return try results.map(T.init)
+        }
+
+    }
 }
 
 class CoreDataScheduler: Scheduler {
@@ -58,10 +67,38 @@ class CoreDataScheduler: Scheduler {
 protocol Storable {
     associatedtype Stored: NSManagedObject
 
+    init(from: Stored) throws
+
     func stored(in context: NSManagedObjectContext) -> Stored
 }
 
 extension TwitterUser: Storable {
+
+    init(from lead: Lead) throws {
+        guard let id = lead.id else {
+            throw CoreDataError.missingKey("id")
+        }
+
+        // TODO: store INT in database
+        let f = NumberFormatter()
+        self.id = ID<TwitterUser>(from: f.number(from: id)?.intValue ?? 0)
+
+        guard let screenName = lead.screenName else {
+            throw CoreDataError.missingKey("screenName")
+        }
+        self.screenName = screenName
+
+        guard let name = lead.name else {
+            throw CoreDataError.missingKey("name")
+        }
+        self.name = name
+
+        if let picture = lead.profilePicture, let url = URL(string: picture) {
+            self.profileImage = url
+        } else {
+            self.profileImage = nil
+        }
+    }
 
     func stored(in context: NSManagedObjectContext) -> Lead {
         let newLead = Lead(entity: Lead.entity(), insertInto: context)
@@ -76,6 +113,7 @@ extension TwitterUser: Storable {
 
 enum CoreDataError: Error {
     case loadingError(Error)
+    case missingKey(String)
 }
 
 extension Reactive where Base: NSPersistentContainer {
