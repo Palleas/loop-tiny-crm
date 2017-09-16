@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-@testable import LoopKit
+@testable import BirdNest
 
 class AccessTokenResponseSpec: QuickSpec {
     override func spec() {

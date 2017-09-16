@@ -5,7 +5,9 @@ final class ListLeadsViewController: UITableViewController {
 
     var leads = [TwitterUser]() {
         didSet {
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 

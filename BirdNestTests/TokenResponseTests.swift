@@ -1,5 +1,5 @@
 import XCTest
-@testable import LoopKit
+@testable import BirdNest
 
 class TokenResponseTests: XCTestCase {
 

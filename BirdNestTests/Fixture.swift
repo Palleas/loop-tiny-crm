@@ -1,5 +1,5 @@
 import Foundation
-@testable import LoopKit
+@testable import BirdNest
 
 final class DummyRequest {}
 

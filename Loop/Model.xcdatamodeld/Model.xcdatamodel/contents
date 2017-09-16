@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13209.6" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13233.4" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Lead" representedClassName="Lead" syncable="YES" codeGenerationType="class">
-        <attribute name="id" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="addedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="twitterAccounts" toMany="YES" deletionRule="Cascade" destinationEntity="TwitterUser" inverseName="lead" inverseEntity="TwitterUser" syncable="YES"/>
+    </entity>
+    <entity name="TwitterUser" representedClassName="TwitterUser" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePicture" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="screenName" attributeType="String" syncable="YES"/>
+        <attribute name="screenName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lead" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lead" inverseName="twitterAccounts" inverseEntity="Lead" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Lead" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Lead" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="TwitterUser" positionX="-54" positionY="18" width="128" height="120"/>
     </elements>
 </model>

@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 import OHHTTPStubs
-@testable import LoopKit
+@testable import BirdNest
 
 class TwitterAuthorizationSpec: QuickSpec {
     override func spec() {

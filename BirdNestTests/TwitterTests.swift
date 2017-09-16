@@ -1,5 +1,5 @@
 import XCTest
-@testable import LoopKit
+@testable import BirdNest
 
 class TwitterTests: XCTestCase {
     let now: TimeInterval = 1318622958
