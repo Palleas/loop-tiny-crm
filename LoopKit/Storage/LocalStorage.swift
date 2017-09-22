@@ -2,7 +2,7 @@ import Foundation
 import ReactiveSwift
 import Result
 import CoreData
-import LoopKit
+import BirdNest
 import os.log
 
 final class LocalStorage {
@@ -72,44 +72,44 @@ protocol Storable {
     func stored(in context: NSManagedObjectContext) -> Stored
 }
 
-extension TwitterUser: Storable {
+//extension TwitterUser: Storable {
 
-    init(from lead: Lead) throws {
-        guard let id = lead.id else {
-            throw CoreDataError.missingKey("id")
-        }
+//    init(from lead: Lead) throws {
+//        guard let id = lead.id else {
+//            throw CoreDataError.missingKey("id")
+//        }
+//
+//        // TODO: store INT in database
+//        let f = NumberFormatter()
+//        self.id = ID<TwitterUser>(from: f.number(from: id)?.intValue ?? 0)
+//
+//        guard let screenName = lead.screenName else {
+//            throw CoreDataError.missingKey("screenName")
+//        }
+//        self.screenName = screenName
+//
+//        guard let name = lead.name else {
+//            throw CoreDataError.missingKey("name")
+//        }
+//        self.name = name
+//
+//        if let picture = lead.profilePicture, let url = URL(string: picture) {
+//            self.profileImage = url
+//        } else {
+//            self.profileImage = nil
+//        }
+//    }
 
-        // TODO: store INT in database
-        let f = NumberFormatter()
-        self.id = ID<TwitterUser>(from: f.number(from: id)?.intValue ?? 0)
-
-        guard let screenName = lead.screenName else {
-            throw CoreDataError.missingKey("screenName")
-        }
-        self.screenName = screenName
-
-        guard let name = lead.name else {
-            throw CoreDataError.missingKey("name")
-        }
-        self.name = name
-
-        if let picture = lead.profilePicture, let url = URL(string: picture) {
-            self.profileImage = url
-        } else {
-            self.profileImage = nil
-        }
-    }
-
-    func stored(in context: NSManagedObjectContext) -> Lead {
-        let newLead = Lead(entity: Lead.entity(), insertInto: context)
-        newLead.id = self.id.string
-        newLead.name = self.name
-        newLead.screenName = self.screenName
-        newLead.profilePicture = self.profileImage?.absoluteString
-
-        return newLead
-    }
-}
+//    func stored(in context: NSManagedObjectContext) -> Lead {
+//        let newLead = Lead(entity: Lead.entity(), insertInto: context)
+////        newLead.id = self.id.string
+////        newLead.name = self.name
+////        newLead.screenName = self.screenName
+////        newLead.profilePicture = self.profileImage?.absoluteString
+//
+//        return newLead
+//    }
+//}
 
 enum CoreDataError: Error {
     case loadingError(Error)
